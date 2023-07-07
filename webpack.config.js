@@ -25,11 +25,14 @@ module.exports = {
     publicPath: "/",
   },
   mode: process.env.NODE_ENV,
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   //Setup loaders
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(jsx|js)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -37,6 +40,12 @@ module.exports = {
             presets: ["@babel/preset-env", "@babel/preset-react"],
           },
         },
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          'style-loader', 'css-loader', 'postcss-loader'
+        ],
       },
     ],
   },
