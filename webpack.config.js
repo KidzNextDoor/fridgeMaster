@@ -7,6 +7,7 @@ module.exports = {
       directory: path.join(__dirname, "/build"),
       publicPath: "/",
     },
+    hot: true,
     // historyApiFallback: true,
     compress: true,
     port: 8080,
@@ -23,7 +24,7 @@ module.exports = {
     filename: "bundle.js",
     publicPath: "/",
   },
-
+  mode: process.env.NODE_ENV,
   //Setup loaders
   module: {
     rules: [
