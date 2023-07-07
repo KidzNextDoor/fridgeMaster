@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
-    "build": "webpack --mode production",
+    "build": "NODE_ENV=production webpack --mode production",
     "dev": "NODE_ENV=development concurrently \"nodemon --watch server ./server/server.js\" \"webpack serve --open\""
   },
   "author": "",
