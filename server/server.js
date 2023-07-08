@@ -32,10 +32,12 @@ const PORT = 3000;
 // created a route file to keep code organized
 // all routes to /api/inventory go to inventoryRoutes
 app.use('/api/inventory', require('./routes/inventoryRoutes'));
+app.use("/api/users", require("./routes/userRoutes"));
 
 
 // create error handler to replace default express error handler
 app.use(errorHandler);
 >>>>>>> dev
+
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
