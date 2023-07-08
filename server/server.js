@@ -28,4 +28,5 @@ app.use('/api/inventory', require('./routes/inventoryRoutes'));
 // create error handler to replace default express error handler
 app.use(errorHandler);
 
+
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
