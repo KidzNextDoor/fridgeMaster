@@ -10,18 +10,19 @@ Controllers are JavaScript files that contain a set of methods, called actions, 
 // @description Get items
 // @route GET /api/items
 // @access Public
-const getItems = asyncHandler(async (req, res) => {
+const getItems = asyncHandler(async (req, res, next) => {
   // get items from db
 
 //   res.status(200).json(items);
+// return next();
 });
 
 // @description Set items
 // @route GET /api/items
 // @access Private
-const setItem = asyncHandler(async (req, res) => {
+const setItem = asyncHandler(async (req, res, next) => {
   // fridge contents are not required. 
-  
+
   // if input is coming from text field?
 //   if (!req.body.text) {
 //     res.status(400);
@@ -32,12 +33,14 @@ const setItem = asyncHandler(async (req, res) => {
   // include the name, type, category, expiration date
 
   //   res.status(200).json(item);
+  
+  // return next();
 });
 
 // @description Update items
 // @route GET /api/items/:id
 // @access Private
-const updateItem = asyncHandler(async (req, res) => {
+const updateItem = asyncHandler(async (req, res, next) => {
   // find item in db
 
   // if not item in db throw error
@@ -53,12 +56,14 @@ const updateItem = asyncHandler(async (req, res) => {
   // update item
 
   //   res.status(200).json(updateItem)
+
+  // return next();
 });
 
 // @description Delete item
 // @route GET /api/items/:id
 // @access Private
-const deleteItem = asyncHandler(async (req, res) => {
+const deleteItem = asyncHandler(async (req, res, next) => {
   // find item in db
 
   // if not item in db throw error
@@ -82,6 +87,8 @@ const deleteItem = asyncHandler(async (req, res) => {
   // if so send status code 200 and successfull deletion message
   // otherwise throw error
 
+
+  // return next();
 });
 
 module.exports = {

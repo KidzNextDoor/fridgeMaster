@@ -36,15 +36,18 @@ const registerUser = asyncHandler(async (req, res) => {
 //     password, // add hashed password as value
 //   });
 
+
 //   if (user) {
-//     res.status(201);
-//   }
+    //     res.status(201);
+    //   }
+
+    //   return next();
 });
 
 // @description Authenticate user data
 // @route POST /api/users/login
 // @access Public
-const loginUser = asyncHandler(async (req, res) => {
+const loginUser = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
 
   // check for email and password
@@ -66,6 +69,7 @@ const loginUser = asyncHandler(async (req, res) => {
 //       email: user.email,
 //       token: generateToken(user._id),
 //     });
+//     return next()
 //   } else {
 //     res.status(400);
 //     throw new Error("Invalid Credentials");
@@ -76,8 +80,9 @@ const loginUser = asyncHandler(async (req, res) => {
 // @description send to home page
 // @route GET /api/users/home
 // @access Private
-const goHome = asyncHandler(async (req, res) => {
+const goHome = asyncHandler(async (req, res, next) => {
 //   res.redirect('/home')
+// return next;
 });
 
 // Generate token
