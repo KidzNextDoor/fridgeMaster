@@ -6,9 +6,8 @@ const userSchema = {
     email: {type: String, required: true },
     fridgeContents: [
         {item: {type: String, required: true },
-        type: {type: String, required: true },
+        type: {type: String, required: true }, //other - value 0
         category: {type: String, required: true },
-        purchaseDate: {type: String, required: true },
         shelfLife: {type: Number, required: true },
         expDate: {type: String, required: true }
     }
