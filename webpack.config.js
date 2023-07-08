@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 module.exports = {
   devServer: {
@@ -25,11 +26,14 @@ module.exports = {
     publicPath: "/",
   },
   mode: process.env.NODE_ENV,
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   //Setup loaders
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(jsx|js)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -37,6 +41,12 @@ module.exports = {
             presets: ["@babel/preset-env", "@babel/preset-react"],
           },
         },
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          'style-loader', 'css-loader', 'postcss-loader'
+        ],
       },
     ],
   },
@@ -46,5 +56,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "index.html"),
     }),
+    new MomentLocalesPlugin(),
+
+        // Or: To strip all locales except “en”, “es-us” and “ru”
+        // (“en” is built into Moment and can’t be removed)
+        new MomentLocalesPlugin({
+            localesToKeep: ['es-us', 'ru'],
+        })
   ],
 };
