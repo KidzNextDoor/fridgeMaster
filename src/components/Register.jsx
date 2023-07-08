@@ -11,8 +11,6 @@ export const Register = (props) => {
     console.log(email);
   };
 
-    }
-
     return(
         <motion.div className="auth-form-container">
                      <h2>Register</h2>

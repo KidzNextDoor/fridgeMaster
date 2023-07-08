@@ -10,7 +10,6 @@ export const Login = (props) => {
     console.log(email);
   };
 
-    }
 
     return(
         <motion.div 
