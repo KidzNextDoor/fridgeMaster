@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { motion } from "framer-motion"
 
 export const Login = (props) => {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(email);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(email);
+  };
 
     }
 

@@ -9,14 +9,20 @@ const {
 
 // create authorization middleware?
 
+// get items
 router.get("/", getItems);
+
+// set item in fridge 
 router.post("/", setItem);
 
 // needs id param
+// update item
 router.put("/:id", updateItem);
 
 // needs id
+//delete item
 router.delete("/:id", deleteItem);
 
 
 module.exports = router;
+
