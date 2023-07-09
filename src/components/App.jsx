@@ -18,7 +18,7 @@ function App() {
       currentForm === 'login' ? <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>
   )}
   else{
-    return <Dashboard/>
+    return <Homepage/>
   }
 
   // const toggleForm = (formName) => {
