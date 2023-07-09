@@ -1,18 +1,24 @@
 const express = require("express");
 const router = express.Router()
-const {
-    registerUser,
-    loginUser,
-    goHome
-} = require("../controllers/userController");
+
+const userController = require("../controllers/userController");
+const sessionController = require("../controllers/sessionController");
 
 
 // import authorization middleware
 const { protect } = require("../middleware/authMiddleware");
 
 
-router.post("/register", registerUser);
-router.post("/login", loginUser);
-router.get("/home", goHome); // add authorization middleware before getHome route
+router.post("/register", userController.createUser, sessionController.startSession, (req, res) => {
+  res.status(200).json(res.locals.newUser);      
+});
+
+router.post("/login", userController.verifyUser, sessionController.startSession, (req, res) => {
+  res.status(200).json(res.locals.isVerified);
+});
+
+router.get("/home", userController.goHome, (req, res) => {
+  // add logic here
+}); // add authorization middleware before getHome route
 
 module.exports = router;

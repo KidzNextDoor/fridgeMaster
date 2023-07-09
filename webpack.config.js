@@ -9,7 +9,7 @@ module.exports = {
       publicPath: "/",
     },
     hot: true,
-    // historyApiFallback: true,
+    historyApiFallback: true,
     compress: true,
     port: 8080,
     proxy: {
@@ -47,6 +47,10 @@ module.exports = {
         use: [
           'style-loader', 'css-loader', 'postcss-loader'
         ],
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: 'file-loader',
       },
     ],
   },
