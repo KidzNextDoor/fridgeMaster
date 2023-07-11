@@ -1,19 +1,7 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
-@layer utilities {   
-      /* Hide scrollbar for Chrome, Safari and Opera */
-      .no-scrollbar::-webkit-scrollbar {
-          display: none;
-      }
-
-      /* Hide scrollbar for IE, Edge and Firefox */
-      .no-scrollbar {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-      }
-  }
 /* 
 body {
     @apply bg-white bg-opacity-95 h-full overflow-x-hidden;
@@ -28,47 +16,67 @@ body {
     @apply h-full;
 } */
 
-.App{
-    text-align: center;
-    display: flex;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-    background-color: blue
+.App {
+  text-align: center;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  font-family: Virgil;
 }
 
-.auth-form-container, .login-form, .register-form {
- display: flex;
- flex-direction: column;
+@font-face {
+  font-family: "Virgil";
+  src: url("https://virgil.excalidraw.com/Virgil.woff2");
+  font-display: swap;
+}
+
+*:focus {
+  outline: none;
+}
+
+.auth-form-container,
+.login-form,
+.register-form {
+  display: flex;
+  flex-direction: column;
 }
 @media screen and (min-width: 600px) {
-    
 }
-.auth-form-container{
-    padding: 5rem;
-    border: 1px solid white;
-    border-radius: 10px;
-    margin: 0.5rem;
-}
-
-label{
-    text-align: left;
-    padding: 0.25rem 0;
-}
-input{
-    margin: 0.5rem 0;
-    border: silver;
+.auth-form-container {
+  padding: 5rem;
+  border: 2px solid dodgerblue;
+  background-color: white;
+  border-radius: 10px;
+  margin: 0.5rem;
 }
 
-button{
-    border: none;
-    background-color: thistle;
-    padding: 20 px;
-    border-radius: 10px;
+label {
+  text-align: left;
+  padding: 0.25rem 0;
+}
+input {
+  margin: 0.5rem 0;
+  border: 1.5px solid dodgerblue;
+  background-color: white;
+  border-radius: 5px;
 }
 
-.link-btn{
-    background: none;
-    color: white;
-    text-decoration: underline;
+button {
+  border: none;
+  background-color: dodgerblue;
+  color: white;
+  padding: 20 px;
+  border-radius: 5px;
+}
+
+.link-btn {
+  background: none;
+  color: dodgerblue;
+  text-decoration: underline;
+}
+
+.logo {
+  
 }
