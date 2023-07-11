@@ -10,7 +10,6 @@ export const Login = (props) => {
     console.log(email);
   };
 
-    }
 
     return(
         <motion.div 
@@ -20,9 +19,9 @@ export const Login = (props) => {
         >
             <h2>Login</h2>
             <form className="login-form" onSubmit={handleSubmit}>
-                <label htmlFor="email">email</label>
-                <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@email.com" id="email" name="email"/>
-                <label htmlFor="password">password</label>
+                <label htmlFor="email">Email Address</label>
+                <input className="input" value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@email.com" id="email" name="email"/>
+                <label htmlFor="password">Password</label>
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="*********" id="password" name="password"/>
                 <motion.button
                 initial={{ opacity: 0.6 }}
