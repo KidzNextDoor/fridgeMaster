@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Login from './Login';
 import Header from "./Header";
 import Register from "./Register"; 
-import Dashboard from "./Dashboard";
+import { Dashboard } from "./Dashboard";
 import { checkSession } from "../fetchers/userFetcher";
 
 function App() {
