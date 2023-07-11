@@ -33,7 +33,6 @@ function App() {
   const toggleForm = (formName) => {
     setCurrentForm(formName);
   }
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
