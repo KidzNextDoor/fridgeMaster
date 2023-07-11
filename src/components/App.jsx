@@ -33,7 +33,7 @@ function App() {
   const toggleForm = (formName) => {
     setCurrentForm(formName);
   }
-  console.count('App.jsx: ')
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
