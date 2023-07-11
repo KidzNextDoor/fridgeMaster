@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 // const jwt = require("jsonwebtoken");
 // const bcrypt = require("bcryptjs");
-// require item model 
+// require inventory model 
 
 /*
 Controllers are JavaScript files that contain a set of methods, called actions, reached by the client according to the requested route. Whenever a client requests the route, the action performs the business logic code and sends back the response.
@@ -21,43 +21,41 @@ const getItems = asyncHandler(async (req, res, next) => {
 // @route GET /api/items
 // @access Private
 const setItem = asyncHandler(async (req, res, next) => {
-  // fridge contents are not required. 
+  // All fridge contents are not required.
 
-  // if input is coming from text field?
-//   if (!req.body.text) {
-//     res.status(400);
-//     throw new Error("Please add a text field");
-//   }
+  // require in inventory model 
+  const item = await Item.create({
+    name: req.body.name,
+    type: req.body.type,
+    expDate: req.body.expDate,
+  });
 
-  // create item in database
-  // include the name, type, category, expiration date
-
-  //   res.status(200).json(item);
   
-  // return next();
+  return next();
+  // create item in database
+  // include the name, type, expiration date
 });
 
 // @description Update items
 // @route GET /api/items/:id
 // @access Private
 const updateItem = asyncHandler(async (req, res, next) => {
-  // find item in db
+  const item = Item.findById(req.params.id);
 
-  // if not item in db throw error
-//   if (!item) {
-//     res.status(400);
-//     throw new Error("User not found");
-//   }
+  if (!goal) {
+    res.status(400);
+    throw new Error("Item not found in DB")
+  }
 
-  // make sure users can't update each others goals
-  // item has a user field which is a ObjectId?
-  // Make sure the logged in user matches the item user
+
 
   // update item
+  const updatedItem = await Item.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
 
-  //   res.status(200).json(updateItem)
-
-  // return next();
+  
+  return next();
 });
 
 // @description Delete item
