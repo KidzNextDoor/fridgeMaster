@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser");
 const path = require("path");
 const { errorHandler } = require("./middleware/errorMiddleware");
 
-const PORT = 3000;
+// const PORT = 3000;
 require("dotenv").config();
 
 const PORT = process.env.port || 3000;
@@ -42,14 +42,10 @@ app.use('*', (req, res) => {
 });
 
 // create error handler to replace default express error handler
-<<<<<<< HEAD
-app.use(errorHandler);
-=======
 app.use((err, req, res, next) => {
   console.log(err);
   res.status(500).json({ error: err })
 });
->>>>>>> f34849cf47652c0d69627299ff8217fa735b2bc7
 
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
