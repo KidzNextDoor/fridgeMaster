@@ -1,14 +1,3 @@
-import React from 'react'
-
-function Dashboard() {
-  return (
-    <div>
-      You are logged in
-    </div>
-  )
-}
-
-export default Dashboard
 import React, { useState } from 'react';
 import logo from "../images/logo.png"
 import wizzardBuddy from "../images/wizzardBuddy.png"
