@@ -1,39 +1,56 @@
-import React, { useState } from "react";
-import {Login} from './Login';
-import { Register } from "./Register"; 
+import React, { useState, useEffect } from "react";
+
+import Login from './Login';
+import Header from "./Header";
+import Register from "./Register"; 
 import { Dashboard } from "./Dashboard";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Homepage } from "./Homepage";
+import { checkSession } from "../fetchers/userFetcher";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [currentForm, setCurrentForm] = useState('login');
-  const [token, setToken] = useState(true);
+
+  // checks whether user has an active session or not on component loading
+  useEffect(() => {
+    const checkUserSession = async () => {
+      try {
+        const res = await checkSession();
+        if (res) {
+          setIsLoggedIn(true);
+          setIsLoading(false);
+        }
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    checkUserSession();
+  }, []);
 
   const toggleForm = (formName) => {
     setCurrentForm(formName);
   }
-
-  if(!token) {
-    return (
-      currentForm === 'login' ? <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>
-  )}
-  else{
-    return <Dashboard/>
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
 
-  // const toggleForm = (formName) => {
-  //   setCurrentForm(formName);
-  // }
-  //   return (
-  //     <div className="App">
-  //       <BrowserRouter>
-  //       <Routes>
-  //         <Route path="/dashboard" element={<Dashboard/>}/>
-  //         <Route path="/login" element={currentForm === 'login' ? <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>}/>
-  //       </Routes>
-  //     </BrowserRouter>
-  //     </div>
-  //   );
+  return (
+    <div className="bg-gradient-to-b from-zinc-100 via-zinc-300 to-sky-300">
+      <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setCurrentForm={setCurrentForm} />
+      <div className="flex flex-col z-100 items-center justify-center h-screen">
+        {
+          isLoggedIn 
+            ? <Dashboard /> 
+            : currentForm === 'login' 
+                ? <Login onFormSwitch={toggleForm} setIsLoggedIn={setIsLoggedIn} /> 
+                : <Register onFormSwitch={toggleForm} setIsLoggedIn={setIsLoggedIn} />
+        }
+      </div>
+    </div>
+  );
 }
 
 export default App;
