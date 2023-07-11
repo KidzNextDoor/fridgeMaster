@@ -2,15 +2,21 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { registerUser } from '../fetchers/userFetcher';
 
-import { FcGoogle } from 'react-icons/fc';
+import { FaGithub } from 'react-icons/fa';
 
 const Register = ({ onFormSwitch, setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [name, setName] = useState("");
+  const [error, setError] = useState("");
 
   const handleRegister = async (e) => {
     e.preventDefault();
+
+    if (!email || !pass || !name) {
+      setError("All fields are required")
+      return;
+    }
 
     const res = await registerUser(email, pass, name);
     const newUser = res;
@@ -97,6 +103,7 @@ const Register = ({ onFormSwitch, setIsLoggedIn }) => {
               name="password" 
               autoComplete="password" 
             />
+             {error && <p className="text-red-500 text-sm font-semibold p-4 m-auto">{error}</p>}
             <motion.button
               className="p-4 rounded-3xl bg-blue-600 bg-opacity-95 mt-4 text-white shadow-xl"
               initial={{ opacity: 0.6 }}
@@ -133,8 +140,8 @@ const Register = ({ onFormSwitch, setIsLoggedIn }) => {
                 shadow-xl
               "
             >
-              <FcGoogle size={30}/>
-              <span>Continue with Google</span>
+              <FaGithub size={30}/>
+              <span>Continue with GitHub</span>
             </div>
           </div>
         </motion.div>

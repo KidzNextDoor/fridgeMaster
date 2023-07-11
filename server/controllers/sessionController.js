@@ -1,11 +1,34 @@
 const jwt = require('jsonwebtoken');
+const axios = require('axios');
 
 const sessionController = {};
 
+sessionController.githubAuth = async (req, res, next) => {
+  try {
+    const { code } = req.body;
+  
+    const response = await axios.post(`https://github.com/login/oauth/access_token?client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_CLIENT_SECRET}&code=${code}`, {
+      headers: {
+        Accept: 'application/json',
+      },
+    });
+    res.locals.status = true;
+    res.locals.token = response.data;
+
+    return next();
+  } catch (err) {
+    return next(err);
+  }
+}
+
 sessionController.startSession = async (req, res, next) => {
   try {
-    const { name, email } = req.body;
-    const token = jwt.sign({ name, email }, process.env.JWT_SECRET, {
+    if (res.locals.status !== true) {
+      return next();
+    }
+    const { email } = req.body;
+    
+    const token = jwt.sign({ email }, process.env.JWT_SECRET, {
       expiresIn: '1h',
     })
     res.cookie('token', token, { httpOnly: true, secure: true });
@@ -26,6 +49,8 @@ sessionController.isLoggedIn = async (req, res, next) => {
     }
 
     const loggedIn = jwt.verify(token, process.env.JWT_SECRET);
+
+    console.log(loggedIn);
     
     res.locals.isLoggedIn = loggedIn;
     

@@ -11,14 +11,13 @@ require('dotenv').config();
 require('./db')
 
 // routers are defined here
+const apiRouter = require('./routes/apiRouter');
 const userRouter = require('./routes/userRoutes');
 const inventoryRouter = require('./routes/inventoryRoutes'); 
-const apiRouter = require('./routes/apiRouter');
-const sessionController = require("./controllers/sessionController");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false}));

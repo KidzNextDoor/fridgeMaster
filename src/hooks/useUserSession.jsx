@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
-import { checkSession } from "../fetchers/userFetcher";
+import { useEffect } from "react";
 
-function useUserSession() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+
+function useUserSession(setIsLoading, setIsLoggedIn) {
 
   useEffect(() => {
     const checkUserSession = async () => {
+      console.count('useUserSession')
       try {
         const res = await checkSession();
         if (res) {
@@ -14,8 +13,7 @@ function useUserSession() {
           setIsLoading(false);
         }
       } catch (err) {
-        setIsLoggedIn(false);
-        setIsLoading(false);
+        console.log(err);
       } finally {
         setIsLoading(false);
       }
@@ -24,7 +22,7 @@ function useUserSession() {
     checkUserSession();
   }, []);
 
-  return { isLoggedIn, isLoading, setIsLoggedIn };
+  return null;
 }
 
 export default useUserSession;

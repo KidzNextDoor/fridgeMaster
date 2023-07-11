@@ -46,23 +46,19 @@ userController.createUser =  async (req, res, next) => {
 userController.verifyUser = async (req, res, next) => {
   try{
     const { email, password } = req.body;
-    res.locals.isVerified = true;
-    
-    if (!email || !password) {
-      throw new Error("Please provide email and password");
-    } 
+    res.locals.status = true;
 
     const user = await UserData.findOne({ email });
 
     if (!user) {
-      res.locals.isVerified = false;
+      res.locals.status = 'Incorrect username or password';
       return next();
     }
 
     const correctPass = await UserData.comparePassword(password, user.password);
     
     if (!correctPass) {
-      res.locals.isVerified = false;
+      res.locals.status = 'Incorrect username or password';
       return next();
     }
 

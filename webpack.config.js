@@ -1,4 +1,5 @@
 const path = require("path");
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
@@ -57,6 +58,7 @@ module.exports = {
 
   // Setup plugin to use a HTML file for serving bundled js files
   plugins: [
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "index.html"),
     }),

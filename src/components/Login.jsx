@@ -1,19 +1,28 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion"
 import { loginUser } from "../fetchers/userFetcher";
+import GitHubButton from "./GitHubButton";
 
-import { FcGoogle } from 'react-icons/fc';
-
-const Login = ({ onFormSwitch, setIsLoggedIn, setCurrentUser }) => {
+const Login = ({ onFormSwitch, setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [error, setError] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+
+    if (!email || !pass) {
+      setError('Email and password are required');
+      return;
+    }
     
-    const res = await loginUser(email, pass);
-    setCurrentUser(email);
-    setIsLoggedIn(res.data);
+    const res = await loginUser(email, pass, setError);
+
+    if (res === true) {
+      setIsLoggedIn(res);
+    } else {
+      setError(res);
+    }
   };
 
   return(
@@ -25,7 +34,7 @@ const Login = ({ onFormSwitch, setIsLoggedIn, setCurrentUser }) => {
           animate={{ opacity:1 }} 
         >
           <h2 className="text-slate-800 text-3xl font-bold mb-4">Login</h2>
-          <form className="flex flex-col" onSubmit={handleSubmit}>
+          <form className="flex flex-col" onSubmit={handleLogin}>
             {/* <label className="text-slate-800 text-sm" htmlFor="email">email</label> */}
             <input 
               className="
@@ -74,6 +83,7 @@ const Login = ({ onFormSwitch, setIsLoggedIn, setCurrentUser }) => {
               name="password" 
               autoComplete="current-password" 
             />
+            {error && <p className="text-red-500 text-sm font-semibold p-4 m-auto">{error}</p>}
             <span className="hover:underline text-sm text-blue-700 cursor-pointer w-32">Forgot password?</span>
             <motion.button
               className="p-4 rounded-3xl bg-blue-600 bg-opacity-95 mt-4 text-white shadow-xl" 
@@ -94,28 +104,7 @@ const Login = ({ onFormSwitch, setIsLoggedIn, setCurrentUser }) => {
               <div className="mx-4 text-xs text-gray-500">OR</div>
               <div className="flex-grow border-b border-gray-400"></div>
             </div>
-            <div 
-              className="
-                hover:transform 
-                hover:transition-all 
-                hover:scale-110 
-                cursor-pointer 
-                flex 
-                items-center 
-                justify-center 
-                gap-2 
-                border 
-                border-1 
-                border-slate-400 
-                rounded-3xl 
-                mt-4 
-                p-3 
-                shadow-xl
-              "
-            >
-              <FcGoogle size={30}/>
-              <span>Sign in with Google</span>
-            </div>
+            <GitHubButton />
           </div>
         </motion.div>
       </div>
