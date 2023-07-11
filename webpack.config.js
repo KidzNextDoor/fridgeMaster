@@ -1,4 +1,5 @@
 const path = require("path");
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
@@ -9,7 +10,7 @@ module.exports = {
       publicPath: "/",
     },
     hot: true,
-    // historyApiFallback: true,
+    historyApiFallback: true,
     compress: true,
     port: 8080,
     proxy: {
@@ -48,11 +49,25 @@ module.exports = {
           'style-loader', 'css-loader', 'postcss-loader'
         ],
       },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true, // webpack@1.x
+              disable: true, // webpack@2.x and newer
+            },
+          },
+        ],
+      }
     ],
   },
 
   // Setup plugin to use a HTML file for serving bundled js files
   plugins: [
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "index.html"),
     }),

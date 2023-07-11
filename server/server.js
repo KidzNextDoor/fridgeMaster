@@ -3,14 +3,24 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const { errorHandler } = require("./middleware/errorMiddleware");
+
+const PORT = 3000;
 require("dotenv").config();
 
 const PORT = process.env.port || 3000;
 
+// starts the Mongo DB when the server is started
+require('dotenv').config();
+require('./db')
+
+// routers are defined here
+const apiRouter = require('./routes/apiRouter');
+const userRouter = require('./routes/userRoutes');
+const inventoryRouter = require('./routes/inventoryRoutes'); 
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false}));
@@ -22,12 +32,24 @@ app.get("/", (req, res) => {
 
 // created a route file to keep code organized
 // all routes to /api/inventory go to inventoryRoutes
-app.use('/api/inventory', require('./routes/inventoryRoutes'));
-app.use("/api/users", require("./routes/userRoutes"));
+app.use('/api/inventory', inventoryRouter);
+app.use("/api/users", userRouter);
+app.use('/api', apiRouter);
 
+// catch all route for any unknown routes
+app.use('*', (req, res) => {
+  res.status(404).send('Page not found');
+});
 
 // create error handler to replace default express error handler
+<<<<<<< HEAD
 app.use(errorHandler);
+=======
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.status(500).json({ error: err })
+});
+>>>>>>> f34849cf47652c0d69627299ff8217fa735b2bc7
 
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

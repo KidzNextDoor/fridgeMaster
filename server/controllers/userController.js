@@ -1,62 +1,73 @@
 // const jwt = require("jsonwebtoken");
 // const bcrypt = require("bcryptjs");
-const asyncHandler = require("express-async-handler");
+// const asyncHandler = require("express-async-handler");
 // require in user model
+const UserData = require('../models/userModel')
 
 // @description Register new user
 // @route POST /api/users/register
 // @access Public
-const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
+const userController = {};
 
-  // check for all user inputs
-  if (!name || !email || !password) {
-    res.status(400);
-    throw new Error("Please add all fields");
-  } else {
-    res.status(200).json({ message: "You are logged in!"})
+userController.createUser =  async (req, res, next) => {
+  try {
+    const { name, email, password } = req.body;
+  
+    // check for all user inputs
+    if (!name || !email || !password) {
+      res.status(400);
+      throw new Error("Please add all fields");
+    }
+  
+    // check if user exists
+    const userExists = await UserData.findOne({ email });
+    console.log(userExists);
+  
+    if (userExists) {
+      return next('User already exists')
+    }
+  
+    const newUser = await UserData.create({ username: name, password, email })
+
+  
+    res.locals.newUser = newUser;
+  
+    return next();
+  } catch (err) {
+    console.log(err)
+    return next(err);
   }
-
-  // check if user exists
-//   const userExists = await User.findOne({ email });
-
-//   if (userExists) {
-//     res.status(400);
-//     throw new Error("User already exists");
-//   }
-
-//   // hash password
-//     const salt = await bcrypt.genSalt(10);
-//     const hashedPassword = await bcrypt.hash(password, salt);
-
-//   // create user document in db
-//   const user = await User.create({
-//     name,
-//     email,
-//     password, // add hashed password as value
-//   });
-
-
-//   if (user) {
-    //     res.status(201);
-    //   }
-
-    //   return next();
-});
+ 
+};
 
 // @description Authenticate user data
 // @route POST /api/users/login
 // @access Public
-const loginUser = asyncHandler(async (req, res, next) => {
-  const { email, password } = req.body;
+userController.verifyUser = async (req, res, next) => {
+  try{
+    const { email, password } = req.body;
+    res.locals.status = true;
+
+    const user = await UserData.findOne({ email });
+
+    if (!user) {
+      res.locals.status = 'Incorrect username or password';
+      return next();
+    }
+
+    const correctPass = await UserData.comparePassword(password, user.password);
+    
+    if (!correctPass) {
+      res.locals.status = 'Incorrect username or password';
+      return next();
+    }
+
+    return next();
+  } catch (err) {
+    return next(err);
+  }
 
   // check for email and password
-  if (!email || !password) {
-    res.status(400);
-    throw new Error("Please provide email and password");
-  } else {
-    res.status(200).json({ message: "You are logged in"});
-  }
 
 //   // find user by email in db
 //   const user = await User.findOne({ email });
@@ -74,16 +85,15 @@ const loginUser = asyncHandler(async (req, res, next) => {
 //     res.status(400);
 //     throw new Error("Invalid Credentials");
 //   }
-});
+};
 
 
 // @description send to home page
 // @route GET /api/users/home
 // @access Private
-const goHome = asyncHandler(async (req, res, next) => {
+userController.goHome = async (req, res) => {
 //   res.redirect('/home')
-// return next;
-});
+};
 
 // Generate token
 // const generateToken = (id) => {
@@ -93,8 +103,4 @@ const goHome = asyncHandler(async (req, res, next) => {
 //   });
 // };
 
-module.exports = {
-  registerUser,
-  loginUser,
-  goHome,
-};
+module.exports = userController;

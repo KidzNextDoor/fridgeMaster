@@ -20,20 +20,14 @@ const getItems = asyncHandler(async (req, res, next) => {
 // @description Set items
 // @route GET /api/items
 // @access Private
-const setItem = asyncHandler(async (req, res, next) => {
-  // All fridge contents are not required.
-
-  // require in inventory model 
-  const item = await Item.create({
-    name: req.body.name,
-    type: req.body.type,
-    expDate: req.body.expDate,
-  });
-
+const setItem = asyncHandler(async (req, res) => {
+  // All fridge contents are not required. 
   
   return next();
   // create item in database
   // include the name, type, expiration date
+
+  //   res.status(200).json(item);
 });
 
 // @description Update items
