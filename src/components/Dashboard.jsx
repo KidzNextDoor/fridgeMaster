@@ -5,6 +5,7 @@ import expiringSoon from "../images/expiringSoon.png"
 import spoiled  from "../images/spoiled.png"
 import { Contents } from './Contents';
 import { useForm } from "react-hook-form";
+import moment from 'moment';
 //import types object from json object in db
 
 export const Dashboard = () => {
@@ -20,7 +21,7 @@ export const Dashboard = () => {
     let type = '';
     const purchaseDateHandler = (e) => {
         e.preventDefault();
-        purchaseDate = e;
+        purchaseDate = moment(e).format('YYYY-MM-DD');
 
         return expirationDateUpdater();
     }
@@ -32,8 +33,8 @@ export const Dashboard = () => {
         return expirationDateUpdater();
     }
     const expirationDateUpdater = () => {
-        expDate
-
+        expDate = moment(purchaseDate).add(type, 'day')
+        return
     }
 
     return (
@@ -56,7 +57,7 @@ export const Dashboard = () => {
                     <option>Select an option</option>
                     {typesArray.map(el => <option value={el}>{el}</option> )}
                 </select>
-                <input className='inputField' type='date' placeholder='expDate' value={'PLACEHOLDER'}  {...register("expDate")}/>
+                <input className='inputField' type='date' placeholder='expDate' value={expDate}  {...register("expDate")}/>
                 {/* <label htmlFor="purchaseDate">Date Purchased:</label> */}
                 {/* <input className="input" value={purchaseDate} type='date' placeholder="Date Purchased" id="purchaseDate" name="purchaseDate"/> */}
                 {/* <label htmlFor='type'>Type:</label> */}

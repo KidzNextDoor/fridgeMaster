@@ -7,7 +7,7 @@ import { Dashboard } from "./Dashboard";
 import { checkSession } from "../fetchers/userFetcher";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [currentForm, setCurrentForm] = useState('login');
 
