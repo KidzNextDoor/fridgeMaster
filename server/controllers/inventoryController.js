@@ -1,7 +1,6 @@
-const asyncHandler = require("express-async-handler");
-// const jwt = require("jsonwebtoken");
-// const bcrypt = require("bcryptjs");
-// require inventory model 
+const UserData = require("../models/userModel");
+
+const inventoryController = {};
 
 /*
 Controllers are JavaScript files that contain a set of methods, called actions, reached by the client according to the requested route. Whenever a client requests the route, the action performs the business logic code and sends back the response.
@@ -10,82 +9,160 @@ Controllers are JavaScript files that contain a set of methods, called actions, 
 // @description Get items
 // @route GET /api/items
 // @access Public
-const getItems = asyncHandler(async (req, res, next) => {
-  // get items from db
+inventoryController.getItem = async (req, res, next) => {
+  // user enters purchaseDate, type, expDate, itemName
+  try {
+    // what are we using to identify a user? email, db _id?
+    const { email } = req.body;
 
-//   res.status(200).json(items);
-// return next();
-});
+    // get items from db
+    const user = await UserData.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({ messagae: "User not found" });
+    }
+
+    // get user from database, then access fridgeContents
+    res.locals.getItem = user.fridgeContents;
+    return next();
+  } catch (error) {
+    console.error(error);
+    return next(error);
+  }
+};
 
 // @description Set items
-// @route GET /api/items
+// @route POST /api/items
 // @access Private
-const setItem = asyncHandler(async (req, res) => {
-  // All fridge contents are not required. 
-  
-  return next();
-  // create item in database
-  // include the name, type, expiration date
+inventoryController.setItem = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+    const { item, type, category, expDate } = req.body;
 
-  //   res.status(200).json(item);
-});
+    // Generate a unique ID for the new fridge contents
+    const newItemId = mongoose.Types.ObjectId().toHexString();
+
+    // get user from database
+    // add new fridge contents to users fridgeContents array
+    const user = await UserData.findOneAndUpdate(
+      { email },
+      {
+        $push: {
+          fridgeContents: {
+            _id: newItemId,
+            item,
+            type,
+            category,
+            expDate,
+          },
+        },
+      },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.status(400).json({ message: "User not found" });
+    }
+
+    res.locals.newItem = user.fridgeContents;
+    return next();
+  } catch (error) {
+    console.error(error);
+    return next(error);
+  }
+};
 
 // @description Update items
-// @route GET /api/items/:id
+// @route PUT /api/items/:id
 // @access Private
-const updateItem = asyncHandler(async (req, res, next) => {
-  const item = Item.findById(req.params.id);
+inventoryController.updateItem = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+    const { item, type, category, expDate } = req.body;
 
-  if (!goal) {
-    res.status(400);
-    throw new Error("Item not found in DB")
+    // find user in database
+    const user = await UserData.findOne({ email });
+
+    // if no user in database
+    if (!user) {
+      return res.status(400).json({ message: "No user found" });
+    }
+
+    // if each fridgeContents object has a unique id
+    const itemIndex = user.fridgeContents.findIndex((food) => {
+      return food._id === item.id;
+    });
+
+    // if item not found in fridge
+    if (itemIndex === -1) {
+      return res.status(404).json({ message: "Fridge content not found" });
+    }
+
+    // if item is found update it
+    user.fridgeContents[itemIndex] = {
+      item,
+      type,
+      category,
+      expDate,
+    };
+
+    // save updated document
+    await user.save();
+
+    // idea from Robert:
+    // get user then copy contetns into obj
+    // try findOneandUpdate
+    // then change it and re save to database
+    // lookup way to go inside a propery in model
+
+    res.locals.updatedItem = user.fridgeContents;
+    return next();
+  } catch (error) {
+    console.error(error);
+    return next(error);
   }
-
-
-
-  // update item
-  const updatedItem = await Item.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
-
-  
-  return next();
-});
+};
 
 // @description Delete item
 // @route GET /api/items/:id
 // @access Private
-const deleteItem = asyncHandler(async (req, res, next) => {
-  // find item in db
+inventoryController.deleteItem = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+    const { id, item, type, category, expDate } = req.body;
 
-  // if not item in db throw error
-//   if (!item) {
-//     res.staus(400);
-//     throw new Error("Item not found");
-//   }
+    // find user in database
+    const user = await UserData.findOne({ email });
 
-  // Check for user
-//   if (!req.user) {
-//     res.status(401);
-//     throw new Error("User not found");
-//   }
+    if (!user) {
+      return res.status(400).json({ message: "User not found" });
+    }
 
-  // make sure users can't update each others goals
-  // item has a user field which is a ObjectId?
-  // Make sure the logged in user matches the item user
+    // find the index of the fridge item I want to delete
+   const itemIndex = user.fridgeContents.findIndex((food) => {
+     return food._id === id;
+   });
 
-  // delete goal from db
-  // check if deletion was successfull
-  // if so send status code 200 and successfull deletion message
-  // otherwise throw error
+    // ******** some mongoose methods will return the deleted document
+    // deleteOne and DeleteMany do not return the deleted document
 
+    // if food content not found
+    if (itemIndex === -1) {
+      return res.status(404).json({ message: "Fridge content not found" });
+    }
 
-  // return next();
-});
+    // delete food from fridge
+    user.fridgeContents.splice(itemIndex, 1);
 
-module.exports = {
-  getItems,
-  setItem,
-  updateItem,
-  deleteItem
+    // save the updated user document
+    await user.save();
+
+    // do we need to use res.locals? what are sending back?
+    return next();
+  } catch (error) {
+    console.error(error);
+    return next(error);
+  }
 };
+
+module.exports = inventoryController;
