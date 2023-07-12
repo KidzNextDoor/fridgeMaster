@@ -33,9 +33,9 @@ body {
   font-display: swap;
 }
 
-*:focus {
+/* *:focus {
   outline: none;
-}
+} */
 
 .auth-form-container,
 .login-form,
@@ -47,7 +47,7 @@ body {
 }
 .auth-form-container {
   padding: 5rem;
-  border: 2px solid dodgerblue;
+  /* border: 2px solid dodgerblue; */
   background-color: white;
   border-radius: 10px;
   margin: 0.5rem;
@@ -59,7 +59,7 @@ label {
 }
 input {
   margin: 0.5rem 0;
-  border: 1.5px solid dodgerblue;
+  /* border: 1.5px solid dodgerblue; */
   background-color: white;
   border-radius: 5px;
 }

@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { motion } from "framer-motion"
 import { loginUser } from "../fetchers/userFetcher";
 import GitHubButton from "./GitHubButton";
+import Header from "./Header";
 
-const Login = ({ onFormSwitch, setIsLoggedIn }) => {
+const Login = ({ setCurrentForm, setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState("");
+
+  console.log(typeof setCurrentForm);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -27,6 +30,7 @@ const Login = ({ onFormSwitch, setIsLoggedIn }) => {
 
   return(
     <div className="h-screen w-full p-10 mt-10">
+      <Header />
       <div className="flex flex-col items-center justify-center p-10">
         <motion.div 
           className="bg-inherit bg-opacity-80 p-20 rounded-md shadow-2xl w-[550px]"
@@ -118,7 +122,7 @@ const Login = ({ onFormSwitch, setIsLoggedIn }) => {
           }}
           whileTap={{ scale: 0.9 }}
           whileInView={{ opacity: 1 }}
-          onClick={() => onFormSwitch('register')}
+          onClick={() => setCurrentForm('register')}
         >
           New to Fridge Wizard? Join now
         </motion.button>      

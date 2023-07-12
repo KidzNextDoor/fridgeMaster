@@ -4,13 +4,15 @@ import wizzardBuddy from "../images/wizzardBuddy.png"
 import expiringSoon from "../images/expiringSoon.png"
 import spoiled  from "../images/spoiled.png"
 import { Contents } from './Contents';
+import Header from './Header';
 //import types object from json object in db
 
-export const Dashboard = () => {
+export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
     const [purchaseDate, setpurchaseDate] = useState('')
     return (
-        <div>
-            <header>
+        <div className=''>
+            <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+            <header className=''>
             <img className='logo' src={logo} alt="Logo" />
             <h1>Fridge Wizzard</h1>
             <button>Logout</button>
@@ -29,7 +31,7 @@ export const Dashboard = () => {
                 <input className='input' type='text' placeholder='Item Name' id='itemName'name='itemName'/>
                 <button>placeholder for a button</button>
             </form>
-            <Contents/>
+            <Contents />
         </div>
     );
 };

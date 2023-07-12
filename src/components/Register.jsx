@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import { registerUser } from '../fetchers/userFetcher';
 
 import { FaGithub } from 'react-icons/fa';
+import Header from "./Header";
 
-const Register = ({ onFormSwitch, setIsLoggedIn }) => {
+const Register = ({ setCurrentForm, setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [name, setName] = useState("");
@@ -28,6 +29,7 @@ const Register = ({ onFormSwitch, setIsLoggedIn }) => {
 
   return(
     <div className="h-screen w-full p-10 mt-10">
+      <Header />
       <div className="flex flex-col items-center justify-center p-10">
         <motion.div className="bg-inherit bg-opacity-80 p-20 rounded-md shadow-2xl w-[550px]">
           <h2 className="text-slate-800 text-3xl font-bold mb-4">Register</h2>
@@ -154,7 +156,7 @@ const Register = ({ onFormSwitch, setIsLoggedIn }) => {
           }}
           whileTap={{ scale: 0.9 }}
           whileInView={{ opacity: 1 }}
-          onClick={() => onFormSwitch('login')}
+          onClick={() => setCurrentForm('login')}
         >
           Already have an account? Login here.
         </motion.button>

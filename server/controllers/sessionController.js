@@ -6,8 +6,9 @@ const sessionController = {};
 sessionController.githubAuth = async (req, res, next) => {
   try {
     const { code } = req.body;
+    const params = `client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_CLIENT_SECRET}&code=${code}`
   
-    const response = await axios.post(`https://github.com/login/oauth/access_token?client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_CLIENT_SECRET}&code=${code}`, {
+    const response = await axios.post(`https://github.com/login/oauth/access_token?${params}`, {
       headers: {
         Accept: 'application/json',
       },
@@ -49,8 +50,6 @@ sessionController.isLoggedIn = async (req, res, next) => {
     }
 
     const loggedIn = jwt.verify(token, process.env.JWT_SECRET);
-
-    console.log(loggedIn);
     
     res.locals.isLoggedIn = loggedIn;
     
