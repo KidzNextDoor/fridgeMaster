@@ -36,6 +36,7 @@ inventoryController.getItem = async (req, res, next) => {
 // @access Private
 inventoryController.setItem = async (req, res, next) => {
   try {
+    console.log(req.body);
     const { email, item, type, expDate } = req.body;
 
     // Generate a unique ID for the new fridge contents
