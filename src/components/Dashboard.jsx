@@ -7,9 +7,10 @@ import { Contents } from './Contents';
 import { useForm } from "react-hook-form";
 import moment from 'moment';
 import { postFood } from '../fetchers/itemFetcher';
+import Header from './Header';
 //import types object from json object in db
 
-export const Dashboard = () => {
+export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
     const shelfLife = require('../../server/shelflife.json')
 
     const [expDate2, setExpDate2] = useState(moment().format('YYYY-MM-DD'))
@@ -47,13 +48,10 @@ export const Dashboard = () => {
         })
     }
 
+
     return (
-        <div>
-            <header>
-            <img className='logo' src={logo} alt="Logo" />
-            <h1>Fridge Wizzard</h1>
-            <button>Logout</button>
-            </header>
+        <div className=''>
+            <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
             <button><img src={expiringSoon} alt="expiringSoon"/></button>
             <button><img src={spoiled} alt="spoiled"/></button>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -79,7 +77,7 @@ export const Dashboard = () => {
                 {/* <input className='input' type='text' placeholder='Item Name' id='itemName'name='itemName'/> */}
                 <input type="submit" />
             </form>
-            <Contents/>
+            <Contents />
         </div>
     );
 };

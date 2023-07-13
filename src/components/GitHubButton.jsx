@@ -19,6 +19,8 @@ const GitHubButton = () => {
         border-1 
         border-slate-400 
         rounded-3xl 
+        font-mynerve
+        text-xl
         mt-4 
         p-3 
         shadow-xl
