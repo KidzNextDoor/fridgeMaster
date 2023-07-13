@@ -36,11 +36,10 @@ inventoryController.getItem = async (req, res, next) => {
 // @access Private
 inventoryController.setItem = async (req, res, next) => {
   try {
-    const { email } = req.body;
-    const { item, type, category, expDate } = req.body;
+    const { email, item, type, category, expDate } = req.body;
 
     // Generate a unique ID for the new fridge contents
-    const newItemId = mongoose.Types.ObjectId().toHexString();
+    // const newItemId = mongoose.Types.ObjectId().toHexString();
 
     // get user from database
     // add new fridge contents to users fridgeContents array
@@ -49,7 +48,7 @@ inventoryController.setItem = async (req, res, next) => {
       {
         $push: {
           fridgeContents: {
-            _id: newItemId,
+            // _id: newItemId,
             item,
             type,
             category,
@@ -77,8 +76,8 @@ inventoryController.setItem = async (req, res, next) => {
 // @access Private
 inventoryController.updateItem = async (req, res, next) => {
   try {
-    const { email } = req.body;
-    const { item, type, category, expDate } = req.body;
+    const { id } = req.params;
+    const { email, item, type, category, expDate } = req.body;
 
     // find user in database
     const user = await UserData.findOne({ email });
@@ -90,7 +89,7 @@ inventoryController.updateItem = async (req, res, next) => {
 
     // if each fridgeContents object has a unique id
     const itemIndex = user.fridgeContents.findIndex((food) => {
-      return food._id === item.id;
+      return food._id === id;
     });
 
     // if item not found in fridge
@@ -124,12 +123,12 @@ inventoryController.updateItem = async (req, res, next) => {
 };
 
 // @description Delete item
-// @route GET /api/items/:id
+// @route DELETE /api/items/:id
 // @access Private
 inventoryController.deleteItem = async (req, res, next) => {
   try {
+    const { id } = req.params;
     const { email } = req.body;
-    const { id, item, type, category, expDate } = req.body;
 
     // find user in database
     const user = await UserData.findOne({ email });
@@ -139,9 +138,9 @@ inventoryController.deleteItem = async (req, res, next) => {
     }
 
     // find the index of the fridge item I want to delete
-   const itemIndex = user.fridgeContents.findIndex((food) => {
-     return food._id === id;
-   });
+    const itemIndex = user.fridgeContents.findIndex((food) => {
+      return food._id === id;
+    });
 
     // ******** some mongoose methods will return the deleted document
     // deleteOne and DeleteMany do not return the deleted document
