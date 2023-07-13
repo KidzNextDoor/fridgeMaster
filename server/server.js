@@ -4,7 +4,10 @@ const cookieParser = require("cookie-parser");
 const path = require("path");
 const { errorHandler } = require("./middleware/errorMiddleware");
 
-const PORT = 3000;
+// const PORT = 3000;
+require("dotenv").config();
+
+const PORT = process.env.port || 3000;
 
 // starts the Mongo DB when the server is started
 require('dotenv').config();
