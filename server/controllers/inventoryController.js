@@ -52,7 +52,6 @@ inventoryController.setItem = async (req, res, next) => {
             // _id: newItemId,
             item,
             type,
-            category,
             expDate,
           },
         },

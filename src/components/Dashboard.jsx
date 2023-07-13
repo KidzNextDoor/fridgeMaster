@@ -22,14 +22,14 @@ export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
     });
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const onSubmit = async (e) => {
-        console.log(e);
-        const res = await postFood(e);
+    const onSubmit = async (data) => {
+        const type = data.type
+        const itemName = data.itemName
+        const res = await postFood(type,expDate2, itemName);
     };
 
     useEffect(()=>{
         const expirationDateUpdater = () => {
-            console.log('running expirationDateUpdater');
             setExpDate2(moment(purchaseDate).add(daysToSpoil, 'd').format('YYYY-MM-DD'));
             return
         }
@@ -44,10 +44,9 @@ export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
         // e.preventDefault();
         //figure out how to find passed in type "(e)" in shelfLife object
         shelfLife.forEach((el) => {
-            if(el.item === e){setDaysToSpoil(el.shelflife)}
+            if(el.item === e){setDaysToSpoil(el.shelflife)} 
         })
     }
-
 
     return (
         <div className=''>

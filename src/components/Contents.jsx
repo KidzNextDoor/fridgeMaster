@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState, useCallback, useMemo, useEffect} from 'react'
 import DataTable from 'react-data-table-component';
+import differenceBy from 'lodash/differenceBy';
 
 const columns = [
     {
@@ -41,23 +42,24 @@ const tableDataItems = [
 ]
 
 export const Contents = () => {
-    const [selectedRows, setSelectedRows] = React.useState([]);
-	const [toggleCleared, setToggleCleared] = React.useState(false);
-	const [data, setData] = React.useState(tableDataItems);
+    const [selectedRows, setSelectedRows] = useState([]);
+	const [toggleCleared, setToggleCleared] = useState(false);
+	const [data, setData] = useState(tableDataItems);
 
-	const handleRowSelected = React.useCallback(state => {
+	const handleRowSelected = useCallback(state => {
 		setSelectedRows(state.selectedRows);
 	}, []);
 
-	const contextActions = React.useMemo(() => {
+	const contextActions = useMemo(() => {
 		const handleDelete = () => {
 			
-			if (window.confirm(`Are you sure you want to delete:\r ${selectedRows.map(r => r.title)}?`)) {
+			if (window.confirm(`Are you sure you want to delete:\r ${selectedRows.map(r => r.name)}?`)) {
 				setToggleCleared(!toggleCleared);
-				setData(differenceBy(data, selectedRows, 'title'));
+				setData(differenceBy(data, selectedRows));
 			}
 		};
-
+        console.log(data);
+        console.log(selectedRows);
 		return (
 			<button key="delete" onClick={handleDelete} style={{ backgroundColor: 'red' }} icon>
 				Delete
@@ -67,8 +69,9 @@ export const Contents = () => {
 
 	return (
 		<DataTable
+            title="Fridge items"
 			columns={columns}
-			data={tableDataItems}
+			data={data}
 			selectableRows
 			contextActions={contextActions}
 			onSelectedRowsChange={handleRowSelected}

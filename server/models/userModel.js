@@ -15,7 +15,7 @@ const userSchema = new Schema( {
             itemid: { type: String, default: uuidv4 },
             item: { type: String, required: true },
             name: { type: String },
-            category: { type: String, required: true },
+            type: { type: String, required: true},
             expDate: {type: String, required: true }
         }
     ]
