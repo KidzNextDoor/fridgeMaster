@@ -1,19 +1,22 @@
-import React, { Component } from 'react'
+// This component will render items between 0 and 5 days from expiration.
 
+import React, { Component, useState } from "react";
+import axios from "axios";
+import moment from "moment";
 
-const expiringItems = [];
-fetch()
+export default function ExpiringSoon() {
+  const email = localStorage.getItem("email");
+  const [expiringItems, setExpiringItems] = useState([]);
 
-export class ExpiringSoon extends Component {
-  render() {
-    return (
-      <div>
-        <h2>These things are expiring soon.  Use em or lose em!</h2>
+  axios("/api/inventory", {params: {email: 'alroro@fw.com' }}).then((data) => {
+    console.log(data)
+    const expItems = [];
+    // data.forEach((element) => {
+    //   if (moment(element.expDate).isBetween(moment().format('YYYY-MM-DD'), moment().format('YYYY-MM-DD').add(5, "d")));
+    //     expItems.push(element);
+    // });
+    // setExpiringItems(expItems);
+  });
 
-
-      </div>
-    )
-  }
+  return <div>ExpiringSoon</div>;
 }
-
-export default ExpiringSoon
