@@ -69,6 +69,7 @@ module.exports = {
   plugins: [
     new Dotenv(),
     new HtmlWebpackPlugin({
+      favicon: path.resolve(__dirname, "src/images/favicon.png"),
       template: path.resolve(__dirname, "index.html"),
     }),
     new MomentLocalesPlugin(),
