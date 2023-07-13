@@ -5,12 +5,12 @@ import { IoIosLogOut } from 'react-icons/io'
 import { logoutUser } from '../fetchers/userFetcher'
 
 function Header({ isLoggedIn, setIsLoggedIn, view, setView }) {
-
   const handleLogout = async () => {
     try {
       const res = await logoutUser();
       if (res) {
         setIsLoggedIn(false);
+        localStorage.removeItem('email');
       }
     } catch (err) {
       console.log(err);
@@ -18,14 +18,30 @@ function Header({ isLoggedIn, setIsLoggedIn, view, setView }) {
   }
 
   return (
-    <div className="fixed top-0 left-0 right-0 p-8 z-10">
-      <div className="flex justify-between">
-        <img className="max-h-20" src={logo}></img>
+    <div className="fixed top-0 left-0 right-0 px-20 py-10 z-10">
+      <div className="flex flex-shrink-0 justify-between">
+        <a href='http://localhost:8080'>
+          <img className="max-h-20 flex-shrink-0" src={logo}></img>
+        </a>
         { isLoggedIn 
           && 
             (
-              <div className='flex items-center text-lg gap-1 text-blue-700 cursor-pointer mr-24'>
-                <IoIosLogOut onClick={handleLogout} className='text-4xl font-extrabold text-blue-700 hover:transform hover:transition-all hover:scale-125'/>
+              <div 
+                onClick={handleLogout} 
+                className="
+                  flex 
+                  items-center 
+                  text-xl 
+                  gap-1 
+                  text-blue-700 
+                  font-mynerve 
+                  cursor-pointer 
+                  hover:transform 
+                  hover:transition-all 
+                  hover:scale-125"
+              >
+                <span>Logout</span>
+                <IoIosLogOut className='text-4xl font-extrabold'/>
               </div>
             )
         } 
@@ -38,14 +54,16 @@ function Header({ isLoggedIn, setIsLoggedIn, view, setView }) {
                 hover:scale-110 
                 cursor-pointer 
                 flex 
-                 bg-blue-500
+                text-xl
+                font-mynerve
+                 bg-blue-600
                  text-white
                 items-center 
                 justify-center 
                 gap-2
-                rounded-3xl 
+                rounded-2xl 
                 mt-4 
-                p-3 
+                p-4 
                 shadow-xl
               "
             >

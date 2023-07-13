@@ -32,7 +32,7 @@ const Register = ({ setCurrentForm, setIsLoggedIn }) => {
       <Header />
       <div className="flex flex-col items-center justify-center p-10">
         <motion.div className="bg-inherit bg-opacity-80 p-20 rounded-md shadow-2xl w-[550px]">
-          <h2 className="text-slate-800 text-3xl font-bold mb-4">Register</h2>
+          <h2 className="text-slate-800 text-3xl font-mynerve font-bold mb-4">Register</h2>
           <form className="flex flex-col" onSubmit={handleRegister}>
             {/* <label htmlFor="name">Full name</label> */}
             <input 
@@ -42,6 +42,7 @@ const Register = ({ setCurrentForm, setIsLoggedIn }) => {
                 focus:scale-110  
                 focus:outline-slate-700 
                 text-sm 
+                font-mynerve
                 shadow-xl 
                 rounded-md 
                 bg-inherit
@@ -66,6 +67,7 @@ const Register = ({ setCurrentForm, setIsLoggedIn }) => {
                 focus:outline-slate-700 
                 text-sm 
                 shadow-xl 
+                font-mynerve
                 rounded-md 
                 bg-inherit 
                 outline 
@@ -90,6 +92,7 @@ const Register = ({ setCurrentForm, setIsLoggedIn }) => {
                 focus:outline-slate-700 
                 text-sm 
                 shadow-xl 
+                font-mynerve
                 rounded-md 
                 bg-inherit 
                 outline 
@@ -107,7 +110,7 @@ const Register = ({ setCurrentForm, setIsLoggedIn }) => {
             />
              {error && <p className="text-red-500 text-sm font-semibold p-4 m-auto">{error}</p>}
             <motion.button
-              className="p-4 rounded-3xl bg-blue-600 bg-opacity-95 mt-4 text-white shadow-xl"
+              className="p-4 rounded-3xl bg-blue-600 bg-opacity-95 mt-4 text-white text-xl font-mynerve shadow-xl"
               initial={{ opacity: 0.6 }}
               whileHover={{
                 scale: 1.1,
@@ -121,7 +124,7 @@ const Register = ({ setCurrentForm, setIsLoggedIn }) => {
           <div className="text-center mt-4">
             <div className="flex items-center">
               <div className="flex-grow border-b border-gray-400"></div>
-              <div className="mx-4 text-xs text-gray-500">OR</div>
+              <div className="mx-4 font-mynerve text-gray-500">OR</div>
               <div className="flex-grow border-b border-gray-400"></div>
             </div>
             <div 
@@ -137,6 +140,8 @@ const Register = ({ setCurrentForm, setIsLoggedIn }) => {
                 border-1 
                 border-slate-400 
                 rounded-3xl 
+                font-mynerve
+                text-xl
                 mt-4 
                 p-3 
                 shadow-xl
@@ -148,7 +153,7 @@ const Register = ({ setCurrentForm, setIsLoggedIn }) => {
           </div>
         </motion.div>
         <motion.button 
-          className="text-slate-800 bg-inherit mt-12" 
+          className="text-slate-800 bg-inherit font-mynerve text-xl mt-12" 
           initial={{ opacity: 0.6 }}
           whileHover={{
             scale: 1.2,

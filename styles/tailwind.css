@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities; 
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;700&family=Mynerve&family=Oswald&display=swap');
 
 /* 
 body {
@@ -27,11 +28,11 @@ body {
   font-family: Virgil;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Virgil";
   src: url("https://virgil.excalidraw.com/Virgil.woff2");
   font-display: swap;
-}
+} */
 
 /* *:focus {
   outline: none;
@@ -76,8 +77,4 @@ button {
   background: none;
   color: dodgerblue;
   text-decoration: underline;
-}
-
-.logo {
-  
 }

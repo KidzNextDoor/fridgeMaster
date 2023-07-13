@@ -9,14 +9,10 @@ import Header from './Header';
 
 export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
     const [purchaseDate, setpurchaseDate] = useState('')
+
     return (
         <div className=''>
             <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-            <header className=''>
-            <img className='logo' src={logo} alt="Logo" />
-            <h1>Fridge Wizzard</h1>
-            <button>Logout</button>
-            </header>
             <button><img src={expiringSoon} alt="expiringSoon"/></button>
             <button><img src={spoiled} alt="spoiled"/></button>
             <form>

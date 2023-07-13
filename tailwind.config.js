@@ -4,11 +4,9 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   theme: {
     extend: {
-      input: {
-        '-webkit-autofill': {
-          '-webkit-background-clip': 'text',
-        },
-      },
+      fontFamily: {
+        'mynerve': ['Mynerve', 'sans-serif']
+      }
     },
   },
   content: [
