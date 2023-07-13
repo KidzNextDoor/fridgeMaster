@@ -22,9 +22,9 @@ export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
     });
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data);
-        const res = postFood(data);
+    const onSubmit = async (e) => {
+        console.log(e);
+        const res = await postFood(e);
     };
 
     useEffect(()=>{
