@@ -1,28 +1,28 @@
 const express = require("express");
 const router = express.Router();
-const {
-    getItems,
-    setItem,
-    updateItem,
-    deleteItem
-} = require("../controllers/inventoryController")
 
-// create authorization middleware?
+const inventoryController = require("../controllers/inventoryController");
 
 // get items
-router.get("/", getItems);
+router.get("/", inventoryController.getItem, (req, res) => {
+  res.status(200).json(res.locals.getItem);
+});
 
-// set item in fridge 
-router.post("/", setItem);
+// set item in fridge
+router.post("/", inventoryController.setItem, (req, res) => {
+  res.status(200).json(res.locals.newItem);
+});
 
-// needs id param
+// are id params needed?
 // update item
-router.put("/:id", updateItem);
+router.put("/:id", inventoryController.updateItem, (req, res) => {
+  res.status(200).json(res.locals.updateItem);
+});
 
-// needs id
+// are id params needed?
 //delete item
-router.delete("/:id", deleteItem);
-
+router.delete("/:id", inventoryController.deleteItem, (req, res) => {
+  res.status(200).json({ message: "Item deleted" });
+});
 
 module.exports = router;
-

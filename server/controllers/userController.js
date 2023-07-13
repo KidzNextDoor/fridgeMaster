@@ -80,6 +80,7 @@ userController.verifyUser = async (req, res, next) => {
 //       email: user.email,
 //       token: generateToken(user._id),
 //     });
+//     return next()
 //   } else {
 //     res.status(400);
 //     throw new Error("Invalid Credentials");
