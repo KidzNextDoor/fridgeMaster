@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const bcrypt = require('bcryptjs');
 const mongoose = require("mongoose");
 const { v4: uuidv4 } = require('uuid');
@@ -49,8 +50,3 @@ userSchema.statics.comparePassword = async function(password, hashedPassword) {
 const UserData = mongoose.model("UserData", userSchema);
 
 module.exports = UserData;
-
-/*user settings stored in a different table
-suggested expiration date of today's date + shelf life but client can edit manually
-update existing shelflife.json? or keep as user-specific - create model for user-specific features
-*/

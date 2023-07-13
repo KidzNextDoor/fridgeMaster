@@ -20,6 +20,8 @@ const getItems = asyncHandler(async (req, res) => {
 // @route GET /api/items
 // @access Private
 const setItem = asyncHandler(async (req, res) => {
+  // fridge contents are not required. 
+  
   // if input is coming from text field?
 //   if (!req.body.text) {
 //     res.status(400);
@@ -27,6 +29,7 @@ const setItem = asyncHandler(async (req, res) => {
 //   }
 
   // create item in database
+  // include the name, type, category, expiration date
 
   //   res.status(200).json(item);
 });
