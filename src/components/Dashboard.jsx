@@ -23,8 +23,7 @@ export const Dashboard = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        // postFood(data);
-        // const res = postFood(data);
+        const res = postFood(data);
     };
 
     useEffect(()=>{
