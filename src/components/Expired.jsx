@@ -1,11 +1,6 @@
-// This component will render items between 0 and 5 days from expiration.
+import React from 'react'
+import moment from 'moment'
 
-import React, { Component, useState } from "react";
-import moment from "moment";
-
-export default function ExpiringSoon( {fridgeContents} ) {
-
-  //Hard coded fridgeContents for testing
 //   const fridgeContents = [
 //     {
 //         "item": "its whats for dinner",
@@ -37,15 +32,17 @@ export default function ExpiringSoon( {fridgeContents} ) {
 //     }
 // ]
 
+export default function Expired( {fridgeContents} ) {
   return (
-  <div>
-    <h1>Expiring within 5 days:</h1>
+    <div>
+    <h1>These are spoiled, toss em or use at your own risk.</h1>
     <ul>
       {fridgeContents.map(element => {
-        if (moment(element.expDate).isBetween(moment(), moment().add(5, "d"))) {
+        if (moment(element.expDate).isBefore(moment())) {
           return <li>Item: {element.item}, Expiration Date: {element.expDate}</li>
         }
       })}
     </ul>
-  </div>);
+  </div>
+  )
 }
