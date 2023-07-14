@@ -1,8 +1,7 @@
-import React, {useState, useCallback, useMemo, useEffect}, { useState, useMemo, useCallback, useEffect } from 'react'
+import React, {useState, useCallback, useMemo, useEffect} from 'react'
 import differenceBy from 'lodash/differenceBy'
 import DataTable from 'react-data-table-component';
 import { deleteFood } from '../fetchers/itemFetcher';
-import differenceBy from 'lodash/differenceBy';
 
 const columns = [
     {
@@ -61,8 +60,6 @@ export const Contents = ({ fridgeContents, setFridgeContents, isLoading }) => {
 				
 			}
 		};
-        console.log(data);
-        console.log(selectedRows);
 		return (
 			<button key="delete" onClick={handleDelete} style={{ backgroundColor: 'red' }} icon>
 				Delete

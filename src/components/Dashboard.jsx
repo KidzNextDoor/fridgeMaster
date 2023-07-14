@@ -18,7 +18,7 @@ export const Dashboard = ({ isLoggedIn, setIsLoggedIn, currentUser }) => {
     const [error, setError] = useState('')
 
     const typesArray = []
-      shelfLife.forEach(element => { typesArray.push(element.item);
+    shelfLife.forEach(element => { typesArray.push(element.item);
     });
     const { register, formState: { errors }, handleSubmit } = useForm();
 
@@ -47,8 +47,9 @@ export const Dashboard = ({ isLoggedIn, setIsLoggedIn, currentUser }) => {
     const daysToSpoilHandler = (e) => {
         // e.preventDefault();
         //figure out how to find passed in type "(e)" in shelfLife object
-        shelfLife.forEach((el) => {
-            if(el.item === e){setDaysToSpoil(el.shelflife)} 
+        shelfLife.forEach((el, index) => {
+            if(el.item === e){
+                setDaysToSpoil(el.shelflife)} 
         })
     }
 
@@ -82,6 +83,7 @@ export const Dashboard = ({ isLoggedIn, setIsLoggedIn, currentUser }) => {
                   <input className='p-2 font-mynerve focus:transform focus:transition-all focus:outline-none focus:scale-105 bg-blue-500 bg-opacity-10 border border-slate-700' id='itemName'type='text' placeholder='Name' {...register("itemName")}/> 
                   <label className='inputLabels'htmlFor='purchaseDate'>Purchase date:</label>
                   <input className='inputField' id='purchaseDate' type='date' onInput={(e) => purchaseDateHandler(e.target.value)} defaultValue={purchaseDate} placeholder='purchaseDate' {...register("purchaseDate")}/>
+                  {/* <input type='hidden' value={category} {...register("category")}/> */}
                   {/* <label className='inputLabels' id='expDate'>Expiration date:</label>
                   <input className='inputField' id='expDate' type='date' placeholder='expDate' value={expDate2}  {...register("expDate")}/> */}
                   {/* <label htmlFor="purchaseDate">Date Purchased:</label> */}
