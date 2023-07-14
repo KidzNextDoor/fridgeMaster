@@ -13,13 +13,13 @@ inventoryController.getItem = async (req, res, next) => {
   // user enters purchaseDate, type, expDate, itemName
   try {
     // what are we using to identify a user? email, db _id?
-    const { email } = req.body;
+    const { email } = req.params;
 
     // get items from db
     const user = await UserData.findOne({ email });
 
     if (!user) {
-      return res.status(400).json({ messagae: "User not found" });
+      return res.status(400).json({ message: "User not found" });
     }
 
     // get user from database, then access fridgeContents
@@ -37,7 +37,7 @@ inventoryController.getItem = async (req, res, next) => {
 inventoryController.setItem = async (req, res, next) => {
   try {
     console.log(req.body);
-    const { email, item, type, expDate } = req.body;
+    const { email, name, type, expDate } = req.body;
 
     // Generate a unique ID for the new fridge contents
     // const newItemId = mongoose.Types.ObjectId().toHexString();
@@ -50,9 +50,8 @@ inventoryController.setItem = async (req, res, next) => {
         $push: {
           fridgeContents: {
             // _id: newItemId,
-            item,
+            name,
             type,
-            category,
             expDate,
           },
         },
@@ -128,34 +127,43 @@ inventoryController.updateItem = async (req, res, next) => {
 // @access Private
 inventoryController.deleteItem = async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const { email } = req.body;
+    // const { id } = req.params;
+    const { email, fridgeContents } = req.body;
+
+    const newFridgeContents = fridgeContents;
 
     // find user in database
-    const user = await UserData.findOne({ email });
-
-    if (!user) {
-      return res.status(400).json({ message: "User not found" });
-    }
-
-    // find the index of the fridge item I want to delete
-    const itemIndex = user.fridgeContents.findIndex((food) => {
-      return food._id === id;
+    const user = await UserData.findOneAndUpdate({ email }, 
+    {
+     fridgeContents: newFridgeContents
+    }, 
+    {
+      upsert: true,
+      new: true
     });
 
-    // ******** some mongoose methods will return the deleted document
-    // deleteOne and DeleteMany do not return the deleted document
+    // if (!user) {
+    //   return res.status(400).json({ message: "User not found" });
+    // }
 
-    // if food content not found
-    if (itemIndex === -1) {
-      return res.status(404).json({ message: "Fridge content not found" });
-    }
+    // // find the index of the fridge item I want to delete
+    // const itemIndex = user.fridgeContents.findIndex((food) => {
+    //   return food._id === id;
+    // });
 
-    // delete food from fridge
-    user.fridgeContents.splice(itemIndex, 1);
+    // // ******** some mongoose methods will return the deleted document
+    // // deleteOne and DeleteMany do not return the deleted document
 
-    // save the updated user document
-    await user.save();
+    // // if food content not found
+    // if (itemIndex === -1) {
+    //   return res.status(404).json({ message: "Fridge content not found" });
+    // }
+
+    // // delete food from fridge
+    // user.fridgeContents.splice(itemIndex, 1);
+
+    // // save the updated user document
+    // await user.save();
 
     // do we need to use res.locals? what are sending back?
     return next();

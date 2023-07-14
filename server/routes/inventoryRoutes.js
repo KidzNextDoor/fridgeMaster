@@ -4,7 +4,7 @@ const router = express.Router();
 const inventoryController = require("../controllers/inventoryController");
 
 // get items
-router.get("/", inventoryController.getItem, (req, res) => {
+router.get("/:email", inventoryController.getItem, (req, res) => {
   res.status(200).json(res.locals.getItem);
 });
 
@@ -21,7 +21,7 @@ router.put("/:id", inventoryController.updateItem, (req, res) => {
 
 // are id params needed?
 //delete item
-router.delete("/:id", inventoryController.deleteItem, (req, res) => {
+router.delete("/", inventoryController.deleteItem, (req, res) => {
   res.status(200).json({ message: "Item deleted" });
 });
 

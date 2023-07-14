@@ -5,7 +5,7 @@ import Login from './Login'
 
 import HomepageBody from './HomepageBody'
 
-const Homepage = ({ setIsLoggedIn }) => {
+const Homepage = ({ setIsLoggedIn, setCurrentUser }) => {
   const [view, setView] = useState('homepage');
   const [currentForm, setCurrentForm] = useState('login');
 
@@ -17,7 +17,7 @@ const Homepage = ({ setIsLoggedIn }) => {
       </div>
       // will render either the login or register component based on what the currentForm is set as
       : currentForm === 'login' 
-                ? <Login setCurrentForm={setCurrentForm} setIsLoggedIn={setIsLoggedIn} /> 
+                ? <Login setCurrentForm={setCurrentForm} setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} /> 
                 : <Register setCurrentForm={setCurrentForm} setIsLoggedIn={setIsLoggedIn} />
   )
 }
