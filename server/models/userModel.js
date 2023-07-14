@@ -1,5 +1,3 @@
-const mongoose = require("mongoose");
-
 const bcrypt = require('bcryptjs');
 const { v4: uuidv4 } = require('uuid');
 const SALT_WORK_FACTOR = 10;
