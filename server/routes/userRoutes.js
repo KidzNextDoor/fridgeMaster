@@ -12,7 +12,7 @@ router.post("/register", userController.createUser, sessionController.startSessi
 });
 
 router.post("/login", userController.verifyUser, sessionController.startSession, (req, res) => {
-  res.status(200).json(res.locals.status);
+  res.status(200).json({ status: res.locals.status, user: res.locals.user });
 });
 
 router.get("/home", userController.goHome, (req, res) => {

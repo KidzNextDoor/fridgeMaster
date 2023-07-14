@@ -10,6 +10,7 @@ import { checkSession } from "../fetchers/userFetcher";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
 
   // checks whether user has an active session or not on component loading
   useEffect(() => {
@@ -37,7 +38,7 @@ function App() {
   return (
     <div className="bg-gradient-to-b from-zinc-100 via-zinc-300 to-sky-300">
       <div className="flex flex-col z-100 items-center justify-center h-screen">
-        { isLoggedIn ? <Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> : <Homepage setIsLoggedIn={setIsLoggedIn} />
+        { isLoggedIn ? <Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} currentUser={currentUser} /> : <Homepage setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser}/>
             // : currentForm === 'login' 
             //     ? <Login onFormSwitch={toggleForm} setIsLoggedIn={setIsLoggedIn} /> 
             //     : <Register onFormSwitch={toggleForm} setIsLoggedIn={setIsLoggedIn} />

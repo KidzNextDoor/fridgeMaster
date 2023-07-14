@@ -1,5 +1,7 @@
-import React, {useState, useCallback, useMemo, useEffect} from 'react'
+import React, {useState, useCallback, useMemo, useEffect}, { useState, useMemo, useCallback, useEffect } from 'react'
+import differenceBy from 'lodash/differenceBy'
 import DataTable from 'react-data-table-component';
+import { deleteFood } from '../fetchers/itemFetcher';
 import differenceBy from 'lodash/differenceBy';
 
 const columns = [
@@ -20,32 +22,32 @@ const columns = [
     },
 ];
 
-const tableDataItems = [
-    {
-        id: 1,
-        name: 'leftovers',
-        type: 'cooked food',
-        expDate: "07-10-2023"
-    },
-    {
-        id: 2,
-        name: 'apple',
-        type: 'fruit',
-        expDate: "07-23-2023"
-    },
-    {
-        id: 3,
-        name: 'pizza',
-        type:'cooked food',
-        expDate: "07-14-2023"
-    },
-]
+// const tableDataItems = [
+//     {
+//         id: 1,
+//         name: 'leftovers',
+//         type: 'cooked food',
+//         expDate: "07-10-2023"
+//     },
+//     {
+//         id: 2,
+//         name: 'apple',
+//         type: 'fruit',
+//         expDate: "07-23-2023"
+//     },
+//     {
+//         id: 3,
+//         name: 'pizza',
+//         type:'cooked food',
+//         expDate: "07-14-2023"
+//     },
+// ]
 
-export const Contents = () => {
+
+export const Contents = ({ fridgeContents, setFridgeContents, isLoading }) => {
     const [selectedRows, setSelectedRows] = useState([]);
 	const [toggleCleared, setToggleCleared] = useState(false);
-	const [data, setData] = useState(tableDataItems);
-
+	
 	const handleRowSelected = useCallback(state => {
 		setSelectedRows(state.selectedRows);
 	}, []);
@@ -55,7 +57,8 @@ export const Contents = () => {
 			
 			if (window.confirm(`Are you sure you want to delete:\r ${selectedRows.map(r => r.name)}?`)) {
 				setToggleCleared(!toggleCleared);
-				setData(differenceBy(data, selectedRows));
+				setFridgeContents(differenceBy(fridgeContents, selectedRows));
+				
 			}
 		};
         console.log(data);
@@ -65,18 +68,29 @@ export const Contents = () => {
 				Delete
 			</button>
 		);
-	}, [data, selectedRows, toggleCleared]);
+	}, [fridgeContents, selectedRows, toggleCleared]);
+
+	useEffect(() => {
+		const tryDeleteFood = async () => {
+		  await deleteFood(fridgeContents)
+		}
+
+		if (!isLoading) {
+		  tryDeleteFood();
+		}
+
+	}, [fridgeContents])
 
 	return (
 		<DataTable
-            title="Fridge items"
+            title="Fridge Contents"
 			columns={columns}
-			data={data}
+			data={fridgeContents}
 			selectableRows
+            selectableRowsHighlight
 			contextActions={contextActions}
 			onSelectedRowsChange={handleRowSelected}
 			clearSelectedRows={toggleCleared}
-			pagination
 		/>
   )
 }
