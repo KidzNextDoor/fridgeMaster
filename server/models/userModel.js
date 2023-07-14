@@ -47,3 +47,4 @@ userSchema.statics.comparePassword = async function(password, hashedPassword) {
 const UserData = mongoose.model("UserData", userSchema);
 
 module.exports = UserData;
+

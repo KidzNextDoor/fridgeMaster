@@ -169,5 +169,3 @@ const Register = ({ setCurrentForm, setIsLoggedIn }) => {
     </div>
   )
 }
-
-export default Register;
