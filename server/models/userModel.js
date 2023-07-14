@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const bcrypt = require('bcryptjs');
 const { v4: uuidv4 } = require('uuid');
 const SALT_WORK_FACTOR = 10;
@@ -13,9 +12,9 @@ const userSchema = new Schema( {
     fridgeContents: [
         {
             itemid: { type: String, default: uuidv4 },
-            item: { type: String, required: true },
+            // item: { type: String, required: true },
             name: { type: String },
-            category: { type: String, required: true },
+            type: { type: String, required: true },
             expDate: {type: String, required: true }
         }
     ]
