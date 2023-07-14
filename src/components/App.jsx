@@ -8,7 +8,7 @@ import { Dashboard } from "./Dashboard";
 import { checkSession } from "../fetchers/userFetcher";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   // checks whether user has an active session or not on component loading

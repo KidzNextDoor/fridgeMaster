@@ -1,14 +1,15 @@
 import axios from 'axios'
 
-export const getUser = () => {
-
-}
-
-export const postFood = async () => {
+export const postFood = async (e) => {
     try {
-        const res = await axios.post('/', { purchaseDate, type, expDate, itemName });
+        const email = localStorage.getItem('email')
+        console.log(email)
+        const res = await axios.post('/api/inventory', { type, expDate, item: itemName, email });
+        console.log(res)
         return res.data;
       } catch (err) {
         console.log(err);
       }
 }
+
+//localStorage.getItem(email)
