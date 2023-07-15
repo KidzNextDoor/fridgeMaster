@@ -1,10 +1,13 @@
-import React from 'react'
-import logo from './logo.png'
+import React, { useState } from 'react'
+import logo from '../images/logo.png'
 
 import { IoIosLogOut } from 'react-icons/io'
 import { logoutUser } from '../fetchers/userFetcher'
+import { RiArrowDropDownLine } from 'react-icons/ri'
 
 function Header({ isLoggedIn, setIsLoggedIn, view, setView }) {
+  const [isClicked, setIsClicked] = useState(false);
+  const email = localStorage.getItem('email')
   const handleLogout = async () => {
     try {
       const res = await logoutUser();
@@ -18,30 +21,52 @@ function Header({ isLoggedIn, setIsLoggedIn, view, setView }) {
   }
 
   return (
-    <div className="fixed top-0 left-0 right-0 px-20 py-10 z-10">
-      <div className="flex flex-shrink-0 justify-between">
+    <div className="sticky top-0 z-50">
+      <div className="flex flex-shrink-0 py-10 px-20 justify-between">
         <a href='http://localhost:8080'>
           <img className="max-h-20 flex-shrink-0" src={logo}></img>
         </a>
         { isLoggedIn 
           && 
             (
-              <div 
-                onClick={handleLogout} 
-                className="
-                  flex 
-                  items-center 
-                  text-xl 
-                  gap-1 
-                  text-blue-700 
-                  font-mynerve 
-                  cursor-pointer 
-                  hover:transform 
-                  hover:transition-all 
-                  hover:scale-125"
-              >
-                <span>Logout</span>
-                <IoIosLogOut className='text-4xl font-extrabold'/>
+              <div className='flex flex-col gap-1'>
+                <span 
+                  className='
+                    flex
+                    items-center
+                    rounded-md
+                    p-3
+                    text-blue-700
+                    text-2xl 
+                    font-mynerve 
+                    cursor-pointer
+                    hover:bg-zinc-300
+                  '
+                  onClick={() => setIsClicked(!isClicked)} 
+                >
+                  {email}{<RiArrowDropDownLine />}
+                </span>
+                { isClicked && <div 
+                  onClick={handleLogout} 
+                  className="
+                    flex 
+                    items-center 
+                    text-md
+                    bg-white
+                    bg-opacity-10
+                    p-1
+                    mx-1
+                    rounded-md
+                    text-black
+                    font-mynerve
+                    cursor-pointer 
+                  "
+                >
+                  <div className='flex w-full p-2 text-blue-700 hover:text-blue-800 hover:transform hover:transition-all hover:scale-110'>
+                    <span>Logout</span>
+                    <IoIosLogOut size={30}/>
+                  </div>
+                </div>}
               </div>
             )
         } 

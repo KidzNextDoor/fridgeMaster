@@ -50,7 +50,15 @@ function CompositionGraph({ fridgeContents }) {
     })  
   });
 
-  return <Radar data={data} />;
+  return (
+   
+      <div className="flex flex-col items-center justify-center max-h-[650px] bg-white">
+       
+          <Radar data={data} />
+        
+      </div>
+   
+  )
 }
 
 export default CompositionGraph;

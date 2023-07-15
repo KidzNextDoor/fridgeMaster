@@ -52,6 +52,7 @@ export const Contents = ({ fridgeContents, setFridgeContents, isLoading, email }
 		setSelectedRows(state.selectedRows);
 	}, []);
 
+
 	const contextActions = useMemo(() => {
 		const handleDelete = () => {
 			
@@ -63,22 +64,36 @@ export const Contents = ({ fridgeContents, setFridgeContents, isLoading, email }
 		};
 
 		return (
-			<button key="delete" onClick={handleDelete} style={{ backgroundColor: 'red' }} icon>
-				Delete
+			<button 
+			  className="
+			    bg-red-500 
+				p-2 
+				font-mynerve 
+				shadow-xl 
+				hover:transform 
+				hover:transition-all 
+				hover:scale-110
+				hover:bg-red-600
+			  "
+			  key="delete" 
+			  onClick={handleDelete} 
+			  icon
+			>
+			  Delete
 			</button>
 		);
 	}, [fridgeContents, selectedRows, toggleCleared]);
 
 	useEffect(() => {
 		const tryDeleteFood = async () => {
-		  await deleteFood(fridgeContents, email)
+			await deleteFood(fridgeContents, email)
 		}
-
+		
 		if (!isLoading && itemsToDelete) {
-		  tryDeleteFood();
-		  setItemsToDelete(false);
+			tryDeleteFood();
+			setItemsToDelete(false);
 		}
-
+		
 	}, [fridgeContents])
 
 	return (
