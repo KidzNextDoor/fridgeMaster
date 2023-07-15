@@ -39,7 +39,7 @@ export default function Expired( {fridgeContents} ) {
     <ul>
       {fridgeContents.map(element => {
         if (moment(element.expDate).isBefore(moment())) {
-          return <li>Item: {element.item}, Expiration Date: {element.expDate}</li>
+          return <li>Item: {element.name}, Expiration Date: {element.expDate}</li>
         }
       })}
     </ul>

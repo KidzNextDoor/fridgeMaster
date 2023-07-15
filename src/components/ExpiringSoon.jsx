@@ -36,14 +36,14 @@ export default function ExpiringSoon( {fridgeContents} ) {
 //         "itemid": "b4f421f1-9a61-4491-ba71-879c5a997734"
 //     }
 // ]
-
   return (
   <div>
+    {console.log(fridgeContents)}
     <h1>Expiring within 5 days:</h1>
     <ul>
       {fridgeContents.map(element => {
         if (moment(element.expDate).isBetween(moment(), moment().add(5, "d"))) {
-          return <li>Item: {element.item}, Expiration Date: {element.expDate}</li>
+          return <li>Item: {element.name}, Expiration Date: {element.expDate}</li>
         }
       })}
     </ul>
