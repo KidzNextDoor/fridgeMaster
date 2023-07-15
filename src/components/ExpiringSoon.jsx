@@ -43,7 +43,7 @@ export default function ExpiringSoon( {fridgeContents} ) {
     <ul>
       {fridgeContents.map(element => {
         if (moment(element.expDate).isBetween(moment(), moment().add(5, "d"))) {
-          return <li>Item: {element.item}, Expiration Date: {element.expDate}</li>
+          return <li>Item: {element.name}, Expiration Date: {element.expDate}</li>
         }
       })}
     </ul>
