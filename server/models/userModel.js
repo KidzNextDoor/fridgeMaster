@@ -15,6 +15,7 @@ const userSchema = new Schema( {
             // item: { type: String, required: true },
             name: { type: String },
             type: { type: String, required: true },
+            category: {type: String},
             expDate: {type: String, required: true }
         }
     ]
