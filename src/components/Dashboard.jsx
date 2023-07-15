@@ -16,16 +16,22 @@ export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
     const [expDate2, setExpDate2] = useState(moment().format('YYYY-MM-DD'))
     const [purchaseDate, setPurchaseDate] = useState(moment().format('YYYY-MM-DD'))
     const [daysToSpoil, setDaysToSpoil] = useState(0)
+    const [category, setCategory] =useState('')
 
     const typesArray = []
     shelfLife.forEach(element => { typesArray.push(element.item);
+    });
+    const categoryArray = []
+    shelfLife.forEach(element => { categoryArray.push(element.category);
     });
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const onSubmit = async (data) => {
         const type = data.type
         const itemName = data.itemName
-        const res = await postFood(type,expDate2, itemName);
+        const category = data.category
+        console.log('this id the category', category)
+        const res = await postFood(type,expDate2, itemName, category);
     };
 
     useEffect(()=>{
@@ -43,11 +49,16 @@ export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
     const daysToSpoilHandler = (e) => {
         // e.preventDefault();
         //figure out how to find passed in type "(e)" in shelfLife object
-        shelfLife.forEach((el) => {
-            if(el.item === e){setDaysToSpoil(el.shelflife)} 
+        shelfLife.forEach((el, index) => {
+            if(el.item === e){
+                categoryArray.forEach((el, idx) =>{ 
+                    if(index === idx && el != undefined){
+                            setCategory(el);
+                        }})
+                        setDaysToSpoil(el.shelflife)} 
         })
     }
-
+    console.log(category)
     return (
         <div className=''>
             <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
@@ -66,6 +77,7 @@ export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
                 </select>
                 <input className='inputField' id='expDate' type='date' placeholder='expDate' value={expDate2}  {...register("expDate")}/>
                 <input className='inputField' id='itemName'type='text' placeholder='itemName' {...register("itemName")}/> 
+                <input type='hidden' value={category} {...register("category")}></input>
                 {/* <label htmlFor="purchaseDate">Date Purchased:</label> */}
                 {/* <input className="input" value={purchaseDate} type='date' placeholder="Date Purchased" id="purchaseDate" name="purchaseDate"/> */}
                 {/* <label htmlFor='type'>Type:</label> */}
