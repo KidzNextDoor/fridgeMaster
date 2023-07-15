@@ -1,9 +1,8 @@
 import axios from 'axios'
 
-export const postFood = async ({ type, expDate2, name, email, category }) => {
+export const postFood = async ({ type, expDate2, name, email }) => {
     try {
-      console.log(category)
-        const res = await axios.post('/api/inventory', { type, expDate: expDate2, name, email, category });
+        const res = await axios.post('/api/inventory', { type, expDate: expDate2, name, email });
         return res.data;
       } catch (err) {
         console.log(err);
