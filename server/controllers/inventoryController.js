@@ -36,7 +36,7 @@ inventoryController.getItem = async (req, res, next) => {
 // @access Private
 inventoryController.setItem = async (req, res, next) => {
   try {
-    const { email, name, type, expDate } = req.body;
+    const { email, name, type, expDate, category } = req.body;
 
     // Generate a unique ID for the new fridge contents
     // const newItemId = mongoose.Types.ObjectId().toHexString();
@@ -51,6 +51,7 @@ inventoryController.setItem = async (req, res, next) => {
             // _id: newItemId,
             name,
             type,
+            category,
             expDate,
           },
         },
