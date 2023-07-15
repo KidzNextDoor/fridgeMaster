@@ -79,7 +79,7 @@ function InputFields({ setFridgeContents, email }) {
             className='inputField' 
             id='purchaseDate' 
             type='date' 
-            onClick={(e) => purchaseDateHandler(e.target.value)} 
+            onInput={(e) => purchaseDateHandler(e.target.value)} 
             defaultValue={purchaseDate} 
             placeholder='purchaseDate' 
             {...register("purchaseDate")}
