@@ -28,10 +28,10 @@ const Register = ({ setView, setIsLoggedIn }) => {
   };
 
   return(
-    <div className="h-screen w-full p-10 mt-10">
+    <div className="h-full w-full flex flex-col">
       <Header />
-      <div className="flex flex-col items-center justify-center p-10">
-        <motion.div className="bg-inherit bg-opacity-80 p-20 rounded-md shadow-2xl w-[550px]">
+      <div className="flex flex-col items-center justify-center">
+        <motion.div className="bg-inherit bg-opacity-80 px-20 pb-20 pt-10 rounded-md shadow-2xl w-[550px]">
           <h2 className="text-slate-800 text-3xl font-mynerve font-bold mb-4">Register</h2>
           <form className="flex flex-col" onSubmit={handleRegister}>
             {/* <label htmlFor="name">Full name</label> */}
@@ -153,7 +153,7 @@ const Register = ({ setView, setIsLoggedIn }) => {
           </div>
         </motion.div>
         <motion.button 
-          className="text-slate-800 bg-inherit font-mynerve text-xl mt-12" 
+          className="text-slate-800 bg-inherit font-mynerve text-xl mt-8" 
           initial={{ opacity: 0.6 }}
           whileHover={{
             scale: 1.2,

@@ -2,10 +2,9 @@ import React from "react";
 import { FaGithub } from 'react-icons/fa';
 
 const GitHubButton = () => {
-  
   return (
     <a 
-      href=""
+      href={''}
       className="
         hover:transform 
         hover:transition-all 

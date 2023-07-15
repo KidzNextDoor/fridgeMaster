@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import expiringSoon from "../images/expiringSoon.png"
-import spoiled  from "../images/spoiled.png"
-import graph from "../images/graph.png"
 import { Contents } from './Contents';
 import { getFood } from '../fetchers/itemFetcher';
 import Header from './Header';
 import InputFields from './InputFields';
 import LoadingSpinner from './LoadingSpinner'
-import ExpiringSoon from './ExpiringSoon';
-import Expired from './Expired';
 import CompositionGraph from './CompositionGraph'
+import IconButtons from './IconButtons';
+import ExpiringSoon from './ExpiringSoon'
+import Expired from './Expired'
+
 //import types object from json object in db
 
 export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
@@ -19,16 +18,6 @@ export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
     const [EClicked, setEClicked] = useState(false)
     const [graphClicked, setgraphClicked] = useState(false)
     const email = localStorage.getItem('email');
-
-    const expiringSoonButton = () => {
-        setESClicked(!ESClicked);
-    }
-    const expiredButton = () => {
-      setEClicked(!EClicked);
-    }
-    const graphButton = () => {
-      setgraphClicked(!graphClicked)
-    }
 
     useEffect(() => {
       const getFoodContent = async () => {
@@ -40,23 +29,38 @@ export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
     }, [])
 
     return (
-        <div className=''>
+        <div className='flex flex-col'>
+          <div className='pb-20'>
             <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-            <div className='flex justify-between'>
-              <div className='font-mynerve text-2xl font-semibold'>Add an item</div>
-              <div className='flex'>
-                <img src={expiringSoon} alt="expiringSoon" onClick={expiringSoonButton}/>
-                {ESClicked && <ExpiringSoon fridgeContents={fridgeContents}/>}
-                <img src={spoiled} alt="spoiled" onClick={expiredButton}/>
-                {EClicked && <Expired fridgeContents={fridgeContents}/>}
-                <img src={graph} alt="graph" onClick={graphButton}/>
-                {graphClicked && <CompositionGraph fridgeContents={fridgeContents}/>}
+          </div>
+            <div className='flex items-center justify-center'>
+              <div className="w-3/5 md:w-1/2 flex flex-col">
+                <div className='flex items-center justify-between'>
+                  <div className='font-mynerve text-2xl font-semibold'>
+                    Add an item
+                  </div>
+                  <IconButtons 
+                    EClicked={EClicked} 
+                    setEClicked={setEClicked} 
+                    ESClicked={ESClicked} 
+                    setESClicked={setESClicked} 
+                    graphClicked={graphClicked} 
+                    setgraphClicked={setgraphClicked} 
+                    fridgeContents={fridgeContents} 
+                  />
+                </div>
+                <div className='flex flex-col w-3/5 gap-4'>
+                  {ESClicked && <ExpiringSoon fridgeContents={fridgeContents}/>}
+                  {EClicked && <Expired fridgeContents={fridgeContents}/>}
+                </div>
+                <div className='flex flex-col'>
+                  <InputFields email={email} setFridgeContents={setFridgeContents} />
+                  { graphClicked ? <CompositionGraph fridgeContents={fridgeContents}/> :
+                    isLoading ? <LoadingSpinner /> : <Contents email={email} isLoading={isLoading} setFridgeContents={setFridgeContents} fridgeContents={fridgeContents}/>
+                  }
+                </div>
               </div>
             </div>
-            <InputFields email={email} setFridgeContents={setFridgeContents} />
-            {/* { error && <div className="font-mynerve text-red-500">Not a valid selection</div> } */}
-            { isLoading ? <LoadingSpinner /> : <Contents email={email} isLoading={isLoading} setFridgeContents={setFridgeContents} fridgeContents={fridgeContents}/> }
-            
         </div>
     );
 };
