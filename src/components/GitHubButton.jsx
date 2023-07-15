@@ -2,10 +2,9 @@ import React from "react";
 import { FaGithub } from 'react-icons/fa';
 
 const GitHubButton = () => {
-  
   return (
     <a 
-      href=""
+      href={`https://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&redirect_uri=http://localhost:8080`}
       className="
         hover:transform 
         hover:transition-all 

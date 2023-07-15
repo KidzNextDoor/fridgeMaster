@@ -29,11 +29,11 @@ const Login = ({ setView, setIsLoggedIn }) => {
   };
 
   return(
-    <div className="h-screen w-full p-10 mt-10">
+    <div className="h-full w-full flex flex-col">
       <Header />
-      <div className="flex flex-col items-center justify-center p-10">
+      <div className="flex flex-col items-center justify-center">
         <motion.div 
-          className="bg-inherit bg-opacity-80 p-20 rounded-md shadow-2xl w-[550px]"
+          className="bg-inherit bg-opacity-80 px-20 pb-20 pt-10 rounded-md shadow-2xl w-[550px]"
           initial={{ opacity:0 }}
           animate={{ opacity:1 }} 
         >
@@ -116,7 +116,7 @@ const Login = ({ setView, setIsLoggedIn }) => {
       </div>
       <div className="flex items-center justify-center">
         <motion.button 
-          className="text-slate-800 bg-inherit font-mynerve text-xl mt-4"
+          className="text-slate-800 bg-inherit font-mynerve text-xl mt-8"
           initial={{ opacity: 0.6 }}
           whileHover={{
             scale: 1.2,
