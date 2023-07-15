@@ -1,8 +1,6 @@
 import axios from 'axios'
 
-const email = localStorage.getItem('email');
-
-export const postFood = async ({ type, expDate2, name }) => {
+export const postFood = async ({ type, expDate2, name, email }) => {
     try {
         const res = await axios.post('/api/inventory', { type, expDate: expDate2, name, email });
         return res.data;
@@ -11,7 +9,7 @@ export const postFood = async ({ type, expDate2, name }) => {
       }
 }
 
-export const getFood = async () => {
+export const getFood = async (email) => {
   try {
     const res = await axios.get(`/api/inventory/${email}`);
     return res.data;
@@ -20,7 +18,7 @@ export const getFood = async () => {
   }
 }
 
-export const deleteFood = async (fridgeContents) => {
+export const deleteFood = async (fridgeContents, email) => {
   try {
     await axios.delete('api/inventory', { data: { fridgeContents, email } })
   } catch (err) {

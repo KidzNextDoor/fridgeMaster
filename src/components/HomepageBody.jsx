@@ -14,8 +14,9 @@ function HomepageBody({ setView }) {
         <div onClick={() => setView('login')}>
           <div 
             className="
-                bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...
                 font-mynerve
+                bg-gradient-to-r from-green-400 to-blue-500 
+                hover:from-pink-500 hover:to-yellow-500
                 hover:transform 
                 hover:transition-all 
                 hover:scale-110 

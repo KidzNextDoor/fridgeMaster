@@ -43,8 +43,9 @@ const columns = [
 // ]
 
 
-export const Contents = ({ fridgeContents, setFridgeContents, isLoading }) => {
+export const Contents = ({ fridgeContents, setFridgeContents, isLoading, email }) => {
     const [selectedRows, setSelectedRows] = useState([]);
+	const [itemsToDelete, setItemsToDelete] = useState(false);
 	const [toggleCleared, setToggleCleared] = useState(false);
 	
 	const handleRowSelected = useCallback(state => {
@@ -57,7 +58,7 @@ export const Contents = ({ fridgeContents, setFridgeContents, isLoading }) => {
 			if (window.confirm(`Are you sure you want to delete:\r ${selectedRows.map(r => r.name)}?`)) {
 				setToggleCleared(!toggleCleared);
 				setFridgeContents(differenceBy(fridgeContents, selectedRows));
-				
+				setItemsToDelete(true);
 			}
 		};
 
@@ -70,11 +71,12 @@ export const Contents = ({ fridgeContents, setFridgeContents, isLoading }) => {
 
 	useEffect(() => {
 		const tryDeleteFood = async () => {
-		  await deleteFood(fridgeContents)
+		  await deleteFood(fridgeContents, email)
 		}
 
-		if (!isLoading) {
+		if (!isLoading && itemsToDelete) {
 		  tryDeleteFood();
+		  setItemsToDelete(false);
 		}
 
 	}, [fridgeContents])
