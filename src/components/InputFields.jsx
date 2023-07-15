@@ -8,19 +8,23 @@ function InputFields({ setFridgeContents, email }) {
     const [expDate2, setExpDate2] = useState(moment().format('YYYY-MM-DD'))
     const [purchaseDate, setPurchaseDate] = useState(moment().format('YYYY-MM-DD'))
     const [daysToSpoil, setDaysToSpoil] = useState(0)
+    const [category, setCategory] = useState('')
     const [error, setError] = useState('')
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const typesArray = []
           shelfLife.forEach(element => { typesArray.push(element.item);
         });
+    const categoryArray = []
+          shelfLife.forEach(element => {categoryArray.push(element.category)})
     
         const onSubmit = async ({type, itemName}) => { 
             if (type === 'Select an option') {
                 setError('Not a valid selection')
                 return; 
             }
-            const res = await postFood({ type, name: itemName, expDate2, email });
+            // console.log(category);
+            const res = await postFood({ type, name: itemName, expDate2, email, category });
             setError('');
             setFridgeContents(res);
             reset();
@@ -28,7 +32,6 @@ function InputFields({ setFridgeContents, email }) {
     
     useEffect(()=>{
         const expirationDateUpdater = () => {
-            console.log('running expirationDateUpdater');
             setExpDate2(moment(purchaseDate).add(daysToSpoil, 'd').format('YYYY-MM-DD'));
             return
         }
@@ -42,8 +45,14 @@ function InputFields({ setFridgeContents, email }) {
     const daysToSpoilHandler = (e) => {
         // e.preventDefault();
         //figure out how to find passed in type "(e)" in shelfLife object
-        shelfLife.forEach((el) => {
-            if(el.item === e){setDaysToSpoil(el.shelflife)}
+        shelfLife.forEach((el, index) => {
+            if(el.item === e){
+              categoryArray.forEach((el, idx) =>{ 
+                if(index === idx && el != undefined){
+                        // console.log(el)
+                        setCategory(el);
+                    }})
+              setDaysToSpoil(el.shelflife)}
         })
     }
 
@@ -84,6 +93,11 @@ function InputFields({ setFridgeContents, email }) {
             placeholder='purchaseDate' 
             {...register("purchaseDate")}
           />
+          <input
+            type='hidden'
+            value={category}
+            {...register("category")}
+            />
           {/* <label className='inputLabels' id='expDate'>Expiration date:</label>
           <input className='inputField' id='expDate' type='date' placeholder='expDate' value={expDate2}  {...register("expDate")}/> */}
           {/* <label htmlFor="purchaseDate">Date Purchased:</label> */}

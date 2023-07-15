@@ -36,9 +36,9 @@ export default function ExpiringSoon( {fridgeContents} ) {
 //         "itemid": "b4f421f1-9a61-4491-ba71-879c5a997734"
 //     }
 // ]
-
   return (
   <div>
+    {console.log(fridgeContents)}
     <h1>Expiring within 5 days:</h1>
     <ul>
       {fridgeContents.map(element => {
