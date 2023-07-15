@@ -4,7 +4,7 @@ import { loginUser } from "../fetchers/userFetcher";
 import GitHubButton from "./GitHubButton";
 import Header from "./Header";
 
-const Login = ({ setCurrentForm, setIsLoggedIn }) => {
+const Login = ({ setView, setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState("");
@@ -19,12 +19,12 @@ const Login = ({ setCurrentForm, setIsLoggedIn }) => {
     
     const res = await loginUser(email, pass, setError);
 
-    localStorage.setItem('email', email);
-
-    if (res === true) {
-      setIsLoggedIn(res);
+    if (res.status === true) {
+      localStorage.setItem('email', email);
+      setIsLoggedIn(res.status);
+      setView('homepage');
     } else {
-      setError(res);
+      setError(res.status);
     }
   };
 
@@ -124,7 +124,7 @@ const Login = ({ setCurrentForm, setIsLoggedIn }) => {
           }}
           whileTap={{ scale: 0.9 }}
           whileInView={{ opacity: 1 }}
-          onClick={() => setCurrentForm('register')}
+          onClick={() => setView('register')}
         >
           New to Fridge Wizard? Join now
         </motion.button>      

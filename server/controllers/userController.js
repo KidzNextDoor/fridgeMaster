@@ -62,6 +62,8 @@ userController.verifyUser = async (req, res, next) => {
       return next();
     }
 
+    res.locals.user = user;
+
     return next();
   } catch (err) {
     return next(err);

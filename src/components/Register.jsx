@@ -5,7 +5,7 @@ import { registerUser } from '../fetchers/userFetcher';
 import { FaGithub } from 'react-icons/fa';
 import Header from "./Header";
 
-const Register = ({ setCurrentForm, setIsLoggedIn }) => {
+const Register = ({ setView, setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [name, setName] = useState("");
@@ -161,7 +161,7 @@ const Register = ({ setCurrentForm, setIsLoggedIn }) => {
           }}
           whileTap={{ scale: 0.9 }}
           whileInView={{ opacity: 1 }}
-          onClick={() => setCurrentForm('login')}
+          onClick={() => setView('login')}
         >
           Already have an account? Login here.
         </motion.button>
