@@ -9,7 +9,7 @@ import InputFields from './InputFields';
 import LoadingSpinner from './LoadingSpinner'
 import ExpiringSoon from './ExpiringSoon';
 import Expired from './Expired';
-// import CompositionGraph from './CompositionGraph'
+import CompositionGraph from './CompositionGraph'
 //import types object from json object in db
 
 export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
@@ -50,7 +50,7 @@ export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
                 <img src={spoiled} alt="spoiled" onClick={expiredButton}/>
                 {EClicked && <Expired fridgeContents={fridgeContents}/>}
                 <img src={graph} alt="graph" onClick={graphButton}/>
-                {/* {graphClicked && <CompositionGraph fridgeContents={fridgeContents}/>} */}
+                {graphClicked && <CompositionGraph fridgeContents={fridgeContents}/>}
               </div>
             </div>
             <InputFields email={email} setFridgeContents={setFridgeContents} />
