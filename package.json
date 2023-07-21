@@ -11,6 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/roboto": "^5.0.5",
+    "@mui/material": "^5.14.1",
     "@tanstack/react-table": "^8.9.3",
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
@@ -50,11 +54,16 @@
     "concurrently": "^8.2.0",
     "css-loader": "^6.8.1",
     "dotenv-webpack": "^8.0.1",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.0",
     "html-webpack-plugin": "^5.5.3",
     "nodemon": "^2.0.22",
     "postcss": "^8.4.25",
     "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^9.0.0",
+    "prettier": "^3.0.0",
     "style-loader": "^3.3.3"
   }
 }
