@@ -33,7 +33,7 @@ function App() {
   }
 
   return (
-    <div className="bg-gradient-to-b from-zinc-100 via-zinc-300 to-sky-300 min-h-screen">
+    <>
       <div className="pb-32">
         {isLoggedIn ? (
           <Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
@@ -45,7 +45,7 @@ function App() {
           />
         )}
       </div>
-    </div>
+    </>
   );
 }
 

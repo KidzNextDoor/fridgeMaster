@@ -75,9 +75,8 @@ function Header() {
 
   // on click route to log in page
   const ShowLogin = () => (
-    <div>
-      <div
-        className="
+    <div
+      className="
                 hover:transform 
                 hover:transition-all 
                 hover:scale-110 
@@ -95,18 +94,17 @@ function Header() {
                 p-4 
                 shadow-xl
               "
-      >
-        <span>Login/Signup</span>
-      </div>
+    >
+      <Link to="/login">Login/Signup</Link>
     </div>
   );
 
   return (
     <header className="sticky top-0 z-50">
       <div className="flex flex-shrink-0 py-10 px-20 justify-between">
-        <a href="/">
+        <Link to="/">
           <img className="max-h-20 flex-shrink-0" src={logo}></img>
-        </a>
+        </Link>
         {isLoggedIn ? <ShowEmail /> : <ShowLogin />}
       </div>
     </header>

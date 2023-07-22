@@ -30,7 +30,6 @@ const Login = ({ setView, setIsLoggedIn }) => {
 
   return(
     <div className="h-full w-full flex flex-col">
-      <Header />
       <div className="flex flex-col items-center justify-center">
         <motion.div 
           className="bg-inherit bg-opacity-80 px-20 pb-20 pt-10 rounded-md shadow-2xl w-[550px]"
