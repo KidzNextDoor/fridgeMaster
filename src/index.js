@@ -1,11 +1,21 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+import { LoggedInProvider } from './contexts/LoggedInContext.js';
 import App from './components/App.jsx';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+
+import '../styles/tailwind.css';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
-root.render(<App />);
+
+const queryClient = new QueryClient();
+
+root.render(
+  <QueryClientProvider client={queryClient}>
+    <LoggedInProvider>
+      <App />
+    </LoggedInProvider>
+  </QueryClientProvider>
+);
