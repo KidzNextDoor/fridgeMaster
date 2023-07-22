@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 export const loginUser = async (email, password) => {
   try {
@@ -7,16 +7,21 @@ export const loginUser = async (email, password) => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 export const registerUser = async (email, password, name) => {
   try {
-    const res = await axios.post('/api/users/register', { email, password, name });
+    const res = await axios.post('/api/users/register', {
+      email,
+      password,
+      name,
+    });
     return res.data;
   } catch (err) {
     console.log(err);
+    return new Error(err.message);
   }
-}
+};
 
 export const checkSession = async () => {
   try {
@@ -25,7 +30,7 @@ export const checkSession = async () => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 export const logoutUser = async () => {
   try {
@@ -35,4 +40,4 @@ export const logoutUser = async () => {
     console.log(err);
     return err;
   }
-}
+};
