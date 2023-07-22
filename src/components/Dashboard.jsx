@@ -30,9 +30,6 @@ export const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
 
     return (
         <div className='flex flex-col'>
-          <div className='pb-20'>
-            <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-          </div>
             <div className='flex items-center justify-center'>
               <div className="w-3/5 md:w-1/2 flex flex-col">
                 <div className='flex items-center justify-between'>
