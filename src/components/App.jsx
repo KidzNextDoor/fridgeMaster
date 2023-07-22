@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 
@@ -10,8 +10,6 @@ import { Dashboard } from './Dashboard';
 function App() {
   const isLoggedIn = useLoggedIn();
   const setIsLoggedIn = useSetLoggedIn();
-
-  const [view, setView] = useState('homepage');
 
   const { isLoading, isError, data, error } = useQuery(['isLoggedIn'], () =>
     axios
@@ -34,17 +32,7 @@ function App() {
 
   return (
     <>
-      <div className="pb-32">
-        {isLoggedIn ? (
-          <Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-        ) : (
-          <Homepage
-            setIsLoggedIn={setIsLoggedIn}
-            view={view}
-            setView={setView}
-          />
-        )}
-      </div>
+      <div className="pb-32">{isLoggedIn ? <Dashboard /> : <Homepage />}</div>
     </>
   );
 }
