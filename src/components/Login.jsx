@@ -1,46 +1,71 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion"
-import { loginUser } from "../fetchers/userFetcher";
-import GitHubButton from "./GitHubButton";
-import Header from "./Header";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useNavigate, Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
-const Login = ({ setView, setIsLoggedIn }) => {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [error, setError] = useState("");
+import { useSetLoggedIn } from '../contexts/LoggedInContext';
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+import { loginUser } from '../fetchers/userFetcher';
+import GitHubButton from './GitHubButton';
 
-    if (!email || !pass) {
-      setError('Email and password are required');
-      return;
-    }
-    
-    const res = await loginUser(email, pass, setError);
+const Login = () => {
+  const [loginFailed, setLoginFailed] = useState(false);
+  const setIsLoggedIn = useSetLoggedIn();
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleLogin = async e => {
+    const res = await loginUser(e.email, e.password);
 
     if (res.status === true) {
-      localStorage.setItem('email', email);
-      setIsLoggedIn(res.status);
-      setView('homepage');
+      // true means verified
+      localStorage.setItem('email', e.email);
+      setIsLoggedIn(true);
+      navigate('/');
     } else {
-      setError(res.status);
+      setLoginFailed(true);
     }
   };
 
-  return(
+  const emailFieldOptions = {
+    required: 'Please enter an email',
+    pattern: {
+      message: 'Email format is not valid',
+      value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+    },
+  };
+
+  const passwordFieldOptions = {
+    required: 'Please enter a password',
+    minLength: {
+      value: 4,
+      message: 'Password must be at least 4 characters',
+    },
+  };
+
+  return (
     <div className="h-full w-full flex flex-col">
-      <Header />
-      <div className="flex flex-col items-center justify-center">
-        <motion.div 
+      <section className="flex flex-col items-center justify-center">
+        <motion.div
           className="bg-inherit bg-opacity-80 px-20 pb-20 pt-10 rounded-md shadow-2xl w-[550px]"
-          initial={{ opacity:0 }}
-          animate={{ opacity:1 }} 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
         >
-          <h2 className="text-slate-800 text-3xl font-bold mb-4 font-mynerve">Login</h2>
-          <form className="flex flex-col" onSubmit={handleLogin}>
-            {/* <label className="text-slate-800 text-sm" htmlFor="email">email</label> */}
-            <input 
+          <h2 className="text-slate-800 text-3xl font-bold mb-4 font-mynerve">
+            Login
+          </h2>
+          {loginFailed && (
+            <p className="text-red-500 font-mynerve text-lg font-semibold p-4 m-auto">
+              Incorrect email or password. Please try again.
+            </p>
+          )}
+          <form className="flex flex-col" onSubmit={handleSubmit(handleLogin)}>
+            <input
+              {...register('email', emailFieldOptions)}
               className="
                 focus:transform 
                 focus:transition-all 
@@ -55,53 +80,55 @@ const Login = ({ setView, setIsLoggedIn }) => {
                 outline-1 
                 outline-slate-400
                 p-3 
-              " 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              type="email" 
-              placeholder="Email" 
-              id="email" 
-              name="email" 
-              autoComplete="username" 
+              "
+              placeholder="Email"
+              autoComplete="email"
             />
-            {/* <label className="text-slate-800 text-sm" htmlFor="password">password</label> */}
-            <input 
+            {errors.email && (
+              <p className="text-red-500 font-mynerve text-lg font-semibold p-4 m-auto">
+                {errors.email.message}
+              </p>
+            )}
+            <input
               className="
-                focus:transform 
-                focus:transition-all 
-                focus:scale-110 
-                focus:outline-slate-700 
-                text-sm 
-                font-mynerve
-                shadow-xl 
-                rounded-md 
-                bg-inherit 
-                outline 
-                outline-1 
-                outline-slate-400
-                p-3 
-              " 
-              value={pass} 
-              onChange={(e) => setPass(e.target.value)} 
-              type="password" 
-              placeholder="Password" 
-              id="password" 
-              name="password" 
-              autoComplete="current-password" 
+              focus:transform 
+              focus:transition-all 
+              focus:scale-110 
+              focus:outline-slate-700 
+              text-sm 
+              font-mynerve
+              shadow-xl 
+              rounded-md 
+              bg-inherit 
+              outline 
+              outline-1 
+              outline-slate-400
+              p-3 
+              "
+              type="password"
+              placeholder="Password"
+              autoComplete="current-password"
+              {...register('password', passwordFieldOptions)}
             />
-            {error && <p className="text-red-500 font-mynerve text-lg font-semibold p-4 m-auto">{error}</p>}
-            <span className="hover:underline text-blue-700 cursor-pointer font-mynerve w-32 pt-4 ">Forgot password?</span>
+            {errors.password && (
+              <p className="text-red-500 font-mynerve text-lg font-semibold p-4 m-auto">
+                {errors.password.message}
+              </p>
+            )}
+            <span className="hover:underline text-blue-700 cursor-pointer font-mynerve w-32 pt-4 ">
+              Forgot password?
+            </span>
             <motion.button
-              className="p-4 rounded-3xl bg-blue-600 bg-opacity-95 mt-4 text-white text-xl font-mynerve shadow-xl" 
+              className="p-4 rounded-3xl bg-blue-600 bg-opacity-95 mt-4 text-white text-xl font-mynerve shadow-xl"
               initial={{ opacity: 0.6 }}
               whileHover={{
-                scale: 1.1,
+                scale: 1.05,
                 transition: { duration: 0.1 },
               }}
               whileTap={{ scale: 0.9 }}
               whileInView={{ opacity: 1 }}
             >
-              Login
+              <input type="submit" />
             </motion.button>
           </form>
           <div className="text-center mt-4">
@@ -113,24 +140,25 @@ const Login = ({ setView, setIsLoggedIn }) => {
             <GitHubButton />
           </div>
         </motion.div>
-      </div>
-      <div className="flex items-center justify-center">
-        <motion.button 
-          className="text-slate-800 bg-inherit font-mynerve text-xl mt-8"
-          initial={{ opacity: 0.6 }}
-          whileHover={{
-            scale: 1.2,
-            transition: { duration: 0.1 },
-          }}
-          whileTap={{ scale: 0.9 }}
-          whileInView={{ opacity: 1 }}
-          onClick={() => setView('register')}
-        >
-          New to Fridge Wizard? Join now
-        </motion.button>      
-      </div>
+      </section>
+      <section>
+        <Link to="/register" className="flex items-center justify-center">
+          <motion.button
+            className="text-slate-800 bg-inherit font-mynerve text-xl mt-8"
+            initial={{ opacity: 0.6 }}
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.1 },
+            }}
+            whileTap={{ scale: 0.9 }}
+            whileInView={{ opacity: 1 }}
+          >
+            New to Fridge Wizard? Join now
+          </motion.button>
+        </Link>
+      </section>
     </div>
-  )
+  );
 };
 
 export default Login;
