@@ -1,0 +1,67 @@
+CREATE VIEW RecipeSelector AS
+
+WITH allRecipes AS (
+    SELECT
+        U.userID, 
+        R.recipeID,
+        R.name recipe
+    FROM users U
+    LEFT JOIN recipes R ON TRUE
+),
+userFridge AS (
+	SELECT 
+		U.userID,
+		F.fridgeID,
+		F.name fridgeItem,
+		F.expdate,
+		(SELECT DATE_PART('day', F.expdate - NOW())) AS expDays
+	FROM users U
+	INNER JOIN fridge F ON F.userID = U.userID
+    WHERE F.expdate >= NOW()
+),
+Score AS (
+    SELECT 
+        *,
+        RANK() OVER(PARTITION BY(userID) ORDER BY(expDays) DESC)
+    FROM userFridge
+),
+Ingredients AS (
+    SELECT
+        S.*,
+        I.ingredientID,
+        I.recipeID,
+        R.name recipe,
+        I.name ingredient
+    FROM Score S
+    LEFT JOIN Ingredients I ON I.name = S.fridgeItem
+    INNER JOIN recipes R ON R.recipeID = I.recipeID
+),
+Recipes AS (
+    SELECT DISTINCT
+        userID,
+        recipeID,
+        recipe,
+        SUM(rank) OVER(PARTITION BY userID, recipeID) score   
+    From Ingredients
+),
+Results AS (
+    SELECT 
+        userid,
+        recipeid,
+        recipe
+    FROM Recipes
+    UNION
+    SELECT
+        userid,
+        recipeid,
+        recipe
+    FROM allRecipes
+) 
+SELECT 
+    S.userid,
+    S.recipeid,
+    S.recipe,
+    COALESCE(R.score, 0) score
+FROM Results S
+LEFT JOIN Recipes R ON R.recipeid = S.recipeid
+ORDER BY score DESC;
