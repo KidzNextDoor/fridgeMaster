@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { Contents } from './Contents';
 import { getFood } from '../fetchers/itemFetcher';
 
-import InputFields from './InputFields';
 import LoadingSpinner from './LoadingSpinner';
 import CompositionGraph from './CompositionGraph';
 import IconButtons from './IconButtons';
 import ExpiringSoon from './ExpiringSoon';
 import Expired from './Expired';
+import InputForm from './InputForm';
 
 //import types object from json object in db
 
@@ -53,7 +53,8 @@ export const Dashboard = () => {
             {EClicked && <Expired fridgeContents={fridgeContents} />}
           </div>
           <div className="flex flex-col">
-            <InputFields email={email} setFridgeContents={setFridgeContents} />
+            {/* <InputFields email={email} setFridgeContents={setFridgeContents} /> */}
+            <InputForm />
             {graphClicked ? (
               <CompositionGraph fridgeContents={fridgeContents} />
             ) : isLoading ? (
