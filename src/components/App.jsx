@@ -27,7 +27,7 @@ function App() {
   }
 
   if (isError) {
-    return <div>{error}</div>;
+    return <div>{JSON.stringify(error)}</div>;
   }
 
   return (
