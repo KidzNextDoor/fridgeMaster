@@ -2,6 +2,9 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+
 import { useLoggedIn, useSetLoggedIn } from '../contexts/LoggedInContext';
 
 import Homepage from './Homepage';
@@ -27,13 +30,13 @@ function App() {
   }
 
   if (isError) {
-    return <div>{error}</div>;
+    return <div>{JSON.stringify(error)}</div>;
   }
 
   return (
-    <>
+    <LocalizationProvider dateAdapter={AdapterMoment}>
       <div className="pb-32">{isLoggedIn ? <Dashboard /> : <Homepage />}</div>
-    </>
+    </LocalizationProvider>
   );
 }
 
