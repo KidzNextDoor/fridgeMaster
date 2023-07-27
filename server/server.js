@@ -3,6 +3,11 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const { errorHandler } = require('./middleware/errorMiddleware');
+const express = require('express');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const path = require('path');
+const { errorHandler } = require('./middleware/errorMiddleware');
 
 const PORT = 3000;
 
@@ -26,6 +31,10 @@ app.use(express.static(path.resolve(__dirname, '../build')));
 
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, '../index.html'));
+});
+
+app.get('/shelflife', (req, res) => {
+  return res.status(200).sendFile(path.resolve(__dirname, 'shelflife.json'));
 });
 
 // created a route file to keep code organized

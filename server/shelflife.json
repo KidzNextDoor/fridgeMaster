@@ -1,57 +1,4370 @@
-[{"item":"eggs","shelflife":21, "category": "dairy & dairy substitutes"},
-{"item":"yogurt","shelflife":14, "category": "dairy & dairy substitutes"},
-{"item":"milk","shelflife":7, "category": "dairy & dairy substitutes"},
-{"item":"butter","shelflife":90, "category": "dairy & dairy substitutes"},
-{"item":"hard cheeses","shelflife":120, "category": "dairy & dairy substitutes"},
-{"item":"cream cheese","shelflife":60, "category": "dairy & dairy substitutes"},
-{"item":"heavy cream","shelflife":30, "category": "dairy & dairy substitutes"},
-{"item":"ricotta","shelflife":7, "category": "dairy & dairy substitutes"},
-{"item":"cottage cheese","shelflife":7, "category": "dairy & dairy substitutes"},
-{"item":"sour cream","shelflife":21, "category": "dairy & dairy substitutes"},
-{"item":"soft cheese","shelflife":14, "category": "dairy & dairy substitutes"},
-{"item":"pizza","shelflife":3, "category": "dairy & dairy substitutes"},
-{"item":"tofu","shelflife":21, "category": "dairy & dairy substitutes"},
-{"item":"bacon","shelflife":7, "category": "meat, seafood & poultry"},
-{"item":"cold cuts","shelflife":5, "category": "meat, seafood & poultry"},
-{"item":"hot dogs","shelflife":7, "category": "meat, seafood & poultry"},
-{"item":"chicken","shelflife":1, "category": "meat, seafood & poultry"},
-{"item":"fish fillets","shelflife":1, "category": "meat, seafood & poultry"},
-{"item":"ground meat","shelflife":1, "category": "meat, seafood & poultry"},
-{"item":"pork","shelflife":3, "category": "meat, seafood & poultry"},
-{"item":"shrimp (raw)","shelflife":2, "category": "meat, seafood & poultry"},
-{"item":"shellfish (in shell)","shelflife":2, "category": "meat, seafood & poultry"},
-{"item":"shellfish (shucked)","shelflife":1, "category": "meat, seafood & poultry"},
-{"item":"steaks","shelflife":3, "category": "meat, seafood & poultry"},
-{"item":"other","shelflife":0},
-{"category": "other", "shelflife":0},
-{"item":"apples","shelflife":21, "category": "produce"},
-{"item":"avocados","shelflife":14, "category": "produce"},
-{"item":"blueberries","shelflife":7, "category": "produce"},
-{"item":"broccoli","shelflife":7, "category": "produce"},
-{"item":"cauliflower","shelflife":7, "category": "produce"},
-{"item":"chard","shelflife":3, "category": "produce"},
-{"item":"kale","shelflife":3, "category": "produce"},
-{"item":"spinach","shelflife":3, "category": "produce"},
-{"item":"leafy herbs","shelflife":3, "category": "produce"},
-{"item":"lemon(s)","shelflife":21, "category": "produce"},
-{"item":"lime(s)","shelflife":21, "category": "produce"},
-{"item":"lettuce","shelflife":5, "category": "produce"},
-{"item":"mangoes","shelflife":5, "category": "produce"},
-{"item":"melon","shelflife":5, "category": "produce"},
-{"item":"mushrooms (sliced)","shelflife":2, "category": "produce"},
-{"item":"mushrooms (whole)","shelflife":7, "category": "produce"},
-{"item":"winter squash","shelflife":7, "category": "produce"},
-{"item":"woody herbs","shelflife":21, "category": "produce"},
-{"item":"strawberries","shelflife":3, "category": "produce"},
-{"item":"raspberries","shelflife":3, "category": "produce"},
-{"item":"ketchup","shelflife":180, "category": "condiments"},
-{"item":"mayonnaise","shelflife":60, "category": "condiments"},
-{"item":"soy sauce","shelflife":365, "category": "condiments"},
-{"item":"mustard","shelflife":30, "category": "condiments"},
-{"item":"salsa","shelflife":30, "category": "condiments"},
-{"item":"maple syrup","shelflife":365, "category": "condiments"},
-{"item":"jam","shelflife":180, "category": "condiments"},
-{"item":"jelly","shelflife":180,"category":"condiments"},
-{"item":"beer","shelflife":1,"category":"drinks"},
-{"item":"soda","shelflife":2,"category":"drinks"}
+[
+  {
+    "Name": "Jerky",
+    "Name_subtitle": "homemade",
+    "Keywords": "Jerky,homemade",
+    "Max": 2,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Fruit pies",
+    "Name_subtitle": "apple, peach, blueberry, apricot, cherry, blackberry",
+    "Keywords": "Pies,fruit,pie,apple,apple pie,peach,peach pie,blueberry,blueberry pie,cherry,cherry pie,apricot,apricot pie,blackberry,blackberry pie",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pies",
+    "Name_subtitle": "mincemeat",
+    "Keywords": "Pies,mincemeat,pie,meat,mince",
+    "Max": 2,
+    "Metric": "Hours"
+  },
+  {
+    "Name": "Pies",
+    "Name_subtitle": "pecan",
+    "Keywords": "Pies,Pie,pecan",
+    "Max": 2,
+    "Metric": "Hours"
+  },
+  {
+    "Name": "Pies",
+    "Name_subtitle": "pumpkin",
+    "Keywords": "Pies,Pie,pumpkin",
+    "Max": 2,
+    "Metric": "Hours"
+  },
+  {
+    "Name": "Quiche",
+    "Name_subtitle": "",
+    "Keywords": "Quiche",
+    "Max": 2,
+    "Metric": "Hours"
+  },
+  {
+    "Name": "Fruit cocktail",
+    "Name_subtitle": "canned",
+    "Keywords": "Fruit cocktail,cocktail,fruit,canned,can",
+    "Max": 18,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Bagel",
+    "Name_subtitle": "fresh baked",
+    "Keywords": "Bagel,fresh baked,baked",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Muffin",
+    "Name_subtitle": "homemade - including bran, blueberry, banana, corn, chocolate chip",
+    "Keywords": "Muffin,homemade including bran,homemade,bran,blueberry,banana,corn,chocolate chip,including bran,chocolate,chip",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Muffin",
+    "Name_subtitle": "commercially packaged",
+    "Keywords": "Muffin,commercially packaged,packaged",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Muffin",
+    "Name_subtitle": "mix, dry, commercially packaged",
+    "Keywords": "Muffin,mix,dry,commercially packaged,packaged,commercially,commercial",
+    "Max": 9,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Coconut oil",
+    "Name_subtitle": "",
+    "Keywords": "Coconut oil,coconut,oil",
+    "Max": 3,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Whole wheat flour",
+    "Name_subtitle": "",
+    "Keywords": "Whole wheat flour,Whole,wheat,flour,wheat flour,whole wheat",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Whole wheat bread",
+    "Name_subtitle": "homemade",
+    "Keywords": "Whole wheat bread,Whole,wheat,bread,homemade,whole wheat,wheat bread",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Whole wheat bread",
+    "Name_subtitle": "commercially baked & pre-sliced",
+    "Keywords": "Whole wheat flour,Whole,wheat,flour,wheat flour,whole wheat,commercially baked,pre sliced,sliced,slice,baked,commercially,commercial",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Red wine",
+    "Name_subtitle": "",
+    "Keywords": "Red wine,red,wine",
+    "Max": 5,
+    "Metric": "Years"
+  },
+  {
+    "Name": "White wine",
+    "Name_subtitle": "",
+    "Keywords": "White wine,white,wine",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Dry stuffing mix",
+    "Name_subtitle": "commercially packaged",
+    "Keywords": "Dry stuffing mix,Dry stuffing,stuffing mix,Dry,stuffing,mix,commercially packaged,packaged,commercially,commercial,pack",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Powdered milk",
+    "Name_subtitle": "",
+    "Keywords": "Powdered milk,Powdered,milk,powder",
+    "Max": 5,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Almond butter",
+    "Name_subtitle": "",
+    "Keywords": "Almond butter,Almond,butter",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Cashew butter",
+    "Name_subtitle": "",
+    "Keywords": "Cashew butter,Cashew,butter",
+    "Max": 3,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Star fruit",
+    "Name_subtitle": "",
+    "Keywords": "Star fruit,fruit,fruits",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Prickly pear",
+    "Name_subtitle": "",
+    "Keywords": "Prickly pear,pear,pickle",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pitaya/dragon fruit",
+    "Name_subtitle": "",
+    "Keywords": "Pitaya,dragon fruit,fruit,fruits",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cilantro",
+    "Name_subtitle": "",
+    "Keywords": "Cilantro",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Mint",
+    "Name_subtitle": "",
+    "Keywords": "Mint",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Basil",
+    "Name_subtitle": "dried",
+    "Keywords": "Basil,dried",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Basil",
+    "Name_subtitle": "fresh",
+    "Keywords": "Basil,fresh",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Oregano",
+    "Name_subtitle": "",
+    "Keywords": "Oregano",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Rosemary",
+    "Name_subtitle": "",
+    "Keywords": "Rosemary",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Chives",
+    "Name_subtitle": "",
+    "Keywords": "Chives",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Thyme",
+    "Name_subtitle": "",
+    "Keywords": "Thyme",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Almond extract",
+    "Name_subtitle": "",
+    "Keywords": "Almond extract",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Cinnamon extract",
+    "Name_subtitle": "",
+    "Keywords": "Cinnamon extract",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Lemon extract",
+    "Name_subtitle": "",
+    "Keywords": "Lemon extract,lemon",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Pure vanilla extract",
+    "Name_subtitle": "",
+    "Keywords": "vanilla,vanila extract",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Butter flavor",
+    "Name_subtitle": "",
+    "Keywords": "Butter flavor,butter",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Coconut flavor",
+    "Name_subtitle": "",
+    "Keywords": "Coconut flavor,coconut",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Genuine\" Maple syrup",
+    "Name_subtitle": "unopened, glass",
+    "Keywords": "Genuine Maple syrup,syrup,unopened, glass",
+    "Max": 4,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Genuine\" Maple syrup",
+    "Name_subtitle": "unopened, plastic",
+    "Keywords": "Genuine Maple syrup,syrup,unopened, plastic",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Cream liquors",
+    "Name_subtitle": "unopened",
+    "Keywords": "Cream liquors,liquors,unopened,liquor",
+    "Max": 8,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Macaroons",
+    "Name_subtitle": "french",
+    "Keywords": "Macaroons,Macaroon,french",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Granola",
+    "Name_subtitle": "",
+    "Keywords": "Granola",
+    "Max": 9,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Pork rinds",
+    "Name_subtitle": "",
+    "Keywords": "Pork rinds,pork,rinds",
+    "Max": 4,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Hot sauce",
+    "Name_subtitle": "",
+    "Keywords": "Hot sauce,sauce",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Chia seeds",
+    "Name_subtitle": "",
+    "Keywords": "Chia seeds,chia,seed,seeds",
+    "Max": 18,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Bread",
+    "Name_subtitle": "homemade",
+    "Keywords": "Bread,Breads,homemade",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Amaranth",
+    "Name_subtitle": "whole grain",
+    "Keywords": "Amaranth,whole grain,grain",
+    "Max": 4,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Amaranth",
+    "Name_subtitle": "flour, meal",
+    "Keywords": "Amaranth,flour,meal",
+    "Max": 2,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Barley",
+    "Name_subtitle": "whole grain",
+    "Keywords": "Barley,whole grain,grain",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Barley",
+    "Name_subtitle": "flour, meal",
+    "Keywords": "Barley,flour, meal",
+    "Max": 3,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Buckwheat",
+    "Name_subtitle": "whole grain",
+    "Keywords": "Buckwheat,whole grain,grain",
+    "Max": 2,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Buckwheat",
+    "Name_subtitle": "flour, meal",
+    "Keywords": "Buckwheat,flour, meal,meal",
+    "Max": 1,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Farro",
+    "Name_subtitle": "whole grain",
+    "Keywords": "Farro,whole grain,grain",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Farro",
+    "Name_subtitle": "flour, meal",
+    "Keywords": "Farro,flour, meal",
+    "Max": 3,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Millet",
+    "Name_subtitle": "whole grain",
+    "Keywords": "Millet,whole grain,grain",
+    "Max": 2,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Millet",
+    "Name_subtitle": "flour, meal",
+    "Keywords": "Millet,flour, meal",
+    "Max": 1,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Oats",
+    "Name_subtitle": "whole grain",
+    "Keywords": "Oat,Oats,whole grain,grain",
+    "Max": 4,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Oats",
+    "Name_subtitle": "flour, meal",
+    "Keywords": "Oats,Oat,flour, meal",
+    "Max": 2,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Rye",
+    "Name_subtitle": "whole grain",
+    "Keywords": "Rye,whole grain,grain",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Rye",
+    "Name_subtitle": "flour, meal",
+    "Keywords": "Rye,flour, meal",
+    "Max": 3,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Sorghum",
+    "Name_subtitle": "whole grain",
+    "Keywords": "Sorghum,whole grain,grain",
+    "Max": 4,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Sorghum",
+    "Name_subtitle": "flour, meal",
+    "Keywords": "Sorghum,flour, meal",
+    "Max": 2,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Spelt",
+    "Name_subtitle": "whole grain",
+    "Keywords": "Spelt,whole grain,grain",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Spelt",
+    "Name_subtitle": "flour, meal",
+    "Keywords": "Spelt,flour, meal",
+    "Max": 3,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Teff",
+    "Name_subtitle": "whole grain",
+    "Keywords": "Teff,whole grain,grain",
+    "Max": 4,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Teff",
+    "Name_subtitle": "flour, meal",
+    "Keywords": "Teff,flour, meal",
+    "Max": 2,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Spaghetti squash",
+    "Name_subtitle": "whole",
+    "Keywords": "Spaghetti squash,squash,whole",
+    "Max": 2,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Garam masala",
+    "Name_subtitle": "",
+    "Keywords": "Garam masala",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Cherry tomatoes",
+    "Name_subtitle": "",
+    "Keywords": "Cherry, tomatoes,tomato",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pumpkin seeds",
+    "Name_subtitle": "raw, no shell",
+    "Keywords": "pumpkin,pumpkin seed,pumpkin seeds,seed,seeds",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Pumpkin seeds",
+    "Name_subtitle": "raw, in-shell",
+    "Keywords": "pumpkin,pumpkin seed,pumpkin seeds,seed,seeds",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Pumpkin seeds",
+    "Name_subtitle": "roasted, no-shell",
+    "Keywords": "pumpkin,pumpkin seed,pumpkin seeds,seed,seeds",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Pumpkin seeds",
+    "Name_subtitle": "roasted, in-shell",
+    "Keywords": "pumpkin,pumpkin seed,pumpkin seeds,seed,seeds",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Sunflower seeds",
+    "Name_subtitle": "raw, unsalted, no shell",
+    "Keywords": "sunflower,sunflower seed,sunflower seeds,seed,seeds",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Sesame seeds",
+    "Name_subtitle": "",
+    "Keywords": "sesame seeds,sesame,seeds,seed",
+    "Max": 5,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Tuna",
+    "Name_subtitle": "canned",
+    "Keywords": "canned tuna,tuna,canned",
+    "Max": 3,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Seafood",
+    "Name_subtitle": "canned",
+    "Keywords": "canned seafood,seafood,canned",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Chorizo",
+    "Name_subtitle": "smoked and processed, cooked",
+    "Keywords": "smoked chorizo,chorizo,processed chorizo,smoked,processed,cooked,cooked processed chorizo,cooked smoked chorizo",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Beets",
+    "Name_subtitle": "pickled",
+    "Keywords": "pickled beets,beets,pickled",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Cinnamon rolls",
+    "Name_subtitle": "baked",
+    "Keywords": "cinnamon rolls,cinnamon roll,cinnamon,roll,rolls",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Bulgur",
+    "Name_subtitle": "",
+    "Keywords": "bulgur",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Edamame",
+    "Name_subtitle": "salted, dry roasted, out of pod",
+    "Keywords": "edamame,soybean,soybeans,salted,roasted,dry roasted",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Breadcrumbs",
+    "Name_subtitle": "commercial",
+    "Keywords": "breadcrumbs,breadcrumb",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Salsa",
+    "Name_subtitle": "homemade, canned",
+    "Keywords": "homemade salsa,homemade,salsa",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Tomato Sauce",
+    "Name_subtitle": "homemade, canned",
+    "Keywords": "homemade tomato sauce,homemade sauce,homemade spaghetti sauce,spaghetti sauce,tomato sauce,homemade",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Barbecue Sauce",
+    "Name_subtitle": "homemade, canned",
+    "Keywords": "homemade barbecue sauce,homemade sauce,homemade BBQ sauce,BBQ sauce,barbecue sauce",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Ghee",
+    "Name_subtitle": "",
+    "Keywords": "ghee,clarified butter,clarified,butter",
+    "Max": 8,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Corn syrup",
+    "Name_subtitle": "",
+    "Keywords": "corn syrup,corn,syrup",
+    "Max": 3,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Instant breakfast drinks",
+    "Name_subtitle": "bottled",
+    "Keywords": "instant breakfast drinks,instant,breakfast,drinks,instant breakfast,instant drink,carnation,bottled instant breakfast drink,bottled instant breakfast,bottled breakfast",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Pine nuts",
+    "Name_subtitle": "",
+    "Keywords": "pine nuts,pine nut,pine,nut,nuts",
+    "Max": 3,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Cereal or granola bars",
+    "Name_subtitle": "",
+    "Keywords": "bars,bar,granola bars,granola bar,granola,cereal bars,cereal bar,nutrition bars,nutrition bar,energy bars,energy bar,health bars,health bar,fruit bars,fruit bar,snack bars,snack barsnack,,nut bars,nut bar,seed bars,seed bar,crunchy bars,crunchy bar,breakfast,breakfast bar,breakfast bars",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Apple cider",
+    "Name_subtitle": "fresh",
+    "Keywords": "apple cider,apple,cider",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Anchovies",
+    "Name_subtitle": "canned",
+    "Keywords": "anchovies,anchovy,canned anchovies",
+    "Max": 5,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Mung bean",
+    "Name_subtitle": "dry, food-grade bags",
+    "Keywords": "mung beans,mung bean,mung,bean,dry mung beans,dry,bag,bagged mung beans",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Mung bean",
+    "Name_subtitle": "dry, vacuum-sealed",
+    "Keywords": "mung beans,mung bean,mung,bean,dry mung beans,dry,vacuum sealed,vacuum sealed mung beans",
+    "Max": 10,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Croutons",
+    "Name_subtitle": "",
+    "Keywords": "croutons,crouton,bread",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Mustard",
+    "Name_subtitle": "dried, ground",
+    "Keywords": "mustard,dried mustard,ground mustard,dried ground mustard",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Bacon",
+    "Name_subtitle": "fully cooked",
+    "Keywords": "Bacon,fully cooked,cooked",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "shelf-stable cans",
+    "Keywords": "Ham,shelf stable cans,cans,shelf stable,shelf,stable,can",
+    "Max": 9,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Jerky",
+    "Name_subtitle": "commercially dried",
+    "Keywords": "Jerky,commercially dried,dried",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Meat products",
+    "Name_subtitle": "canned",
+    "Keywords": "Meat products,products,canned,meat,product",
+    "Max": 5,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Canned chicken",
+    "Name_subtitle": "",
+    "Keywords": "Canned chicken,chicken,canned,can",
+    "Max": 5,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Soy flour",
+    "Name_subtitle": "full-fat",
+    "Keywords": "Soy flour,full fat,soy,flour,fat",
+    "Max": 2,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Textured soy protein",
+    "Name_subtitle": "(TSP)",
+    "Keywords": "Textured soy protein,protein,TSP,soy protein,soy",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Re-hydrated textured soy protein",
+    "Name_subtitle": "(TSP)",
+    "Keywords": "Re hydrated textured soy protein,protein,TSP,soy,soy protein,textured soy protein,Re hydrated",
+    "Max": 4,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Commercial bread products",
+    "Name_subtitle": "including pan breads, flat breads, rolls, and buns",
+    "Keywords": "Commercial bread products,pan breads,flat breads,rolls,buns,bread products,bread,products,product,pan,breads,bread,flat,roll,bun",
+    "Max": 18,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Tortillas",
+    "Name_subtitle": "flour",
+    "Keywords": "Tortillas,Tortilla",
+    "Max": 3,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Commercial cakes and muffins",
+    "Name_subtitle": "",
+    "Keywords": "Commercial cakes,cake,muffin,muffins",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cookies",
+    "Name_subtitle": "soft",
+    "Keywords": "Cookies,soft,cookie",
+    "Max": 3,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Cookies",
+    "Name_subtitle": "crispy",
+    "Keywords": "Cookies,crispy,cookie",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Doughnuts",
+    "Name_subtitle": "",
+    "Keywords": "Doughnuts,doughnut,dough,nut",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Fruit cake",
+    "Name_subtitle": "",
+    "Keywords": "Fruit cake,fruit,cake",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Pastries, danish",
+    "Name_subtitle": "",
+    "Keywords": "Pastries,danish,pastry",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Baking powder",
+    "Name_subtitle": "",
+    "Keywords": "Baking powder,baking,powder",
+    "Max": 18,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Baking soda",
+    "Name_subtitle": "",
+    "Keywords": "Baking soda,soda,baking",
+    "Max": 3,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Biscuit or pancake mix",
+    "Name_subtitle": "",
+    "Keywords": "Biscuit,pancake mix,pancake,mix,cake",
+    "Max": 9,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Cake, brownie, bread mixes",
+    "Name_subtitle": "",
+    "Keywords": "Cake,brownie,bread mixes,bread,mixes,mix",
+    "Max": 18,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Chocolate",
+    "Name_subtitle": "unsweetened and semi-sweet, solid",
+    "Keywords": "Chocolate,unsweetened,semi sweet,solid,sweet",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Cornmeal",
+    "Name_subtitle": "regular, degerminated",
+    "Keywords": "Cornmeal,regular,degerminated,germinated,germinate,corn,meal",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Cornmeal",
+    "Name_subtitle": "stone ground or blue",
+    "Keywords": "Cornmeal,stone ground,blue,ground,stone,corn,meal",
+    "Max": 1,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Cornstarch",
+    "Name_subtitle": "",
+    "Keywords": "Cornstarch,corn,starch",
+    "Max": 24,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Flour",
+    "Name_subtitle": "white",
+    "Keywords": "Flour,white",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Flour",
+    "Name_subtitle": "whole wheat",
+    "Keywords": "Flour,whole wheat,wheat",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Frosting or icing",
+    "Name_subtitle": "",
+    "Keywords": "Frosting,icing,frost,ice",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Gelatin",
+    "Name_subtitle": "flavored",
+    "Keywords": "Gelatin,flavor,flavored",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Gelatin",
+    "Name_subtitle": "unflavored",
+    "Keywords": "Gelatin,unflavor,unflavored",
+    "Max": 3,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Oils",
+    "Name_subtitle": "olive or vegetable",
+    "Keywords": "Oils,olive,vegetable,oil",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Nut oils",
+    "Name_subtitle": "",
+    "Keywords": "Nut oils,nut,oils,oil",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Vegetable oil sprays",
+    "Name_subtitle": "",
+    "Keywords": "Vegetable oil sprays,sprays,oil,vegetable,vegetable oil",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Shortening",
+    "Name_subtitle": "solid",
+    "Keywords": "Shortening,solid",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Tamarind paste",
+    "Name_subtitle": "",
+    "Keywords": "Tamarind paste,paste,tamarind",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Chili powder",
+    "Name_subtitle": "",
+    "Keywords": "Chili powder,powder,chili",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Seasoning blends",
+    "Name_subtitle": "",
+    "Keywords": "Seasoning blends,blends,seasoning,blend",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Flavored or herb mixes",
+    "Name_subtitle": "",
+    "Keywords": "Flavored,herb mixes,herb,flavor,mixes,mix",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Garlic",
+    "Name_subtitle": "chopped, commercial jars",
+    "Keywords": "Garlic,chopped,jars,commercial jars,jar",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Herbs",
+    "Name_subtitle": "dried",
+    "Keywords": "Herbs,dried,herb",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Spice/spices",
+    "Name_subtitle": "whole",
+    "Keywords": "Spice,spices,whole",
+    "Max": 4,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Spice/spices",
+    "Name_subtitle": "ground",
+    "Keywords": "Spice,spices,ground",
+    "Max": 3,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Sugar substitutes",
+    "Name_subtitle": "",
+    "Keywords": "Sugar substitutes,sugar,substitutes,substitute",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Tapiocas",
+    "Name_subtitle": "",
+    "Keywords": "Tapiocas,Tapioca",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Apples",
+    "Name_subtitle": "",
+    "Keywords": "Apples,apple",
+    "Max": 3,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Citrus fruit",
+    "Name_subtitle": "lemon, lime, orange, grapefruit, tangerines, clementines",
+    "Keywords": "Citrus fruit,fruit,citrus,lemon,lime,orange,grape,grapefruit,tangerines,tangerine,clementines,clementine",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Coconut",
+    "Name_subtitle": "shredded",
+    "Keywords": "Coconut,shredded",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Coconuts",
+    "Name_subtitle": "fresh",
+    "Keywords": "Coconuts,Coconut,fresh",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Dates",
+    "Name_subtitle": "",
+    "Keywords": "Dates",
+    "Max": 2,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Grapes",
+    "Name_subtitle": "",
+    "Keywords": "Grapes,grape",
+    "Max": 1,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Papaya, mango, feijoa, passionfruit, casaha melon",
+    "Name_subtitle": "",
+    "Keywords": "Papaya,mango,feijoa,passionfruit,casaha melon,melon,fruit,passion",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pomegranate",
+    "Name_subtitle": "",
+    "Keywords": "Pomegranate",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Artichokes, whole",
+    "Name_subtitle": "",
+    "Keywords": "Artichokes,artichoke,whole",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Beets",
+    "Name_subtitle": "",
+    "Keywords": "Beets",
+    "Max": 1,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Eggplant",
+    "Name_subtitle": "",
+    "Keywords": "Eggplant,egg",
+    "Max": 1,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Garlic",
+    "Name_subtitle": "",
+    "Keywords": "Garlic",
+    "Max": 1,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Ginger root",
+    "Name_subtitle": "",
+    "Keywords": "Ginger root,ginger,root",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Okra",
+    "Name_subtitle": "",
+    "Keywords": "Okra",
+    "Max": 1,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Onions",
+    "Name_subtitle": "yellow, white, red, etc.",
+    "Keywords": "Onions,yellow,white,red,onion",
+    "Max": 1,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Onions",
+    "Name_subtitle": "spring or green",
+    "Keywords": "Onions,spring,green,onion",
+    "Max": 1,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Potatoes",
+    "Name_subtitle": "",
+    "Keywords": "Potatoes,potato",
+    "Max": 2,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Pumpkins",
+    "Name_subtitle": "",
+    "Keywords": "Pumpkins,pumpkin",
+    "Max": 3,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Rutabagas",
+    "Name_subtitle": "",
+    "Keywords": "Rutabagas",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Squash",
+    "Name_subtitle": "summer and zucchini",
+    "Keywords": "Squash,summer,zucchini",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Squash",
+    "Name_subtitle": "winter",
+    "Keywords": "Squash,winter",
+    "Max": 6,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Tamarind",
+    "Name_subtitle": "",
+    "Keywords": "Tamarind",
+    "Max": 3,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Taro",
+    "Name_subtitle": "",
+    "Keywords": "Taro",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Yuca/cassava",
+    "Name_subtitle": "",
+    "Keywords": "Yuca,cassava",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Beans",
+    "Name_subtitle": "dried",
+    "Keywords": "Beans,dried",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Lentils",
+    "Name_subtitle": "dried",
+    "Keywords": "Lentils,dried",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Pasta",
+    "Name_subtitle": "dry, without eggs",
+    "Keywords": "Pasta,dry,eggs,egg,without egg,without eggs",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Dry egg noodles",
+    "Name_subtitle": "",
+    "Keywords": "Dry egg noodles,egg noodles,egg,noodles,noodle,dry",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Peas",
+    "Name_subtitle": "dried split",
+    "Keywords": "Peas,Pea,dried split,split",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Rice",
+    "Name_subtitle": "white or wild",
+    "Keywords": "Rice,white,wild",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Rice",
+    "Name_subtitle": "brown",
+    "Keywords": "Rice,brown",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Barbecue sauce",
+    "Name_subtitle": "bottled",
+    "Keywords": "Barbecue sauce,sauce,bottled,Barbecue",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Chutney",
+    "Name_subtitle": "",
+    "Keywords": "Chutney",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Cream sauces, milk solids",
+    "Name_subtitle": "",
+    "Keywords": "Cream sauces,milk solids,sauce,solids,cream,sauces,milk,solid",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Dry gravy mixes",
+    "Name_subtitle": "",
+    "Keywords": "Dry gravy mixes,gravy,mixes,mix,dry",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Gravy",
+    "Name_subtitle": "jars and cans",
+    "Keywords": "Gravy,jars,cans,jar,can",
+    "Max": 5,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Honey",
+    "Name_subtitle": "",
+    "Keywords": "Honey",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Jams, jellies, and preserves",
+    "Name_subtitle": "",
+    "Keywords": "Jams,jellies,preserves,jam,jelly,preserve",
+    "Max": 18,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Ketchup, cocktail, or chili sauce",
+    "Name_subtitle": "",
+    "Keywords": "Ketchup,cocktail,chili sauce,sauce,chili",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Marinades",
+    "Name_subtitle": "",
+    "Keywords": "Marinades,marinade",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Mayonnaise",
+    "Name_subtitle": "commercial",
+    "Keywords": "Mayonnaise,commercial",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Mustard",
+    "Name_subtitle": "",
+    "Keywords": "Mustard",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Olives",
+    "Name_subtitle": "black and green",
+    "Keywords": "Olives,black,green,olive",
+    "Max": 18,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Pickles",
+    "Name_subtitle": "",
+    "Keywords": "Pickles,pickle",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Salad dressings",
+    "Name_subtitle": "commercial, bottled",
+    "Keywords": "Salad dressings,dressings,dressing,commercial,bottled,bottle,salad",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Salsa",
+    "Name_subtitle": "picante and taco sauces",
+    "Keywords": "Salsa,picante,taco sauces,taco,sauces,sauce",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Sauce mixes",
+    "Name_subtitle": "nondairy (spaghetti, taco, etc.)",
+    "Keywords": "Sauce mixes,sauce,mixes,mix,nondairy,dairy,spaghetti,taco",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Spaghetti sauce",
+    "Name_subtitle": "in jars",
+    "Keywords": "Spaghetti sauce,sauce,in jars,jars,jar,spaghetti",
+    "Max": 18,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Soy sauce or teriyaki sauce",
+    "Name_subtitle": "",
+    "Keywords": "Soy sauce,teriyaki sauce,sauce,soy,teriyaki",
+    "Max": 3,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Vinegar",
+    "Name_subtitle": "",
+    "Keywords": "Vinegar",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Worcestershire sauce",
+    "Name_subtitle": "",
+    "Keywords": "Worcestershire sauce,Worcestershire,sauce",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Applesauce",
+    "Name_subtitle": "commercial",
+    "Keywords": "Applesauce,Apple,sauce,commercial",
+    "Max": 18,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Bacon bits",
+    "Name_subtitle": "imitation",
+    "Keywords": "Bacon bits,bits,imitation,bacon,bit",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Canned goods",
+    "Name_subtitle": "low acid (such as meat, poultry, fish, gravy, stew, soups, beans, carrots, corn, pasta, peas, potatoes, spinach)",
+    "Keywords": "Canned goods,canned,can,goods,low acid,low,meat,poultry,fish,gravy,stew,soups,soup,beans,bean,carrots,carrot,corn,pasta,peas,pea,potatoes,potato,spinach",
+    "Max": 5,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Canned goods",
+    "Name_subtitle": "high acid (such as juices, fruit, pickles, sauerkraut, tomato soup, and foods in vinegar-based sauce)",
+    "Keywords": "Canned goods,canned,can,goods,high acid,high,juices,juice,fruit,fruits,pickles,pickle,sauerkraut,tomato soup,soup,tomato,foods in vinegar based sauce,sauce,foods,food,vinegar based,vinegar",
+    "Max": 18,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Cereal",
+    "Name_subtitle": "ready-to-eat",
+    "Keywords": "Cereal,ready,eat",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Cereal",
+    "Name_subtitle": "cook before eating (oatmeal, etc.)",
+    "Keywords": "Cereal,cook before eating,oatmeal,oats,oat,meal",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Chocolate syrup",
+    "Name_subtitle": "",
+    "Keywords": "Chocolate syrup,Chocolate,syrup",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Crackers",
+    "Name_subtitle": "",
+    "Keywords": "Crackers,cracker",
+    "Max": 8,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Graham cracker/animal cracker",
+    "Name_subtitle": "",
+    "Keywords": "Graham cracker,animal cracker,Graham,cracker,animal",
+    "Max": 9,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Fruits, dried",
+    "Name_subtitle": "raisins, apricots, mangoes, cranberries, etc.",
+    "Keywords": "Fruits,fruit,dried,raisins,raisin,apricots,apricot,mangoes,mangoe,cranberries,cranberry",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Gummy (fruit) snacks",
+    "Name_subtitle": "",
+    "Keywords": "fruit snack,gummy,fruit,snacks,snack,gummy snacks,fruit snacks,gummy snack",
+    "Max": 9,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Marshmallows",
+    "Name_subtitle": "",
+    "Keywords": "Marshmallows,Marshmallow",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Marshmallow crème",
+    "Name_subtitle": "",
+    "Keywords": "Marshmallow crème,Marshmallow,crème",
+    "Max": 5,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Milk",
+    "Name_subtitle": "canned evaporated or condensed",
+    "Keywords": "Milk,can,canned,evaporated,condensed,evaporate,condense",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Molasses",
+    "Name_subtitle": "",
+    "Keywords": "Molasses",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Mushrooms",
+    "Name_subtitle": "dried",
+    "Keywords": "Mushrooms,Mushroom,dried",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Nuts",
+    "Name_subtitle": "jars or cans",
+    "Keywords": "Nuts,nut,jar,jars,cans,can",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Peanut butter",
+    "Name_subtitle": "commercial",
+    "Keywords": "Peanut butter,butter,commercial,peanut",
+    "Max": 24,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Popcorn",
+    "Name_subtitle": "dry kernels in jar",
+    "Keywords": "Popcorn,dry kernels in jar,jar,dry kernels,kernels,in jar,kernel,chips,chip",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Popcorn",
+    "Name_subtitle": "commercially popped in bags",
+    "Keywords": "Popcorn,commercially,popped in bags,bags,bag,in bags",
+    "Max": 3,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Popcorn",
+    "Name_subtitle": "microwave packets",
+    "Keywords": "Popcorn,microwave packets,packets,microwave,packet",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Potato chips",
+    "Name_subtitle": "",
+    "Keywords": "Potato chips,potato,chips,chip,potatoes",
+    "Max": 2,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Potatoes",
+    "Name_subtitle": "instant",
+    "Keywords": "Potatoes,Potato,instant",
+    "Max": 15,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Pretzels",
+    "Name_subtitle": "",
+    "Keywords": "Pretzels,Pretzel",
+    "Max": 9,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Pudding mixes",
+    "Name_subtitle": "",
+    "Keywords": "Pudding mixes,Pudding,mixes,mix",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Soup mixes",
+    "Name_subtitle": "dry bouillon",
+    "Keywords": "Soup mixes,mixes,mix,soup,dry bouillon,bouillon",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Sun dried tomatoes",
+    "Name_subtitle": "jar",
+    "Keywords": "Sun dried tomatoes,dried tomatoes,sun,sun dried,dried,tomatoes,tomato",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Syrup",
+    "Name_subtitle": "",
+    "Keywords": "Syrup",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Toaster pastries",
+    "Name_subtitle": "",
+    "Keywords": "Toaster pastries,pastry,Toaster,pastries",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Coffee",
+    "Name_subtitle": "whole beans",
+    "Keywords": "Coffee,whole beans,beans,whole,bean",
+    "Max": 5,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Coffee",
+    "Name_subtitle": "home ground, non-vacuum",
+    "Keywords": "Coffee,home ground,non vacuum,ground,home,vacuum",
+    "Max": 5,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Coffee",
+    "Name_subtitle": "instant",
+    "Keywords": "Coffee,instant",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Diet powder mixes and drink mixes",
+    "Name_subtitle": "",
+    "Keywords": "Diet powder mixes,drink mixes,mixes,drink,powder mixes,diet powder,mix",
+    "Max": 24,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Fruit Juice in cartons, fruit drinks, punch",
+    "Name_subtitle": "",
+    "Keywords": "Fruit Juice in cartons,fruit drinks,punch,fruit,fruit juice,juice in cartons,cartons,carton,drinks,drink",
+    "Max": 3,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Nectar",
+    "Name_subtitle": "papaya, mango, guava, or guavabana",
+    "Keywords": "Nectar,papaya,mango,guava,guavabana,mangoes",
+    "Max": 18,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Tea",
+    "Name_subtitle": "bags",
+    "Keywords": "Tea,bags,bag",
+    "Max": 36,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Tea",
+    "Name_subtitle": "instant",
+    "Keywords": "Tea,instant",
+    "Max": 3,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Tea",
+    "Name_subtitle": "loose",
+    "Keywords": "Tea,loose",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Tahini",
+    "Name_subtitle": "",
+    "Keywords": "Tahini",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Yams/sweet potatoes",
+    "Name_subtitle": "",
+    "Keywords": "Yams,sweet potatoes,potatoes,potato,yam",
+    "Max": 3,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Quinoa",
+    "Name_subtitle": "uncooked",
+    "Keywords": "Quinoa,cooked,uncooked,cook",
+    "Max": 3,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Coffee creamer",
+    "Name_subtitle": "powdered",
+    "Keywords": "Coffee creamer,creamer,cream,coffee,powdered,powder",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Black bean sauce",
+    "Name_subtitle": "",
+    "Keywords": "Black bean sauce,sauce,bean,black,black bean,bean sauce",
+    "Max": 24,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Oyster sauce",
+    "Name_subtitle": "",
+    "Keywords": "Oyster sauce,oyster,sauce",
+    "Max": 24,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Hoisin sauce",
+    "Name_subtitle": "",
+    "Keywords": "Hoisin sauce,sauce,Hoisin",
+    "Max": 24,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Almonds",
+    "Name_subtitle": "shell",
+    "Keywords": "Almonds,Almond,shell",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Almonds",
+    "Name_subtitle": "no shell",
+    "Keywords": "Almonds,Almond,no shell,shell",
+    "Max": 4,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Cashews",
+    "Name_subtitle": "no shell",
+    "Keywords": "Cashews,Cashew,no shell,shell",
+    "Max": 4,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Macadamias",
+    "Name_subtitle": "no shell",
+    "Keywords": "Macadamias,Macadamia,no shell,shell",
+    "Max": 4,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Peanuts",
+    "Name_subtitle": "shell",
+    "Keywords": "Peanuts,Peanut,shell,nut",
+    "Max": 4,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Peanuts",
+    "Name_subtitle": "no shell",
+    "Keywords": "Peanuts,Peanut,no shell,shell,nut",
+    "Max": 4,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Pecans",
+    "Name_subtitle": "shell",
+    "Keywords": "Pecans,Pecan,shell",
+    "Max": 4,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Pecans",
+    "Name_subtitle": "no shell",
+    "Keywords": "Pecans,Pecan,no shell,shell",
+    "Max": 4,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Pistachios",
+    "Name_subtitle": "shell or no shell",
+    "Keywords": "Pistachios,shell,no shell,Pistachio,pista",
+    "Max": 3,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Walnuts",
+    "Name_subtitle": "shell or no shell",
+    "Keywords": "Walnuts,shell,no shell,walnut",
+    "Max": 4,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Lime juice",
+    "Name_subtitle": "",
+    "Keywords": "Lime juice,lime,juice",
+    "Max": 18,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Lemon juice",
+    "Name_subtitle": "",
+    "Keywords": "Lemon juice,lemon,juice",
+    "Max": 18,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Black pepper",
+    "Name_subtitle": "ground, dried, commercially bottled or purchased in bulk",
+    "Keywords": "Black pepper,black,pepper,ground,dried,commercially bottled,commercially,bottled,bottle,commercial,purchased in bulk,bulk,purchased,purchase",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Black pepper",
+    "Name_subtitle": "cracked, dried, commercially bottled or purchased in bulk",
+    "Keywords": "Black pepper,black,pepper,crack,cracked,dried,commercially bottled,commercially,bottled,bottle,commercial,purchased in bulk,bulk,purchased,purchase",
+    "Max": 3,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Cajun seasoning blend",
+    "Name_subtitle": "ground, dried, commercially bottled or purchased in bulk",
+    "Keywords": "Cajun seasoning blend,Cajun,seasoning,blend,Cajun seasoning,seasoning blend,ground,dried,commercially bottled,commercially,bottled,bottle,commercial,purchased in bulk,bulk,purchased,purchase",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Cinnamon",
+    "Name_subtitle": "ground, dried, commercially bottled or purchased in bulk",
+    "Keywords": "Cinnamon,ground,dried,commercially bottled,commercially,bottled,bottle,commercial,purchased in bulk,bulk,purchased,purchase",
+    "Max": 4,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Cumin",
+    "Name_subtitle": "ground, dried, commercially bottled or purchased in bulk, opened or unopened",
+    "Keywords": "Cumin,ground,dried,commercially bottled,commercially,bottled,bottle,commercial,purchased in bulk,bulk,purchased,purchase,opened,unopened,open,unopen",
+    "Max": 4,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Garlic powder",
+    "Name_subtitle": "dried, commercially bottled or purchased in bulk",
+    "Keywords": "Garlic powder,garlic,powder,dried,commercially bottled,commercially,bottled,bottle,commercial,purchased in bulk,bulk,purchased,purchase",
+    "Max": 4,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Onion powder",
+    "Name_subtitle": "dried, commercially bottled or purchased in bulk",
+    "Keywords": "Onion powder,onion,powder,dried,commercially bottled,commercially,bottled,bottle,commercial,purchased in bulk,bulk,purchased,purchase",
+    "Max": 4,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Nutmeg",
+    "Name_subtitle": "ground, dried, commercially bottled or purchased in bulk",
+    "Keywords": "Nutmeg,ground,dried,commercially bottled,commercially,bottled,bottle,commercial,purchased in bulk,bulk,purchased,purchase",
+    "Max": 4,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Nacho cheese",
+    "Name_subtitle": "store bought",
+    "Keywords": "Nacho cheese,nacho,cheese,store bought,store",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Peanut butter",
+    "Name_subtitle": "commercially produced, containing hydrogenated fat or other stabilizers",
+    "Keywords": "Peanut butter,butter,commercial peanut butter, hydrogenated fat,fat,stabilizers,stabilizer",
+    "Max": 9,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Baby carrots",
+    "Name_subtitle": "",
+    "Keywords": "Baby carrots, carrot,baby carrot",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Jicama",
+    "Name_subtitle": "fresh",
+    "Keywords": "Jicama,fresh",
+    "Max": 4,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Watermelon",
+    "Name_subtitle": "",
+    "Keywords": "Watermelon",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cantaloupe",
+    "Name_subtitle": "",
+    "Keywords": "Cantaloupe",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Honeydew",
+    "Name_subtitle": "",
+    "Keywords": "Honeydew",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Peanuts",
+    "Name_subtitle": "boiled, shelled",
+    "Keywords": "Peanuts,boiled, shelled,peanut",
+    "Max": 3,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Refried beans",
+    "Name_subtitle": "",
+    "Keywords": "Refried beans,refried bean",
+    "Max": 3,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Relish",
+    "Name_subtitle": "",
+    "Keywords": "Relish",
+    "Max": 30,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Tomato paste",
+    "Name_subtitle": "",
+    "Keywords": "Tomato paste",
+    "Max": 27,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Tapenade",
+    "Name_subtitle": "",
+    "Keywords": "Tapenade",
+    "Max": 9,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Flaxseed",
+    "Name_subtitle": "whole seed",
+    "Keywords": "Flaxseed,whole seed,seed",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Canola oil",
+    "Name_subtitle": "",
+    "Keywords": "Canola oil,canola",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Almond oil",
+    "Name_subtitle": "",
+    "Keywords": "Almond oil,almond",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Sunflower oil",
+    "Name_subtitle": "",
+    "Keywords": "Sunflower oil,oil,sunflower",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Grapeseed oil",
+    "Name_subtitle": "",
+    "Keywords": "Grapeseed oil,grapeseed,oil",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Coffee",
+    "Name_subtitle": "commercial ground, non-vacuum",
+    "Keywords": "Coffee,commercial ground, non-vacuum",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Tortillas",
+    "Name_subtitle": "corn",
+    "Keywords": "Tortillas,corn",
+    "Max": 45,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Nutrition supplement drinks",
+    "Name_subtitle": "canned",
+    "Keywords": "Nutrition supplement drinks,drinks,canned,supplement,Boost,Ensure",
+    "Max": 5,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Thai red curry paste",
+    "Name_subtitle": "",
+    "Keywords": "Thai red curry paste,red curry paste,curry paste,paste,curry",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Yeast",
+    "Name_subtitle": "packaged",
+    "Keywords": "Yeast,packaged",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Cranberry sauce",
+    "Name_subtitle": "canned",
+    "Keywords": "Cranberry sauce,sauce,canned",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Vegetable juice",
+    "Name_subtitle": "shelf-stable",
+    "Keywords": "Vegetable juice,stable,shelf,shelf-stable",
+    "Max": 18,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Coconut cream",
+    "Name_subtitle": "canned",
+    "Keywords": "coconut cream,coconut,cream,canned,can",
+    "Max": 5,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Coconut milk",
+    "Name_subtitle": "canned",
+    "Keywords": "coconut milk,coconut,milk,canned,can",
+    "Max": 5,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Sunflower seeds",
+    "Name_subtitle": "roasted, no shell",
+    "Keywords": "sunflower,sunflower seed,sunflower seeds,seed,seeds,kernal,shell",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Sesame oil",
+    "Name_subtitle": "",
+    "Keywords": "sesame oil,sesame,oil",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Tuna",
+    "Name_subtitle": "packet",
+    "Keywords": "tuna packet,tuna,packet,retort,retort packaging",
+    "Max": 18,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Salad dressing",
+    "Name_subtitle": "creamy",
+    "Keywords": "creamy salad dressing,salad,dressing,salad dressing,creamy",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Salad dressing",
+    "Name_subtitle": "vinaigrette",
+    "Keywords": "salad dressing,vinaigrette,salad,dressing",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Grits",
+    "Name_subtitle": "boxed",
+    "Keywords": "boxed grits,grits,boxed,box",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Milk",
+    "Name_subtitle": "shelf-stable",
+    "Keywords": "shelf stable milk,milk,shelf,stable,UHT,ultrapasteurized,aseptic packaging",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Coconut water",
+    "Name_subtitle": "",
+    "Keywords": "coconut water,coconut,water",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Yuzu juice",
+    "Name_subtitle": "",
+    "Keywords": "yuzu juice,yuzu,juice",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Avocado Oil",
+    "Name_subtitle": "",
+    "Keywords": "avodaco oil,avocado,oil",
+    "Max": 2,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Balsamic vinegar",
+    "Name_subtitle": "",
+    "Keywords": "balsamic vinegar,balsamic,vinegar",
+    "Max": 5,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Cream",
+    "Name_subtitle": "whipped, sweetened",
+    "Keywords": "Cream,whipped, sweetened",
+    "Max": 1,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Eggs",
+    "Name_subtitle": "raw whites, yolks",
+    "Keywords": "Eggs,raw whites, yolks,egg,whites",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Eggs",
+    "Name_subtitle": "hard boiled cooked",
+    "Keywords": "Eggs,egg,hard boiled cooked,boiled,hard boiled",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Egg dishes",
+    "Name_subtitle": "",
+    "Keywords": "Egg dishes,egg,dishes",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Stuffed, raw chicken breasts",
+    "Name_subtitle": "",
+    "Keywords": "Stuffed,raw chicken breasts,breast,chicken,chicken breasts",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Raw kabobs with vegetables",
+    "Name_subtitle": "",
+    "Keywords": "Raw kabobs,vegetables,kabobs,kabob,vegetable",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cooked poultry dishes",
+    "Name_subtitle": "",
+    "Keywords": "Cooked poultry dishes,poultry dishes,poultry",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Fried chicken",
+    "Name_subtitle": "",
+    "Keywords": "Fried chicken,chicken",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Poultry pieces",
+    "Name_subtitle": "covered with gravy or broth",
+    "Keywords": "Poultry pieces,gravy,broth,poultry,pieces,piece",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cooked fish",
+    "Name_subtitle": "all",
+    "Keywords": "Cooked fish,fish,all",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Crab meat",
+    "Name_subtitle": "fresh",
+    "Keywords": "Crab meat,meat,fresh,crab",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cooked shellfish",
+    "Name_subtitle": "all",
+    "Keywords": "Cooked shellfish,shellfish,fish,cooked",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Leftovers",
+    "Name_subtitle": "with meat, fish, poultry, or egg",
+    "Keywords": "Leftovers,meat,fish,poultry,egg,leftover",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Leftovers",
+    "Name_subtitle": "without meat, fish, poultry, or egg (such as cooked vegitables, rice, or potatoes)",
+    "Keywords": "leftover,leftovers,without meat,fish,poultry,egg,cooked vegetables,rice,potatoes,meat,vegetables,potato,vegetable",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Leftovers",
+    "Name_subtitle": "pizza",
+    "Keywords": "Leftovers,pizza",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cooked pasta",
+    "Name_subtitle": "",
+    "Keywords": "Cooked pasta,pasta",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cooked rice",
+    "Name_subtitle": "",
+    "Keywords": "Cooked rice,rice",
+    "Max": 6,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Guacamole",
+    "Name_subtitle": "",
+    "Keywords": "Guacamole",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Hummus",
+    "Name_subtitle": "traditional (no preservatives, not pasteurized)",
+    "Keywords": "Hummus,traditional,no preservatives,not pasteurized,no preservative,preservatives,preservative,pasteurized",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Meats",
+    "Name_subtitle": "covered with gravy or broth",
+    "Keywords": "Meats,gravy,broth,meat",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Soup, stews",
+    "Name_subtitle": "",
+    "Keywords": "Soup,stews,stew",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Casseroles",
+    "Name_subtitle": "",
+    "Keywords": "Casseroles,Casserole",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Apricots",
+    "Name_subtitle": "",
+    "Keywords": "Apricots,Apricot",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Avocados",
+    "Name_subtitle": "",
+    "Keywords": "Avocados,Avocado",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Bananas",
+    "Name_subtitle": "",
+    "Keywords": "Bananas,banana",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cherimoya",
+    "Name_subtitle": "",
+    "Keywords": "Cherimoya",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Guava",
+    "Name_subtitle": "",
+    "Keywords": "Guava",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Kiwi fruit",
+    "Name_subtitle": "",
+    "Keywords": "Kiwi fruit,kiwi,fruit",
+    "Max": 6,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Peaches, nectarines, plums, pears, sapote",
+    "Name_subtitle": "",
+    "Keywords": "Peaches,nectarines,plums,pears,sapote,peach,nectarine,plum,pear",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pineapple",
+    "Name_subtitle": "",
+    "Keywords": "Pineapple",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Plantains",
+    "Name_subtitle": "",
+    "Keywords": "Plantains,plantain",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Dough",
+    "Name_subtitle": "commercial (bread or cookie)",
+    "Keywords": "Dough,commercial,bread,cookie",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Egg substitutes",
+    "Name_subtitle": "",
+    "Keywords": "Egg substitutes,egg,substitute,Egg substitute",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Fish",
+    "Name_subtitle": "raw but headed and gutted",
+    "Keywords": "Fish,raw,headed,gutted",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Frozen pretzels",
+    "Name_subtitle": "",
+    "Keywords": "Frozen pretzels,frozen,pretzels,pretzel",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lobster tails",
+    "Name_subtitle": "",
+    "Keywords": "Lobster tails,tail,lobster,Lobster tail",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Sausages",
+    "Name_subtitle": "uncooked",
+    "Keywords": "Sausages,Sausage,uncooked,cooked",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Sausages",
+    "Name_subtitle": "precooked",
+    "Keywords": "Sausages,Sausage,precooked,cooked",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Shrimp, shellfish",
+    "Name_subtitle": "",
+    "Keywords": "Shrimp,shellfish,fish",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Soy crumbles and hot dogs",
+    "Name_subtitle": "",
+    "Keywords": "Soy crumbles,hot dogs,hot dog,soy,soy crumble",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Soy meat substitutes",
+    "Name_subtitle": "",
+    "Keywords": "Soy meat substitutes,soy,meat,soy meat,meat substitutes,substitutes,substitute",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Tempeh",
+    "Name_subtitle": "",
+    "Keywords": "Tempeh",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Vegetables",
+    "Name_subtitle": "",
+    "Keywords": "Vegetables,vegetable",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Fresh pasta",
+    "Name_subtitle": "",
+    "Keywords": "Fresh pasta,pasta",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Kumquats",
+    "Name_subtitle": "",
+    "Keywords": "Kumquats",
+    "Max": 3,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Bagged greens",
+    "Name_subtitle": "leaf, spinach, lettuce, etc.",
+    "Keywords": "Bagged greens,leaf,spinach,lettuce,bagged,greens,green",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Egg salad",
+    "Name_subtitle": "",
+    "Keywords": "Egg salad,egg,salad",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Potato salad",
+    "Name_subtitle": "",
+    "Keywords": "Potato salad,potato,salad",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Seafood salads",
+    "Name_subtitle": "(tuna salad, shrimp salad, salmon salad, mixed seafood salad, etc.)",
+    "Keywords": "Seafood salads,tuna salad, shrimp salad, salmon salad, mixed seafood salad,seafood,salads,salad,tuna,shrimp,salmon,mixed,mixed seafood,seafood salad,",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Chicken salad",
+    "Name_subtitle": "",
+    "Keywords": "Chicken salad,chicken,salad",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Ham salad",
+    "Name_subtitle": "",
+    "Keywords": "Ham salad,ham,salad",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pasta salad",
+    "Name_subtitle": "",
+    "Keywords": "Pasta salad,pasta,salad",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Quinoa",
+    "Name_subtitle": "cooked",
+    "Keywords": "Quinoa,cook,cooked",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Orange juice",
+    "Name_subtitle": "freshly squeezed",
+    "Keywords": "Orange juice,orange,juice,freshly squeezed,squeezed,freshly,fresh,sqeeze",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Roasted red peppers",
+    "Name_subtitle": "jar",
+    "Keywords": "Roasted red peppers,roasted,red,peppers,jar,Roasted red,red peppers,pepper",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Broth",
+    "Name_subtitle": "homemade",
+    "Keywords": "Broth,homemade",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Beef broth/stock/consommé",
+    "Name_subtitle": "commercially produced",
+    "Keywords": "Beef broth, beef stock,beef consommé,consommé,commercially produced",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Chicken broth/stock/consommé",
+    "Name_subtitle": "commercially produced",
+    "Keywords": "Chicken broth,chicken stock,consommé,commercially produced",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Vegetable stock/broth",
+    "Name_subtitle": "commercially produced",
+    "Keywords": "Vegetable stock,Vegetable broth,broth,commercial vegetable stock,commercial vegetable broth,vegetable",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Canadian bacon",
+    "Name_subtitle": "whole",
+    "Keywords": "Canadian bacon,bacon,whole",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Canadian bacon",
+    "Name_subtitle": "sliced",
+    "Keywords": "Canadian bacon,bacon,sliced",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Duck fat",
+    "Name_subtitle": "",
+    "Keywords": "Duck fat,duck",
+    "Max": 30,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Bacon grease",
+    "Name_subtitle": "",
+    "Keywords": "Bacon grease,bacon,grease",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Frying oil",
+    "Name_subtitle": "re-used",
+    "Keywords": "Frying oil,re-used oil,oil",
+    "Max": 1,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Lemon juice",
+    "Name_subtitle": "fresh squeezed",
+    "Keywords": "Lemon juice,juice,fresh squeezed,squeezed,juices",
+    "Max": 6,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Apple juice",
+    "Name_subtitle": "fresh squeezed",
+    "Keywords": "Apple juice,juice,fresh squeezed,squeezed,juices,apple",
+    "Max": 6,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Carrot juice",
+    "Name_subtitle": "fresh squeezed",
+    "Keywords": "Carrot juice,juice,fresh squeezed,squeezed,juices",
+    "Max": 6,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Quark",
+    "Name_subtitle": "fresh cheese",
+    "Keywords": "Quark,fresh cheese,cheese",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Zucchini",
+    "Name_subtitle": "fresh, whole",
+    "Keywords": "Zucchini,fresh, whole",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Applesauce",
+    "Name_subtitle": "homemade",
+    "Keywords": "Applesauce,homemade",
+    "Max": 3,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Pate",
+    "Name_subtitle": "meat",
+    "Keywords": "Pate,meat",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pate",
+    "Name_subtitle": "poultry",
+    "Keywords": "Pate,poultry",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cranberry sauce",
+    "Name_subtitle": "homemade",
+    "Keywords": "Cranberry sauce,sauce,homemade",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Vegetable juice",
+    "Name_subtitle": "commercial, sold refrigerated",
+    "Keywords": "Vegetable juice,commercial,refrigerated,vegetable",
+    "Max": 1,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Marinated vegetables",
+    "Name_subtitle": "in oil",
+    "Keywords": "Marinated vegetables,vegetables,oil,vegetable",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pizza",
+    "Name_subtitle": "frozen",
+    "Keywords": "Pizza,frozen",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Salsa",
+    "Name_subtitle": "fresh",
+    "Keywords": "Salsa,fresh",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Rabbit",
+    "Name_subtitle": "whole, fresh",
+    "Keywords": "Rabbit,whole, fresh",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Spaghetti squash",
+    "Name_subtitle": "cut",
+    "Keywords": "Spaghetti squash,squash,cut",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Coleslaw",
+    "Name_subtitle": "homemade, prepared",
+    "Keywords": "coleslaw,homemade,homemade coleslaw,prepared,prepared coleslaw",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Parsley",
+    "Name_subtitle": "fresh",
+    "Keywords": "parsley",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Bison",
+    "Name_subtitle": "whole",
+    "Keywords": "bison whole,bison,whole",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Bison",
+    "Name_subtitle": "ground",
+    "Keywords": "ground bison,bison,ground",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Salad dressing",
+    "Name_subtitle": "vinaigrette,homemade",
+    "Keywords": "salad dressing,vinaigrette,salad,dressing,homemade",
+    "Max": 3,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Cheese Curds",
+    "Name_subtitle": "fresh, unaged",
+    "Keywords": "cheese curd,cheese,curd,curds,cheese curds",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Vegetable soup",
+    "Name_subtitle": "homemade",
+    "Keywords": "vegetable soup,vegetable,soup",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Chorizo",
+    "Name_subtitle": "fresh",
+    "Keywords": "fresh chorizo,chorizo",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Chorizo",
+    "Name_subtitle": "smoked and processed, uncooked",
+    "Keywords": "smoked chorizo,chorizo,processed chorizo,smoked,processed,uncooked,uncooked processed chorizo,uncooked smoked chorizo",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Bratwurst",
+    "Name_subtitle": "fresh",
+    "Keywords": "fresh brautwurst,brautwurst,fresh",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Bratwurst",
+    "Name_subtitle": "smoked and processed",
+    "Keywords": "smoked brautwurst,processed brautwurst,bratwurst,smoked,processed",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Edamame",
+    "Name_subtitle": "fresh",
+    "Keywords": "edamame,fresh,fresh edamame,soybeans,soybean",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Salsa",
+    "Name_subtitle": "homemade, fresh",
+    "Keywords": "homemade salsa,homemade,salsa",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Coconut flour",
+    "Name_subtitle": "",
+    "Keywords": "coconut flour,coconut,flour",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Pecans",
+    "Name_subtitle": "chopped",
+    "Keywords": "chopped pecans,pecan,pecans,chopped",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Milk",
+    "Name_subtitle": "ultra-pasteurized",
+    "Keywords": "ultra pasteurized milk,milk,pasteurized,ultra",
+    "Max": 3,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Celery root",
+    "Name_subtitle": "",
+    "Keywords": "celeriac,celery root,celery",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Yuzu",
+    "Name_subtitle": "fruit, fresh",
+    "Keywords": "yuzu,yuzu fruit",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pastrami",
+    "Name_subtitle": "",
+    "Keywords": "pastrami",
+    "Max": 40,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Kugel",
+    "Name_subtitle": "homemade",
+    "Keywords": "kugel,homemade,homemade kugel",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Aioli",
+    "Name_subtitle": "homemade",
+    "Keywords": "garlic aioli,aioli,garlic,mayonnaise,mayo,garlic mayo,garlic mayonnaise,mayo",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Radicchio",
+    "Name_subtitle": "",
+    "Keywords": "radicchio",
+    "Max": 3,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Prosciutto",
+    "Name_subtitle": "",
+    "Keywords": "prosciutto",
+    "Max": 3,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "uncured, fresh, cooked",
+    "Keywords": "ham,uncured,fresh,cooked,uncured ham,fully cooked,fully cooked uncured ham",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "uncured, fresh, uncooked",
+    "Keywords": "ham,uncured,fresh,uncooked,uncured ham,uncured ham uncooked",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Arugula",
+    "Name_subtitle": "",
+    "Keywords": "arugula,greens,salad greens,salad",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Mung bean",
+    "Name_subtitle": "sprouts",
+    "Keywords": "sprouted mung beans,sprouted mung bean,sprout,mung beans,mung bean,mung,bean,mungbean,sprouts",
+    "Max": 6,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Bacon",
+    "Name_subtitle": "uncured",
+    "Keywords": "uncured bacon,nitrite-free bacon,natural bacon,uncured,nitrite-free,nitrite,natural,bacon",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Butter",
+    "Name_subtitle": "",
+    "Keywords": "Butter",
+    "Max": 2,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Buttermilk",
+    "Name_subtitle": "",
+    "Keywords": "Buttermilk",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Cheese",
+    "Name_subtitle": "hard such as cheddar, swiss, block parmesan",
+    "Keywords": "Cheese,cheddar, swiss,parmesan",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Cheese",
+    "Name_subtitle": "parmesan; shredded or grated",
+    "Keywords": "Cheese,parmesan,shredded,grated",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Cheese",
+    "Name_subtitle": "shredded; cheddar, mozzarella, etc.",
+    "Keywords": "Cheese,shredded,cheddar,mozzarella",
+    "Max": 1,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Cheese",
+    "Name_subtitle": "processed slices",
+    "Keywords": "Cheese,processed slices,slices,slice",
+    "Max": 4,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Cheese",
+    "Name_subtitle": "soft such as brie, bel paese, goat",
+    "Keywords": "Cheese,brie, bel paese, goat",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Coffee creamer",
+    "Name_subtitle": "liquid refrigerated",
+    "Keywords": "Coffee creamer,Coffee, creamer,liquid refrigerated",
+    "Max": 3,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Cottage cheese",
+    "Name_subtitle": "",
+    "Keywords": "Cottage cheese,cheese",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Cream cheese",
+    "Name_subtitle": "",
+    "Keywords": "",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Cream",
+    "Name_subtitle": "whipping, ultrapasteurized",
+    "Keywords": "Cream,whipping,ultrapasteurized",
+    "Max": 1,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Cream",
+    "Name_subtitle": "half and half",
+    "Keywords": "Cream,half",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cream",
+    "Name_subtitle": "heavy",
+    "Keywords": "Cream,heavy",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cream",
+    "Name_subtitle": "light",
+    "Keywords": "Cream,light",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Dips",
+    "Name_subtitle": "sour cream based",
+    "Keywords": "Dips,sour cream based,sour,cream based,cream,dip",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Egg substitutes",
+    "Name_subtitle": "liquid",
+    "Keywords": "Egg substitutes,liquid,egg,substitutes,substitute",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Eggnog",
+    "Name_subtitle": "commercial",
+    "Keywords": "Eggnog,commercial,egg,nog",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Eggs",
+    "Name_subtitle": "in shell",
+    "Keywords": "Eggs,in shell,egg,shell",
+    "Max": 5,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Kefir",
+    "Name_subtitle": "fermented milk",
+    "Keywords": "Kefir,fermented milk,milk,fermented",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Margarine",
+    "Name_subtitle": "",
+    "Keywords": "Margarine",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Whipped cream",
+    "Name_subtitle": "aerosol can",
+    "Keywords": "Whipped cream,cream,aerosol can,can",
+    "Max": 4,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Whipped topping",
+    "Name_subtitle": "aerosol can",
+    "Keywords": "Whipped topping,topping,aerosol can,can,whipped",
+    "Max": 3,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Whipped topping",
+    "Name_subtitle": "tub",
+    "Keywords": "Whipped topping,topping,tub,whipped",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Yogurt",
+    "Name_subtitle": "",
+    "Keywords": "Yogurt",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Beef",
+    "Name_subtitle": "rib roast, bone-in",
+    "Keywords": "Beef,rib roast,bone-in,roast,bone,rib",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Beef",
+    "Name_subtitle": "rib roast; boneless, rolled",
+    "Keywords": "Beef,rib roast,boneless,rolled,roast,rib",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Beef",
+    "Name_subtitle": "round or rump roast",
+    "Keywords": "Beef,round,rump roast,roast",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Beef",
+    "Name_subtitle": "tenderloin, whole",
+    "Keywords": "Beef,tenderloin,whole",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Beef",
+    "Name_subtitle": "tenderloin, half",
+    "Keywords": "Beef,tenderloin,half",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Beef",
+    "Name_subtitle": "chuck roast, brisket",
+    "Keywords": "Beef,chuck roast,roast,brisket",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Beef",
+    "Name_subtitle": "steaks",
+    "Keywords": "Beef,steaks,steak",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Beef",
+    "Name_subtitle": "stew, cubes",
+    "Keywords": "Beef,stew, cubes,cube",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Beef",
+    "Name_subtitle": "short ribs",
+    "Keywords": "Beef,short ribs,ribs,rib",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Beef",
+    "Name_subtitle": "ground",
+    "Keywords": "Beef,ground",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lamb",
+    "Name_subtitle": "leg, bone-in - small",
+    "Keywords": "Lamb,leg,bone-in - small,bone-in,bone",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lamb",
+    "Name_subtitle": "leg, bone-in - large",
+    "Keywords": "Lamb,leg,bone-in - large,bone-in,bone",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lamb",
+    "Name_subtitle": "leg; boneless, rolled",
+    "Keywords": "Lamb,leg,boneless,rolled,bone",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lamb",
+    "Name_subtitle": "crown roast",
+    "Keywords": "Lamb,crown roast,roast",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lamb",
+    "Name_subtitle": "shoulder roast or shank leg half",
+    "Keywords": "Lamb,shoulder roast,roast,shoulder,shank leg half,half,shank,shank leg,leg",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lamb",
+    "Name_subtitle": "cubes for kabobs",
+    "Keywords": "Lamb,cubes,kabobs,cube,kabob",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lamb",
+    "Name_subtitle": "ground",
+    "Keywords": "Lamb,ground",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lamb",
+    "Name_subtitle": "chops, ribs, or loin",
+    "Keywords": "Lamb,chops,ribs,loin,rib",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lamb",
+    "Name_subtitle": "leg steaks",
+    "Keywords": "Lamb,leg steaks,steaks,steak,leg",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lamb",
+    "Name_subtitle": "stew meat, pieces",
+    "Keywords": "Lamb,stew,pieces,stew meat,meat,piece",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lamb",
+    "Name_subtitle": "shanks",
+    "Keywords": "Lamb,shanks,shank",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lamb",
+    "Name_subtitle": "breast, rolled",
+    "Keywords": "Lamb,breast,rolled",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Veal",
+    "Name_subtitle": "shoulder roast, boneless",
+    "Keywords": "Veal,shoulder,boneless,shoulder roast,roast",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Veal",
+    "Name_subtitle": "leg rump or round roast, boneless",
+    "Keywords": "Veal,leg rump,rump,leg,round,round roast,roast,boneless",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Veal",
+    "Name_subtitle": "loin roast, bone-in",
+    "Keywords": "Veal,loin roast,bone-in,roast,bone,loin",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Veal",
+    "Name_subtitle": "ground",
+    "Keywords": "Veal,ground",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pork",
+    "Name_subtitle": "loin roast, bone-in",
+    "Keywords": "Pork,loin roast,bone-in,roast,bone,loin",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pork",
+    "Name_subtitle": "loin roast, boneless",
+    "Keywords": "Pork,loin,boneless,loin roast,roast",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pork",
+    "Name_subtitle": "loin chops, bone-in",
+    "Keywords": "Pork,loin chops,bone-in,chops,bone,loin",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pork",
+    "Name_subtitle": "loin chops, boneless",
+    "Keywords": "Pork,loin,boneless,loin chops,chops",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pork",
+    "Name_subtitle": "crown roast - small",
+    "Keywords": "Pork,roast,crown,crown roast - small,small,crown roast",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pork",
+    "Name_subtitle": "crown roast - large",
+    "Keywords": "Pork,roast,crown,crown roast - large,large,crown roast",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pork",
+    "Name_subtitle": "tenderloin",
+    "Keywords": "Pork,tenderloin",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pork",
+    "Name_subtitle": "tenderloin medallions or loin cubes",
+    "Keywords": "Pork,tenderloin,tenderloin medallions,loin cubes,medallion,loin cube,loin,medallions,cube,cubes",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Goat",
+    "Name_subtitle": "tender whole cuts (legs, ribs, shoulder, loin)",
+    "Keywords": "Goat,tender whole cuts,legs,ribs,shoulder,loin,tender,whole cuts,leg,rib",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Goat",
+    "Name_subtitle": "less tender whole cuts (stew meat, riblets, shanks)",
+    "Keywords": "Goat,less tender whole cuts,stew meat,stew,meat,riblets,shanks,whole cuts,tender,less tender",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pork",
+    "Name_subtitle": "ribs",
+    "Keywords": "Pork,ribs,rib",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pork",
+    "Name_subtitle": "ground",
+    "Keywords": "Pork,ground",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pork",
+    "Name_subtitle": "shoulder",
+    "Keywords": "Pork,shoulder",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pork",
+    "Name_subtitle": "loin, cubes",
+    "Keywords": "Pork,loin,cubes,cube",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Venison",
+    "Name_subtitle": "round, rump, loin, or rib roast",
+    "Keywords": "Venison,rump,round,loin,rib,rib roast,roast",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Variety meats",
+    "Name_subtitle": "liver, tongue, chitterlings, etc.",
+    "Keywords": "Variety meats,liver,tongue,chitterlings,meats,meat,chitterling",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Goat",
+    "Name_subtitle": "ground",
+    "Keywords": "Goat,ground",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Bacon",
+    "Name_subtitle": "",
+    "Keywords": "Bacon",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Corned beef",
+    "Name_subtitle": "in pouch with pickling juices",
+    "Keywords": "Corned beef,pouch,pickling juices,juices,juice",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "canned (“keep refrigerated” label)",
+    "Keywords": "Ham,canned,keep refrigerated,label,refrigerated",
+    "Max": 9,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "fully cooked, bone-in, whole",
+    "Keywords": "Ham,fully cooked,bone-in,whole,cooked,bone",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "fully cooked, bone-in, half",
+    "Keywords": "Ham,fully cooked,bone-in,half,cooked,bone",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "fully cooked, slices, half, or spiral cut",
+    "Keywords": "Ham,fully cooked,slices,half,spiral cut,cooked,slice",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "fully cooked, arm picnic shoulder, boneless",
+    "Keywords": "Ham,fully cooked,cooked,arm picnic shoulder,boneless,shoulder,arm picnic",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "fully cooked, canned, boneless (refrigerated)",
+    "Keywords": "Ham,fully cooked,cooked,canned,boneless,refrigerated",
+    "Max": 9,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "fully cooked, vacuum packed, boneless",
+    "Keywords": "Ham,fully cooked,cooked,vacuum packed,boneless",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "fresh, cook-before-eating, bone-in, whole",
+    "Keywords": "Ham,fresh,cook-before-eating,bone-in,whole,bone",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "fresh, cook-before-eating, bone-in, half",
+    "Keywords": "Ham,fresh,cook-before-eating,bone-in,half,bone",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "fresh, cook-before-eating, shank or butt portion, bone-in",
+    "Keywords": "Ham,fresh,cook-before-eating,shank,butt portion,bone-in,bone",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "fresh, cook-before-eating, arm picnic shoulder, boneless",
+    "Keywords": "Ham,fresh,cook-before-eating,before-eating,arm picnic shoulder,boneless,arm picnic,shoulder",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "fresh, cook-before-eating, shoulder roll (butt), boneless",
+    "Keywords": "Ham,fresh,cook-before-eating,before-eating,shoulder roll,butt,boneless,roll",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "fresh, uncooked, whole leg, bone-in",
+    "Keywords": "Ham,fresh,uncooked,whole leg,bone-in,cooked,leg,bone",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "fresh, uncooked, whole leg, boneless",
+    "Keywords": "Ham,fresh,uncooked,whole leg,boneless,cooked,leg,bone",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "fresh, uncooked, half leg, bone-in",
+    "Keywords": "Ham,fresh,uncooked,half leg,bone-in,bone,leg,cooked",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "country ham (whole or half)",
+    "Keywords": "Ham,country ham,whole,half",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Hot dogs",
+    "Name_subtitle": "",
+    "Keywords": "Hot dogs,hot",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Sausage",
+    "Name_subtitle": "raw bulk type or patties",
+    "Keywords": "Sausage,raw bulk type,patties,raw,patty",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Sausage",
+    "Name_subtitle": "fully cooked smoked links, kielbasa",
+    "Keywords": "Sausage,fully cooked smoked links,kielbasa,smoked links,links,fully cooked,link",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Sausage",
+    "Name_subtitle": "hard, dry (pepperoni), sliced",
+    "Keywords": "Sausage,hard,dry,pepperoni,sliced,slice,dry pepperoni",
+    "Max": 3,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Stuffed, raw pork chops",
+    "Name_subtitle": "",
+    "Keywords": "Stuffed,raw pork chops,chops,raw pork,pork",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Raw kabobs with vegetables",
+    "Name_subtitle": "",
+    "Keywords": "Raw kabobs,vegetables,kabobs,kabob",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Chicken",
+    "Name_subtitle": "whole",
+    "Keywords": "Chicken,whole",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Turkey",
+    "Name_subtitle": "whole",
+    "Keywords": "Turkey,whole",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Ground turkey or chicken",
+    "Name_subtitle": "",
+    "Keywords": "Ground turkey,chicken,turkey",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Chicken parts",
+    "Name_subtitle": "breast halves, bone-in",
+    "Keywords": "Chicken parts,breast halves,bone-in,halves,bone,breast,chicken,half",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Chicken parts",
+    "Name_subtitle": "breast halves, boneless",
+    "Keywords": "Chicken parts,breast halves,boneless,chicken,breast,halves,half,bone",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Chicken parts",
+    "Name_subtitle": "legs or thighs",
+    "Keywords": "Chicken parts,legs,thighs,chicken,leg,thigh",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Turkey parts",
+    "Name_subtitle": "breast halves, bone-in",
+    "Keywords": "Turkey parts,breast halves,bone-in,halves,bone,breast,half,turkey",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Turkey parts",
+    "Name_subtitle": "breast halves, boneless",
+    "Keywords": "Turkey parts,breast,boneless,bone,turkey",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Turkey parts",
+    "Name_subtitle": "legs or thighs",
+    "Keywords": "Turkey parts,legs,thighs,turkey,leg,thigh",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Duckling",
+    "Name_subtitle": "domestic or wild, whole",
+    "Keywords": "Duckling,domestic,wild,whole",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Goose",
+    "Name_subtitle": "domestic or wild, whole",
+    "Keywords": "Goose,domestic,wild,whole",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pheasant",
+    "Name_subtitle": "young, whole",
+    "Keywords": "Pheasant,young,whole",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Quail",
+    "Name_subtitle": "whole",
+    "Keywords": "Quail,whole",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Capon",
+    "Name_subtitle": "whole",
+    "Keywords": "Capon,whole",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cornish Hens",
+    "Name_subtitle": "whole",
+    "Keywords": "Cornish Hens,Hens,whole,Hen",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Giblets",
+    "Name_subtitle": "",
+    "Keywords": "Giblets,giblet",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Rotisserie chicken",
+    "Name_subtitle": "",
+    "Keywords": "Rotisserie chicken,chicken,Rotisserie",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lean fish",
+    "Name_subtitle": "cod, flounder, haddock, halibut, sole, etc.",
+    "Keywords": "Lean fish,cod, flounder,haddock,halibut,sole,fish",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Lean fish",
+    "Name_subtitle": "pollock, ocean perch, rockfish, sea trout.",
+    "Keywords": "Lean fish,pollock,ocean,rockfish, sea,sea trout,fish,ocean perch,perch,trout,rock",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Fatty fish",
+    "Name_subtitle": "bluefish, catfish, mackerel, mullet, salmon, tuna, etc.",
+    "Keywords": "Fatty fish,bluefish,catfish,mackerel,mullet,salmon,tuna,fish,fatty,blue,cat",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Caviar",
+    "Name_subtitle": "fresh, in jar",
+    "Keywords": "Caviar,fresh,jar",
+    "Max": 4,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Scallops",
+    "Name_subtitle": "",
+    "Keywords": "Scallops,scallop",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Shrimp, crayfish",
+    "Name_subtitle": "",
+    "Keywords": "Shrimp,crayfish,cray,fish",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Squid",
+    "Name_subtitle": "",
+    "Keywords": "Squid",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Shucked clams, mussels, and oysters",
+    "Name_subtitle": "",
+    "Keywords": "Shucked clams,mussels,oysters,clams,clam,mussels,mussel,oyster",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Crab meat",
+    "Name_subtitle": "pasteurized",
+    "Keywords": "Crab meat,meat,pasteurized,crab",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Crab legs",
+    "Name_subtitle": "king, dungeness, snow",
+    "Keywords": "Crab legs,king,dungeness,snow,crab,legs,leg",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Live clams, mussels, crab, and oysters",
+    "Name_subtitle": "",
+    "Keywords": "Live clams,mussels,crab,oysters,clams,clam,mussel,oyster",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Fresh whole lobster",
+    "Name_subtitle": "live",
+    "Keywords": "Fresh whole lobster,lobster,live,whole lobster",
+    "Max": 1,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Fresh lobster tails",
+    "Name_subtitle": "cooked",
+    "Keywords": "Fresh lobster tails,tails,cooked,lobster tails,tail",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Fresh clams, mussels, oysters",
+    "Name_subtitle": "",
+    "Keywords": "Fresh clams,clams,oysters,clam,mussels,mussel,oyster",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Fresh whole lobster",
+    "Name_subtitle": "frozen",
+    "Keywords": "Fresh whole lobster,lobster,frozen,whole lobster",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Herring",
+    "Name_subtitle": "glass packed, in wine sauce",
+    "Keywords": "Herring,glass packed,wine sauce,packed,glass,wine,sauce",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Fish",
+    "Name_subtitle": "hot smoked, air pack",
+    "Keywords": "Fish,hot smoked,air pack,hot,smoked,pack",
+    "Max": 45,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Fish",
+    "Name_subtitle": "hot smoked, vacuum pack",
+    "Keywords": "Fish,hot smoked,vacuum pack,hot,smoked,vacuum,pack",
+    "Max": 45,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Fish",
+    "Name_subtitle": "cold smoked, air pack",
+    "Keywords": "Fish,cold smoked,air pack,cold,smoked,pack",
+    "Max": 30,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Fish",
+    "Name_subtitle": "cold smoked, vacuum pack",
+    "Keywords": "Fish,cold smoked,vacuum pack,cold,smoked,vacuum,pack",
+    "Max": 30,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Tofu",
+    "Name_subtitle": "",
+    "Keywords": "Tofu",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Miso",
+    "Name_subtitle": "",
+    "Keywords": "Miso",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Commercial brand vacuum-packed dinners",
+    "Name_subtitle": "with USDA seal",
+    "Keywords": "Commercial brand vacuum-packed dinners,brand vacuum packed dinners,USDA seal,USDA,seal,dinners,dinner,vacuum packed,vacuum packed dinner,packed dinner,packed",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Hummus",
+    "Name_subtitle": "commercial (pasteurized, with preservatives)",
+    "Keywords": "Hummus,commercial,pasteurized,preservatives,preservative",
+    "Max": 3,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Luncheon meat or poultry",
+    "Name_subtitle": "store-sliced",
+    "Keywords": "Luncheon meat,poultry,store sliced,meat,luncheon,store,sliced",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Main dishes or meals",
+    "Name_subtitle": "hot or refrigerated",
+    "Keywords": "Main dishes,meals,hot,refrigerated,dishes,dish,meal",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Olives",
+    "Name_subtitle": "from olive bar",
+    "Keywords": "Olives,bar,olive",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Pate",
+    "Name_subtitle": "",
+    "Keywords": "Pate",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Luncheon meat or poultry",
+    "Name_subtitle": "pre-packaged",
+    "Keywords": "Luncheon meat,luncheon,meat,poultry,packaged,pre packaged",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Berries",
+    "Name_subtitle": "cherries, goose berries, lychee",
+    "Keywords": "Berries,berry,cherries,cherry,goose berries,goose berry,lychee,gooseberries",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Berries",
+    "Name_subtitle": "blackberries, boysenberries, currant",
+    "Keywords": "Berries,berry,blackberries,blackberry,boysenberries,boysenberry,currant",
+    "Max": 6,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Blueberries",
+    "Name_subtitle": "",
+    "Keywords": "Blueberries,blueberry,berries,berry",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Cranberries",
+    "Name_subtitle": "",
+    "Keywords": "Cranberries,cranberry",
+    "Max": 2,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Melons",
+    "Name_subtitle": "",
+    "Keywords": "Melons,melon",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Asparagus",
+    "Name_subtitle": "",
+    "Keywords": "Asparagus",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Bamboo shoots",
+    "Name_subtitle": "",
+    "Keywords": "Bamboo shoots,bamboo,shoots,shoot",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Beans and peas",
+    "Name_subtitle": "green, fava, lima, soybean, wax, snow, sugar snap",
+    "Keywords": "Beans,peas,green,fava,lima,soybean,wax,snow,sugar snap,sugar,pea,soya",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Bok choy",
+    "Name_subtitle": "",
+    "Keywords": "Bok choy",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Broccoli and broccoli raab (rapini)",
+    "Name_subtitle": "",
+    "Keywords": "Broccoli,broccoli raab,rapini,raab",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Brussels sprouts",
+    "Name_subtitle": "",
+    "Keywords": "Brussels sprouts,brussels,sprouts,sprout,brussel",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cabbage",
+    "Name_subtitle": "",
+    "Keywords": "Cabbage",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Carrots, parsnips",
+    "Name_subtitle": "",
+    "Keywords": "Carrots,parsnips,carrot,parsnip",
+    "Max": 3,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Cauliflower",
+    "Name_subtitle": "",
+    "Keywords": "Cauliflower",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Celery",
+    "Name_subtitle": "",
+    "Keywords": "Celery",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Corn on the cob",
+    "Name_subtitle": "",
+    "Keywords": "Corn,cob",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cucumbers",
+    "Name_subtitle": "",
+    "Keywords": "Cucumbers,cucumber",
+    "Max": 6,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Greens",
+    "Name_subtitle": "",
+    "Keywords": "Greens,green",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Herbs",
+    "Name_subtitle": "",
+    "Keywords": "Herbs,herb",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Leeks",
+    "Name_subtitle": "",
+    "Keywords": "Leeks,leek",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Lettuce",
+    "Name_subtitle": "iceberg, romaine",
+    "Keywords": "Lettuce,iceberg,romaine",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Lettuce",
+    "Name_subtitle": "leaf, spinach",
+    "Keywords": "Lettuce,leaf,spinach",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Mushrooms",
+    "Name_subtitle": "",
+    "Keywords": "Mushroom,mushrooms",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Peppers",
+    "Name_subtitle": "",
+    "Keywords": "Peppers,pepper",
+    "Max": 14,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Radishes",
+    "Name_subtitle": "",
+    "Keywords": "Radishes,radish",
+    "Max": 14,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Rhubarb",
+    "Name_subtitle": "",
+    "Keywords": "Rhubarb",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Turnips",
+    "Name_subtitle": "",
+    "Keywords": "Turnips,turnip",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Horseradish",
+    "Name_subtitle": "in jar",
+    "Keywords": "Horseradish,jar",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Pesto",
+    "Name_subtitle": "jarred",
+    "Keywords": "Pesto,jarred,jar",
+    "Max": 6,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Kale",
+    "Name_subtitle": "",
+    "Keywords": "Kale",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Turkey bacon",
+    "Name_subtitle": "",
+    "Keywords": "Turkey bacon,turkey,bacon",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Strawberries",
+    "Name_subtitle": "",
+    "Keywords": "Strawberries,strawberry",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Raspberries",
+    "Name_subtitle": "",
+    "Keywords": "Raspberries,raspberry",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cherries",
+    "Name_subtitle": "",
+    "Keywords": "Cherries,cherry",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Peanut butter",
+    "Name_subtitle": "natural",
+    "Keywords": "Peanut butter,butter,natural",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Ricotta",
+    "Name_subtitle": "",
+    "Keywords": "Ricotta",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Kimchi",
+    "Name_subtitle": "",
+    "Keywords": "Kimchi",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Kohlrabi",
+    "Name_subtitle": "",
+    "Keywords": "Kohlrabi",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Flaxseed",
+    "Name_subtitle": "ground",
+    "Keywords": "Flaxseed,ground",
+    "Max": 12,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Lemongrass",
+    "Name_subtitle": "",
+    "Keywords": "Lemongrass",
+    "Max": 9,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Turkey",
+    "Name_subtitle": "pre-packaged, luncheon/deli meat",
+    "Keywords": "Turkey,pre-packaged,luncheon/deli meat,packaged,luncheon,deli",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Ham",
+    "Name_subtitle": "pre-packaged, luncheon/deli meat",
+    "Keywords": "Ham,pre-packaged,luncheon/deli meat,packaged,luncheon,deli",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Salami",
+    "Name_subtitle": "pre-packaged, luncheon/deli meat",
+    "Keywords": "Salami,pre-packaged,luncheon meat,deli meat,packaged,luncheon/deli,pre",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Chicken",
+    "Name_subtitle": "pre-packaged, luncheon/deli meat",
+    "Keywords": "Chicken,pre-packaged,luncheon meat,deli meat,packaged",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "String Cheese",
+    "Name_subtitle": "",
+    "Keywords": "String Cheese,cheese",
+    "Max": 5,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Vegan Cheddar Cheese",
+    "Name_subtitle": "",
+    "Keywords": "Vegan Cheddar Cheese,cheese,cheddar",
+    "Max": 4,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Hot peppers",
+    "Name_subtitle": "",
+    "Keywords": "Hot peppers,pepper",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Bean sprouts",
+    "Name_subtitle": "",
+    "Keywords": "Bean sprouts,bean,sprouts",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Swiss chard",
+    "Name_subtitle": "",
+    "Keywords": "Swiss chard,chard",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Cocoa and cocoa mixes",
+    "Name_subtitle": "",
+    "Keywords": "Cocoa,cocoa mixes,mixes,mix",
+    "Max": 1,
+    "Metric": "Years"
+  },
+  {
+    "Name": "Sugar",
+    "Name_subtitle": "brown",
+    "Keywords": "Sugar,brown",
+    "Max": 24,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Sugar",
+    "Name_subtitle": "granulated",
+    "Keywords": "Sugar,granulated",
+    "Max": 24,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Sugar",
+    "Name_subtitle": "confectioners",
+    "Keywords": "Sugar,confectioners,confectioner",
+    "Max": 24,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Cereal, dry mixes",
+    "Name_subtitle": "",
+    "Keywords": "Cereal,dry mixes,mixes,mix,dry",
+    "Max": 1,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Formula",
+    "Name_subtitle": "prepared",
+    "Keywords": "Formula,prepared,prepare",
+    "Max": 1,
+    "Metric": "Hours"
+  },
+  {
+    "Name": "Pectin",
+    "Name_subtitle": "",
+    "Keywords": "Pectin",
+    "Max": 1,
+    "Metric": "Months"
+  },
+  {
+    "Name": "Roasted nuts (peanuts, cashews, almonds)",
+    "Name_subtitle": "",
+    "Keywords": "roasted nuts,roasted,nuts,roasted peanuts,roasted almonds,roasted cashews,almonds,cashews,peanuts",
+    "Max": 2,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Pudding",
+    "Name_subtitle": "",
+    "Keywords": "Pudding",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Retort pouches or boxes",
+    "Name_subtitle": "",
+    "Keywords": "Retort pouches,boxes,box,retort,pouch",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Retort pouches or boxes",
+    "Name_subtitle": "",
+    "Keywords": "Retort pouches,boxes,box,retort,pouch",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Fruit, cut",
+    "Name_subtitle": "",
+    "Keywords": "Fruit,cut",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cheesecake",
+    "Name_subtitle": "",
+    "Keywords": "Cheesecake,cake,cheese",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Dairy filled eclairs",
+    "Name_subtitle": "",
+    "Keywords": "Dairy filled eclairs,dairy filled,eclairs,éclair,dairy",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Cream pies",
+    "Name_subtitle": "banana cream, coconut cream, butterscotch",
+    "Keywords": "Pies,cream,pie, banana, banana cream,coconut,coconut cream,butterscotch",
+    "Max": 4,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Chiffon pies",
+    "Name_subtitle": "chocolate, lemon",
+    "Keywords": "Pies,chiffon,pie,chocolate,lemon,chocolate pie,lemon pie",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Jars or pouches",
+    "Name_subtitle": "",
+    "Keywords": "Jars,pouches,jar,pouch",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Fruit",
+    "Name_subtitle": "",
+    "Keywords": "Fruit",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Vegetables",
+    "Name_subtitle": "",
+    "Keywords": "Vegetables,vegetable",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Dinners",
+    "Name_subtitle": "",
+    "Keywords": "Dinners,dinner",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Liquid concentrate or ready-to-feed formula",
+    "Name_subtitle": "",
+    "Keywords": "Liquid concentrate,ready to feed formula,concentrate,liquid,formula,feed,ready to feed,feed formula",
+    "Max": 2,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Juice, boxes",
+    "Name_subtitle": "",
+    "Keywords": "Juice, boxes,box",
+    "Max": 12,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Soda",
+    "Name_subtitle": "carbonated cola drinks, mixers, diet sodas; bottles or cans",
+    "Keywords": "Soda,carbonated cola drinks,mixers,diet sodas,bottles,cans,cola drinks,drinks,drink,cola,carbonated,carbonated cola,mixer,diet,sodas,bottle,can",
+    "Max": 3,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Soy or rice beverage",
+    "Name_subtitle": "",
+    "Keywords": "Soy,rice beverage,rice,beverage",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Soy milk",
+    "Name_subtitle": "",
+    "Keywords": "Soy milk,soy,milk",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Almond milk",
+    "Name_subtitle": "",
+    "Keywords": "Almond milk,milk,almond",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Rice milk",
+    "Name_subtitle": "",
+    "Keywords": "Rice milk,rice,milk",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Coconut milk",
+    "Name_subtitle": "",
+    "Keywords": "Coconut milk,coconut,milk",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pork roll",
+    "Name_subtitle": "",
+    "Keywords": "Pork roll,Pork,roll",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Orange juice",
+    "Name_subtitle": "commercially packaged carton",
+    "Keywords": "Orange juice,commercially packaged carton,orange,juice,commercially,packaged,carton,packaged carton,commercially packaged,commercial",
+    "Max": 10,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Milk",
+    "Name_subtitle": "lactose-free",
+    "Keywords": "Milk,lactose,lactose-free",
+    "Max": 1,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Vegetable juice",
+    "Name_subtitle": "homemade",
+    "Keywords": "Vegetable juice,juices,homemade,vegetable",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Tomato sauce",
+    "Name_subtitle": "spaghetti, pizza",
+    "Keywords": "Tomato sauce,sauce,spaghetti, pizza",
+    "Max": 5,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Pimento cheese",
+    "Name_subtitle": "packaged",
+    "Keywords": "pimento cheese,pimento,cheese",
+    "Max": 4,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Salad dressing",
+    "Name_subtitle": "dry,packaged",
+    "Keywords": "salad dressing,salad,dressing,dry,packaged,package,powdered,powder",
+    "Max": 4,
+    "Metric": "Weeks"
+  },
+  {
+    "Name": "Polenta",
+    "Name_subtitle": "shelf-stable",
+    "Keywords": "polenta,shelf stable,shelf stable polenta",
+    "Max": 7,
+    "Metric": "Days"
+  },
+  {
+    "Name": "Salad dressing",
+    "Name_subtitle": "homemade",
+    "Keywords": "homemade salad dressing,homemade,salad dressing,salad,dressing",
+    "Max": 2,
+    "Metric": "Weeks"
+  }
 ]
