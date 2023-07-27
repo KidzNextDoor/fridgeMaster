@@ -3,6 +3,11 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const { errorHandler } = require('./middleware/errorMiddleware');
+const express = require('express');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const path = require('path');
+const { errorHandler } = require('./middleware/errorMiddleware');
 
 const PORT = 3000;
 
@@ -14,6 +19,7 @@ require('./db');
 const apiRouter = require('./routes/apiRouter');
 const userRouter = require('./routes/userRoutes');
 const inventoryRouter = require('./routes/inventoryRoutes');
+const recipesRouter = require('./routes/recipesRouter');
 
 const app = express();
 
@@ -35,6 +41,7 @@ app.get('/shelflife', (req, res) => {
 // all routes to /api/inventory go to inventoryRoutes
 app.use('/api/inventory', inventoryRouter);
 app.use('/api/users', userRouter);
+app.use('/api/recipes', recipesRouter);
 app.use('/api', apiRouter);
 
 // catch all route for any unknown routes
