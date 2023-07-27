@@ -35,40 +35,8 @@ inventoryController.getItem = async (req, res, next) => {
 // @route POST /api/items
 // @access Private
 inventoryController.setItem = async (req, res, next) => {
-  try {
-    const { email, name, type, expDate, category } = req.body;
-
-    // Generate a unique ID for the new fridge contents
-    // const newItemId = mongoose.Types.ObjectId().toHexString();
-
-    // get user from database
-    // add new fridge contents to users fridgeContents array
-    const user = await UserData.findOneAndUpdate(
-      { email },
-      {
-        $push: {
-          fridgeContents: {
-            // _id: newItemId,
-            name,
-            type,
-            category,
-            expDate,
-          },
-        },
-      },
-      { new: true }
-    );
-
-    if (!user) {
-      return res.status(400).json({ message: "User not found" });
-    }
-
-    res.locals.newItem = user.fridgeContents;
-    return next();
-  } catch (error) {
-    console.error(error);
-    return next(error);
-  }
+  // name, description, expiration date
+  
 };
 
 // @description Update items
@@ -133,10 +101,10 @@ inventoryController.deleteItem = async (req, res, next) => {
     const newFridgeContents = fridgeContents;
 
     // find user in database
-    const user = await UserData.findOneAndUpdate({ email }, 
+    const user = await UserData.findOneAndUpdate({ email },
     {
      fridgeContents: newFridgeContents
-    }, 
+    },
     {
       upsert: true,
       new: true

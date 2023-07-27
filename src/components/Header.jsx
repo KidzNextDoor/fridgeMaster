@@ -14,7 +14,18 @@ function Header() {
   const isLoggedIn = useLoggedIn();
   const setIsLoggedIn = useSetLoggedIn();
 
-  const email = localStorage.getItem('email');
+  let email = localStorage.getItem('email');
+
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
+  if (!email) {
+    email = getCookie('email')
+    email = decodeURIComponent(email)
+  }
 
   const handleLogout = async () => {
     try {
@@ -77,21 +88,21 @@ function Header() {
   const ShowLogin = () => (
     <div
       className="
-                hover:transform 
-                hover:transition-all 
-                hover:scale-110 
-                cursor-pointer 
-                flex 
+                hover:transform
+                hover:transition-all
+                hover:scale-110
+                cursor-pointer
+                flex
                 text-xl
                 font-mynerve
                  bg-blue-600
                  text-white
-                items-center 
-                justify-center 
+                items-center
+                justify-center
                 gap-2
-                rounded-2xl 
-                mt-4 
-                p-4 
+                rounded-2xl
+                mt-4
+                p-4
                 shadow-xl
               "
     >
