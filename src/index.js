@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import axios from 'axios';
 
 import { LoggedInProvider } from './contexts/LoggedInContext.js';
 import App from './components/App.jsx';
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <App />,
+        loader: async () => await axios('/shelflife'),
       },
       {
         path: '/login',
