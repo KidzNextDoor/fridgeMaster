@@ -31,6 +31,7 @@ router.get(
   '/google/callback',
   passport.authenticate('google'),
   setCookie,
+  userController.createUserOAuth,
   (req, res, next) => {
     res.redirect('http://localhost:8080');
     next();
