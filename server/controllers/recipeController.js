@@ -11,7 +11,7 @@ recipeController.getRecommendedRecipes = async (req, res, next) => {
   const userID = req.params.id;
   // get the recipes from recipeselector view if their score is more than 0.
   const query =
-    'SELECT rs.*, r.type keywords, r.instructions, r.description FROM recipeselector rs INNER JOIN recipes r ON r.recipeID = rs.recipeID WHERE rs.score > 0 AND rs.userid = $1';
+    'SELECT rs.*, r.type keywords, r.instructions, r.description, r.picurl, r.videourl FROM recipeselector rs INNER JOIN recipes r ON r.recipeID = rs.recipeID WHERE rs.score > 0 AND rs.userid = $1';
   try {
     const result = await db(query, [userID]);
     res.locals.recipes = result.rows;
