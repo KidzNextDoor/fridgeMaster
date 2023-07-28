@@ -45,16 +45,16 @@ sessionController.startSession = async (req, res, next) => {
 
 sessionController.isLoggedIn = async (req, res, next) => {
   try {
-    const { token } = req.cookies;
+    const { token, session } = req.cookies;
 
-    if (!token) {
+    if (!session && !token) {
       res.locals.loggedIn = false;
       return next();
     }
 
-    const loggedIn = jwt.verify(token, process.env.JWT_SECRET);
+    // const loggedIn = jwt.verify(token, process.env.JWT_SECRET);
 
-    res.locals.isLoggedIn = loggedIn;
+    res.locals.isLoggedIn = true;
 
     return next();
   } catch (err) {

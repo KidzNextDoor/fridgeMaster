@@ -3,11 +3,14 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const { errorHandler } = require('./middleware/errorMiddleware');
+const passport = require('passport');
+const cookieSession = require('cookie-session');
 
 const PORT = 3000;
 
 // starts the Mongo DB when the server is started
 require('dotenv').config();
+require('./db');
 require('./db');
 
 // routers are defined here
@@ -15,6 +18,7 @@ const apiRouter = require('./routes/apiRouter');
 const userRouter = require('./routes/userRoutes');
 const inventoryRouter = require('./routes/inventoryRoutes');
 const recipesRouter = require('./routes/recipesRouter');
+const authRouter = require('./routes/authRoutes');
 
 const app = express();
 
@@ -32,11 +36,22 @@ app.get('/shelflife', (req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, 'shelflife.json'));
 });
 
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: ['ABCDE12345'],
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 // created a route file to keep code organized
 // all routes to /api/inventory go to inventoryRoutes
 app.use('/api/inventory', inventoryRouter);
 app.use('/api/users', userRouter);
 app.use('/api/recipes', recipesRouter);
+app.use('/api/auth', authRouter);
 app.use('/api', apiRouter);
 
 // catch all route for any unknown routes
@@ -47,6 +62,7 @@ app.use('*', (req, res) => {
 // create error handler to replace default express error handler
 app.use((err, req, res, next) => {
   console.log(err);
+  res.status(500).json({ error: err });
   res.status(500).json({ error: err });
 });
 
