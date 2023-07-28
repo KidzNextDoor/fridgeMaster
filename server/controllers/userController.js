@@ -24,13 +24,19 @@ userController.createUser = async (req, res, next) => {
     const userExists = await dbsql('SELECT * FROM users WHERE email=$1', [
       email,
     ]);
-    console.log(userExists);
 
     if (userExists.rowCount) {
       return next('User already exists');
     }
 
-    const newUser = await dbsql('INSERT INTO users VALUES($1, $2, $3, $4)');
+    const SALT_WORK_FACTOR = 10;
+    const salt = await bcrypt.genSalt(SALT_WORK_FACTOR);
+    const hash = await bcrypt.hash(password, salt);
+
+    const newUser = await dbsql(
+      'INSERT INTO users (username, password, email) VALUES($1, $2, $3)',
+      [name, hash, email]
+    );
 
     res.locals.newUser = newUser;
 
