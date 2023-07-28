@@ -1,5 +1,5 @@
 // const jwt = require("jsonwebtoken");
-// const bcrypt = require("bcryptjs");
+const bcrypt = require('bcryptjs');
 // const asyncHandler = require("express-async-handler");
 // require in user model
 // const UserData = require('../models/userModel');
@@ -83,47 +83,20 @@ userController.createUserOAuth = async (req, res, next) => {
 userController.verifyUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    res.locals.status = true;
+    console.log(email, password);
+    const result = await dbsql('SELECT * FROM users WHERE email = $1', [email]);
 
-    const user = await UserData.findOne({ email });
+    if (!result.rows) return next('User not found');
 
-    if (!user) {
-      res.locals.status = 'Incorrect username or password';
-      return next();
-    }
+    const correctPass = await bcrypt.compare(password, result.rows[0].password);
 
-    const correctPass = await UserData.comparePassword(password, user.password);
+    if (!correctPass) return next('Incorrect username/password');
 
-    if (!correctPass) {
-      res.locals.status = 'Incorrect username or password';
-      return next();
-    }
-
-    res.locals.user = user;
-
+    res.locals.user = result.rows[0];
     return next();
   } catch (err) {
-    return next(err);
+    return next('Unable to find user');
   }
-
-  // check for email and password
-
-  //   // find user by email in db
-  //   const user = await User.findOne({ email });
-
-  // //   // check if user exists and password is correct
-  //   if (user && (await bcrypt.compare(password, user.password))) {
-  //     res.json({
-  //       _id: user.id,
-  //       name: user.name,
-  //       email: user.email,
-  //       token: generateToken(user._id),
-  //     });
-  //     return next()
-  //   } else {
-  //     res.status(400);
-  //     throw new Error("Invalid Credentials");
-  //   }
 };
 
 // @description send to home page

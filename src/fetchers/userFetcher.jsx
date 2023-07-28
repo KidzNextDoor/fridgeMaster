@@ -4,8 +4,8 @@ export const loginUser = async (email, password) => {
   try {
     const res = await axios.post('/api/users/login', { email, password });
     return res.data;
-  } catch (err) {
-    console.log(err);
+  } catch (e) {
+    return e.message;
   }
 };
 
