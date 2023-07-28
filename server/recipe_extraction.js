@@ -17,13 +17,15 @@ async function insert() {
       string += `${step['position']} ${step['display_text']}\n`;
     }
     // insert into recipes
-    let sql = `INSERT INTO recipes (name, type, instructions, description) VALUES ($1, $2, $3, $4) RETURNING recipeid;`;
+    let sql = `INSERT INTO recipes (name, type, instructions, description, picUrl, videoUrl) VALUES ($1, $2, $3, $4, $5, $6) RETURNING recipeid;`;
     console.log(sql);
     const result = await query(sql, [
       recipe.name,
       recipe.keywords,
       string,
       recipe.description,
+      recipe.thumbnail_url,
+      recipe.original_video_url,
     ]);
     console.log(result);
     const recipeID = result.rows[0].recipeid;
