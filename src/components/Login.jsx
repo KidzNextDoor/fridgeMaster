@@ -21,7 +21,7 @@ const Login = () => {
   const handleLogin = async e => {
     const res = await loginUser(e.email, e.password);
 
-    if (res?.status === true) {
+    if (!res.message) {
       // true means verified
       localStorage.setItem('email', e.email);
       setIsLoggedIn(true);
