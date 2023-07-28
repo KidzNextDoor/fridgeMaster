@@ -11,42 +11,35 @@ Controllers are JavaScript files that contain a set of methods, called actions, 
 // @route GET /api/items
 // @access Public
 inventoryController.getItem = async (req, res, next) => {
-  // user enters purchaseDate, type, expDate, itemName
-  try {
-    // what are we using to identify a user? email, db _id?
-    const { email } = req.params;
-
-    // get items from db
-    const user = await UserData.findOne({ email });
-
-    if (!user) {
-      return res.status(400).json({ message: 'User not found' });
-    }
-
-    // get user from database, then access fridgeContents
-    res.locals.getItem = user.fridgeContents;
-    return next();
-  } catch (error) {
-    console.error(error);
-    return next(error);
+  const { email } = req.params;
+  const sql =
+    'SELECT f.name, f.type, f.expdate FROM users u JOIN fridge f on u.userid = f.userid WHERE u.email = $1';
+  const results = await dbsql(sql, [email]);
+  if (!results.rows) {
+    res.locals.getItem = [];
+  } else {
+    res.locals.getItem = results.rows;
   }
+
+  return next();
 };
 
 // @description Set items
 // @route POST /api/items
 // @access Private
 inventoryController.setItem = async (req, res, next) => {
+  console.log('inventory');
   // query the db with the current user's email and get the userid in the users table based off their email
   const findUserQuery = 'SELECT userid FROM users WHERE email=$1';
   const foundUserID = await dbsql(findUserQuery, [req.body.email]);
-  console.log(foundUserID);
+
   if (!foundUserID.rowCount) {
     return next('No userid found in the users table');
   }
   // now use that userid found, and insert name, type, purchasedate, and expdate into fridge table
   const addItemQuery =
     'INSERT INTO fridge(userid, name, type, purchasedate, expdate) VALUES($1, $2, $3, $4, $5)';
-  const addedItem = await dbsql(addItemQuery, [
+  await dbsql(addItemQuery, [
     foundUserID.rows[0].userid,
     req.body.name,
     req.body.type,
