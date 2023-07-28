@@ -1,4 +1,5 @@
-const UserData = require("../models/userModel");
+const UserData = require('../models/userModel');
+const dbsql = require('../db_sql');
 
 const inventoryController = {};
 
@@ -19,7 +20,7 @@ inventoryController.getItem = async (req, res, next) => {
     const user = await UserData.findOne({ email });
 
     if (!user) {
-      return res.status(400).json({ message: "User not found" });
+      return res.status(400).json({ message: 'User not found' });
     }
 
     // get user from database, then access fridgeContents
@@ -35,40 +36,24 @@ inventoryController.getItem = async (req, res, next) => {
 // @route POST /api/items
 // @access Private
 inventoryController.setItem = async (req, res, next) => {
-  try {
-    const { email, name, type, expDate, category } = req.body;
-
-    // Generate a unique ID for the new fridge contents
-    // const newItemId = mongoose.Types.ObjectId().toHexString();
-
-    // get user from database
-    // add new fridge contents to users fridgeContents array
-    const user = await UserData.findOneAndUpdate(
-      { email },
-      {
-        $push: {
-          fridgeContents: {
-            // _id: newItemId,
-            name,
-            type,
-            category,
-            expDate,
-          },
-        },
-      },
-      { new: true }
-    );
-
-    if (!user) {
-      return res.status(400).json({ message: "User not found" });
-    }
-
-    res.locals.newItem = user.fridgeContents;
-    return next();
-  } catch (error) {
-    console.error(error);
-    return next(error);
+  // query the db with the current user's email and get the userid in the users table based off their email
+  const findUserQuery = 'SELECT userid FROM users WHERE email=$1';
+  const foundUserID = await dbsql(findUserQuery, [req.body.email]);
+  console.log(foundUserID);
+  if (!foundUserID.rowCount) {
+    return next('No userid found in the users table');
   }
+  // now use that userid found, and insert name, type, purchasedate, and expdate into fridge table
+  const addItemQuery =
+    'INSERT INTO fridge(userid, name, type, purchasedate, expdate) VALUES($1, $2, $3, $4, $5)';
+  const addedItem = await dbsql(addItemQuery, [
+    foundUserID.rows[0].userid,
+    req.body.name,
+    req.body.type,
+    req.body.purchasedate,
+    req.body.expdate,
+  ]);
+  return next();
 };
 
 // @description Update items
@@ -84,17 +69,17 @@ inventoryController.updateItem = async (req, res, next) => {
 
     // if no user in database
     if (!user) {
-      return res.status(400).json({ message: "No user found" });
+      return res.status(400).json({ message: 'No user found' });
     }
 
     // if each fridgeContents object has a unique id
-    const itemIndex = user.fridgeContents.findIndex((food) => {
+    const itemIndex = user.fridgeContents.findIndex(food => {
       return food._id === id;
     });
 
     // if item not found in fridge
     if (itemIndex === -1) {
-      return res.status(404).json({ message: "Fridge content not found" });
+      return res.status(404).json({ message: 'Fridge content not found' });
     }
 
     // if item is found update it
@@ -133,14 +118,16 @@ inventoryController.deleteItem = async (req, res, next) => {
     const newFridgeContents = fridgeContents;
 
     // find user in database
-    const user = await UserData.findOneAndUpdate({ email }, 
-    {
-     fridgeContents: newFridgeContents
-    }, 
-    {
-      upsert: true,
-      new: true
-    });
+    const user = await UserData.findOneAndUpdate(
+      { email },
+      {
+        fridgeContents: newFridgeContents,
+      },
+      {
+        upsert: true,
+        new: true,
+      }
+    );
 
     // if (!user) {
     //   return res.status(400).json({ message: "User not found" });

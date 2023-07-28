@@ -2,7 +2,8 @@
 // const bcrypt = require("bcryptjs");
 // const asyncHandler = require("express-async-handler");
 // require in user model
-const UserData = require('../models/userModel');
+// const UserData = require('../models/userModel');
+const dbsql = require('../db_sql');
 
 // @description Register new user
 // @route POST /api/users/register
@@ -20,14 +21,52 @@ userController.createUser = async (req, res, next) => {
     }
 
     // check if user exists
-    const userExists = await UserData.findOne({ email });
+    const userExists = await dbsql('SELECT * FROM users WHERE email=$1', [
+      email,
+    ]);
     console.log(userExists);
 
-    if (userExists) {
+    if (userExists.rowCount) {
       return next('User already exists');
     }
 
-    const newUser = await UserData.create({ username: name, password, email });
+    const newUser = await dbsql('INSERT INTO users VALUES($1, $2, $3, $4)');
+
+    res.locals.newUser = newUser;
+
+    return next();
+  } catch (err) {
+    console.log(err);
+    return next(err);
+  }
+};
+
+userController.createUserOAuth = async (req, res, next) => {
+  try {
+    const { username, email } = req.user;
+    // console.log(req.user, 'this is req.user');
+    // check for all user inputs
+    if (!username || !email) {
+      res.status(400);
+      throw new Error('Please add all fields');
+    }
+
+    // check if user exists
+    const userExists = await dbsql('SELECT * FROM users WHERE email=$1', [
+      email,
+    ]);
+    console.log(userExists);
+
+    if (userExists.rowCount) {
+      res.locals.newUser = userExists.rows[0];
+      return next();
+    }
+
+    const newUser = await dbsql(
+      'INSERT INTO users(username, email, password) VALUES($1, $2, $3)',
+      [username, email, 'google']
+    );
+    console.log('this is newUser after SQL query insert');
 
     res.locals.newUser = newUser;
 
