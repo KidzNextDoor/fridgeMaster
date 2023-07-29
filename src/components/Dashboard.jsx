@@ -60,12 +60,7 @@ export const Dashboard = () => {
             ) : isLoading ? (
               <LoadingSpinner />
             ) : (
-              <Contents
-                email={email}
-                isLoading={isLoading}
-                setFridgeContents={setFridgeContents}
-                fridgeContents={fridgeContents}
-              />
+              <Contents />
             )}
           </div>
         </div>

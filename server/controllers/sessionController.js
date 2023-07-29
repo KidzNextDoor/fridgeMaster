@@ -27,14 +27,12 @@ sessionController.githubAuth = async (req, res, next) => {
 
 sessionController.startSession = async (req, res, next) => {
   try {
-    if (res.locals.status !== true) {
-      return next();
-    }
-    const { email } = req.body;
+    const { email } = res.locals.user;
 
     const token = jwt.sign({ email }, process.env.JWT_SECRET, {
       expiresIn: '1h',
     });
+
     res.cookie('token', token, { httpOnly: true, secure: true });
 
     return next();
@@ -52,9 +50,9 @@ sessionController.isLoggedIn = async (req, res, next) => {
       return next();
     }
 
-    // const loggedIn = jwt.verify(token, process.env.JWT_SECRET);
+    const loggedIn = jwt.verify(token, process.env.JWT_SECRET);
 
-    res.locals.isLoggedIn = true;
+    res.locals.isLoggedIn = loggedIn;
 
     return next();
   } catch (err) {

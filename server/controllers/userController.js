@@ -34,11 +34,11 @@ userController.createUser = async (req, res, next) => {
     const hash = await bcrypt.hash(password, salt);
 
     const newUser = await dbsql(
-      'INSERT INTO users (username, password, email) VALUES($1, $2, $3)',
+      'INSERT INTO users (username, password, email) VALUES($1, $2, $3) RETURNING email',
       [name, hash, email]
     );
 
-    res.locals.newUser = newUser;
+    res.locals.user = newUser.rows[0];
 
     return next();
   } catch (err) {
