@@ -67,7 +67,6 @@ userController.createUserOAuth = async (req, res, next) => {
       res.locals.newUser = userExists.rows[0];
       return next();
     }
-
     const newUser = await dbsql(
       'INSERT INTO users(username, email, password) VALUES($1, $2, $3)',
       [username, email, 'google']
@@ -75,7 +74,6 @@ userController.createUserOAuth = async (req, res, next) => {
     console.log('this is newUser after SQL query insert');
 
     res.locals.newUser = newUser;
-
     return next();
   } catch (err) {
     console.log(err);

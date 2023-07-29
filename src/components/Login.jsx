@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 import { useSetLoggedIn } from '../contexts/LoggedInContext';
 
 import { loginUser } from '../fetchers/userFetcher';
 import GitHubButton from './GitHubButton';
+import GoogleIcon from '@mui/icons-material/Google';
+import { IconButton } from '@mui/material';
+
 
 const Login = () => {
   const [loginFailed, setLoginFailed] = useState(false);
@@ -30,6 +34,10 @@ const Login = () => {
       setLoginFailed(true);
     }
   };
+
+  const googleOAuthClick = () => {
+    axios.get('/api/auth/google')
+  }
 
   const emailFieldOptions = {
     required: 'Please enter an email',
@@ -138,6 +146,7 @@ const Login = () => {
               <div className="flex-grow border-b border-gray-400"></div>
             </div>
             <GitHubButton />
+           <Link to="http://localhost:3000/api/auth/google"><GoogleIcon/></Link>
           </div>
         </motion.div>
       </section>

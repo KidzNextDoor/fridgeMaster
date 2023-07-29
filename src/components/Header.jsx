@@ -14,7 +14,7 @@ function Header() {
   const isLoggedIn = useLoggedIn();
   const setIsLoggedIn = useSetLoggedIn();
 
-  const email = localStorage.getItem('email');
+  const email = decodeURIComponent(document.cookie.slice(6));
 
   const handleLogout = async () => {
     try {

@@ -14,7 +14,7 @@ export default function InputForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const email = localStorage.getItem('email');
+    const email = decodeURIComponent(document.cookie.slice(6));
     axios
       .post('/api/inventory', {
         email: email,
