@@ -13,9 +13,17 @@ export default function Suggestion({ input, setExpiration }) {
       data.data
         .filter(
           e =>
-            e.Name.toLowerCase().includes(input) ||
-            e.Name_subtitle.toLowerCase().includes(input) ||
-            e.Keywords.toLowerCase().includes(input)
+            input
+              .split(' ')
+              .some(str => e.Name.toLowerCase().includes(str.toLowerCase())) ||
+            input
+              .split(' ')
+              .some(str =>
+                e.Name_subtitle.toLowerCase().includes(str.toLowerCase())
+              ) ||
+            input
+              .split(' ')
+              .some(str => e.Keywords.toLowerCase().includes(str.toLowerCase()))
         )
         .sort(
           (a, b) =>
@@ -34,14 +42,13 @@ export default function Suggestion({ input, setExpiration }) {
     <Grid container spacing="2">
       <Grid item xs={9}>
         <Typography sx={{ padding: '1rem' }}>
-          {input.length ? suggestion.length && suggestion[0].Name : ''}
+          {input.length && suggestion.length ? suggestion[0].Name : ''}
         </Typography>
       </Grid>
       <Grid item xs={3}>
         <Typography sx={{ padding: '1rem' }}>
-          {input.length
-            ? suggestion.length &&
-              `${suggestion[0].Max} ${suggestion[0].Metric}`
+          {input.length && suggestion.length
+            ? `${suggestion[0].Max} ${suggestion[0].Metric}`
             : ''}
         </Typography>
       </Grid>

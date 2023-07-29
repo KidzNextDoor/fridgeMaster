@@ -1,112 +1,44 @@
-import React, { useState, useMemo, useCallback, useEffect } from 'react'
-import differenceBy from 'lodash/differenceBy'
-import DataTable from 'react-data-table-component';
-import { deleteFood } from '../fetchers/itemFetcher';
+import React from 'react';
+import axios from 'axios';
+import { useQuery } from 'react-query';
+import { DataGrid } from '@mui/x-data-grid';
+import { Typography } from '@mui/material';
+import moment from 'moment';
 
-const columns = [
-    {
-        name: 'Name',
-        selector: row => row.name,
-        sortable: true,
-    },
-    {
-        name: 'Type',
-        selector: row => row.type,
-        sortable: true,
-    },
-    {
-        name: 'Expiration Date',
-        selector: row => row.expDate,
-        sortable: true,
-    },
-];
+export function Contents() {
+  const email = localStorage.getItem('email');
 
-// const tableDataItems = [
-//     {
-//         id: 1,
-//         name: 'leftovers',
-//         type: 'cooked food',
-//         expDate: "07-10-2023"
-//     },
-//     {
-//         id: 2,
-//         name: 'apple',
-//         type: 'fruit',
-//         expDate: "07-23-2023"
-//     },
-//     {
-//         id: 3,
-//         name: 'pizza',
-//         type:'cooked food',
-//         expDate: "07-14-2023"
-//     },
-// ]
+  const { isLoading, isError, data, error } = useQuery(['contents'], () =>
+    axios.get(`api/inventory/${email}`)
+  );
 
+  if (isLoading) {
+    return (
+      <Typography align="center" variant="h4">
+        Loading...
+      </Typography>
+    );
+  }
 
-export const Contents = ({ fridgeContents, setFridgeContents, isLoading, email }) => {
-    const [selectedRows, setSelectedRows] = useState([]);
-	const [itemsToDelete, setItemsToDelete] = useState(false);
-	const [toggleCleared, setToggleCleared] = useState(false);
-	
-	const handleRowSelected = useCallback(state => {
-		setSelectedRows(state.selectedRows);
-	}, []);
+  if (isError) {
+    return (
+      <Typography align="center" variant="h4">
+        {JSON.stringify(error)}
+      </Typography>
+    );
+  }
 
+  const columns = [
+    { field: 'name', headerName: 'Name', flex: 1 },
+    { field: 'description', headerName: 'Description', flex: 1 },
+    { field: 'expiration', headerName: 'Expiration', flex: 1 },
+  ];
 
-	const contextActions = useMemo(() => {
-		const handleDelete = () => {
-			
-			if (window.confirm(`Are you sure you want to delete:\r ${selectedRows.map(r => r.name)}?`)) {
-				setToggleCleared(!toggleCleared);
-				setFridgeContents(differenceBy(fridgeContents, selectedRows));
-				setItemsToDelete(true);
-			}
-		};
+  const rows = data.data.map(row => ({
+    name: row.name,
+    description: row.type,
+    expiration: moment(row.expdate).format('MMMM Do, YYYY'),
+  }));
 
-		return (
-			<button 
-			  className="
-			    bg-red-500 
-				p-2 
-				font-mynerve 
-				shadow-xl 
-				hover:transform 
-				hover:transition-all 
-				hover:scale-110
-				hover:bg-red-600
-			  "
-			  key="delete" 
-			  onClick={handleDelete} 
-			  icon
-			>
-			  Delete
-			</button>
-		);
-	}, [fridgeContents, selectedRows, toggleCleared]);
-
-	useEffect(() => {
-		const tryDeleteFood = async () => {
-			await deleteFood(fridgeContents, email)
-		}
-		
-		if (!isLoading && itemsToDelete) {
-			tryDeleteFood();
-			setItemsToDelete(false);
-		}
-		
-	}, [fridgeContents])
-
-	return (
-		<DataTable
-            title="Fridge Contents"
-			columns={columns}
-			data={fridgeContents}
-			selectableRows
-            selectableRowsHighlight
-			contextActions={contextActions}
-			onSelectedRowsChange={handleRowSelected}
-			clearSelectedRows={toggleCleared}
-		/>
-  )
+  return <DataGrid getRowId={row => row.name} rows={rows} columns={columns} />;
 }
-

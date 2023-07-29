@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import moment from 'moment';
+import axios from 'axios';
+import { useQueryClient } from 'react-query';
 import { Container, Grid, TextField, Button, Card } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Suggestion from './Suggestion';
@@ -8,9 +10,25 @@ export default function InputForm() {
   const [input, setInput] = useState('');
   const [description, setDescription] = useState('');
   const [expiration, setExpiration] = useState(moment());
+  const client = useQueryClient();
 
   function handleSubmit(e) {
     e.preventDefault();
+    const email = localStorage.getItem('email');
+    axios
+      .post('/api/inventory', {
+        email: email,
+        name: input,
+        type: description,
+        purchasedate: moment(),
+        expdate: expiration,
+      })
+      .then(() => {
+        setInput('');
+        setDescription('');
+        setExpiration(moment());
+        client.invalidateQueries('contents');
+      });
   }
 
   return (
