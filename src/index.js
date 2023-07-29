@@ -11,6 +11,7 @@ import '../styles/tailwind.css';
 import Layout from './Layout.jsx';
 import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
+import RecipesPage from './components/RecipesPage.jsx';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />,
+      },
+      {
+        path: '/recipespage',
+        element: <RecipesPage />,
       },
     ],
   },
