@@ -68,7 +68,7 @@ sessionController.isLoggedIn = async (req, res, next) => {
 
 sessionController.logout = async (req, res, next) => {
   try {
-    res.clearCookie('token');
+    res.clearCookie('token',{httpOnly: true,secure: true});
     res.clearCookie('email');
     res.clearCookie('session');
     return next();

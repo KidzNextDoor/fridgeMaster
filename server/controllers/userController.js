@@ -38,6 +38,8 @@ userController.createUser = async (req, res, next) => {
       [name, hash, email]
     );
 
+    res.cookie('email',email);
+
     res.locals.user = newUser.rows[0];
 
     return next();

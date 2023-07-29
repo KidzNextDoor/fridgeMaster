@@ -145,7 +145,7 @@ const Login = () => {
               <div className="mx-4 font-mynerve text-gray-500">OR</div>
               <div className="flex-grow border-b border-gray-400"></div>
             </div>
-            <GitHubButton />
+            
            <Link to="http://localhost:3000/api/auth/google"><GoogleIcon/></Link>
           </div>
         </motion.div>

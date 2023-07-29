@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import wizzardBuddy from '../images/wizzardBuddy.png';
+import wizzardBuddy from '../images/fridgemaster.png';
 
 const Homepage = () => {
   return (
@@ -47,6 +47,9 @@ const Homepage = () => {
           <div>✓ Recommendations for expiration dates.</div>
           <div>
             ✓ Notification of which items are past their prime (or way past).
+          </div>
+          <div>
+            ✓ Recipe recommendations based on the items in your inventory that are expiring
           </div>
         </div>
       </div>
