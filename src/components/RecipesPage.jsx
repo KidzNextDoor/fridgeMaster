@@ -15,7 +15,8 @@ const getAllRecipes = () => {
     async function fetchRecipes() {
       try {
         // GET request to grab current users recipes
-        const response = await axios.get('/api/recipes/3');
+        const email = decodeURIComponent(document.cookie.slice(6));
+        const response = await axios.post('/api/recipes',{email});
         setRecipes(response.data);
         return;
         // if GET request fails

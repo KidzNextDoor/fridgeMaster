@@ -87,6 +87,7 @@ userController.createUserOAuth = async (req, res, next) => {
 userController.verifyUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
+    res.cookie('email',email);
     console.log(email, password);
     const result = await dbsql('SELECT * FROM users WHERE email = $1', [email]);
 
