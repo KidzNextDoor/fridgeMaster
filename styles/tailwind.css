@@ -78,3 +78,16 @@ button {
   color: dodgerblue;
   text-decoration: underline;
 }
+
+
+.recipe-name {
+  font-weight:bold;
+  font-size: 30px;
+  font-family: 'Inter', sans-serif;
+  padding: 10px;
+}
+
+.recipe-card img {
+  max-width: 25vw;
+}
+
