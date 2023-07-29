@@ -9,13 +9,18 @@ const router = express.Router();
 // Route user has to visit to kick off the oAuth process
 router.get(
   '/google',
+  function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  },
   passport.authenticate('google', {
     scope: ['profile', 'email'],
   })
 );
 
 function setCookie(req, res, next) {
-  res.cookie('email', req.user.email, {
+  res.cookie('email', decodeURI(req.user.email), {
     httpOnly: false, // allows JS code to access it
   });
   next();
@@ -33,6 +38,7 @@ router.get(
   setCookie,
   userController.createUserOAuth,
   (req, res, next) => {
+    console.log('test');
     res.redirect('http://localhost:8080');
     next();
   }

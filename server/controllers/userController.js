@@ -67,7 +67,6 @@ userController.createUserOAuth = async (req, res, next) => {
       res.locals.newUser = userExists.rows[0];
       return next();
     }
-
     const newUser = await dbsql(
       'INSERT INTO users(username, email, password) VALUES($1, $2, $3)',
       [username, email, 'google']
@@ -75,7 +74,6 @@ userController.createUserOAuth = async (req, res, next) => {
     console.log('this is newUser after SQL query insert');
 
     res.locals.newUser = newUser;
-
     return next();
   } catch (err) {
     console.log(err);
@@ -89,6 +87,7 @@ userController.createUserOAuth = async (req, res, next) => {
 userController.verifyUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
+    res.cookie('email',email);
     console.log(email, password);
     const result = await dbsql('SELECT * FROM users WHERE email = $1', [email]);
 

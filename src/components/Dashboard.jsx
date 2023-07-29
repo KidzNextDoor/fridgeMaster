@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { Link } from 'react-router-dom';
 import { Contents } from './Contents';
 import { getFood } from '../fetchers/itemFetcher';
 
@@ -9,6 +9,7 @@ import IconButtons from './IconButtons';
 import ExpiringSoon from './ExpiringSoon';
 import Expired from './Expired';
 import InputForm from './InputForm';
+import { Typography } from '@mui/material';
 
 //import types object from json object in db
 
@@ -55,6 +56,7 @@ export const Dashboard = () => {
           <div className="flex flex-col">
             {/* <InputFields email={email} setFridgeContents={setFridgeContents} /> */}
             <InputForm />
+            <Link to="/recipespage"><Typography>Get Recipe Suggestions</Typography></Link>
             {graphClicked ? (
               <CompositionGraph fridgeContents={fridgeContents} />
             ) : isLoading ? (

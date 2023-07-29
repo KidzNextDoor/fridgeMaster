@@ -6,7 +6,7 @@ import { Typography } from '@mui/material';
 import moment from 'moment';
 
 export function Contents() {
-  const email = localStorage.getItem('email');
+  const email = decodeURIComponent(document.cookie.slice(6));
 
   const { isLoading, isError, data, error } = useQuery(['contents'], () =>
     axios.get(`api/inventory/${email}`)

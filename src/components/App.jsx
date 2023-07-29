@@ -21,7 +21,8 @@ function App() {
         if (res.data) setIsLoggedIn(true);
       })
       .catch(err => {
-        throw new Error(err.message);
+      //  throw new Error(err.message);
+      setIsLoggedIn(false);
       })
   );
 
