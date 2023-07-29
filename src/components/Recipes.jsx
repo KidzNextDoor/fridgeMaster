@@ -16,7 +16,7 @@ const Recipes = ({
       <h1 className="recipe-name">{name}</h1>
       <img src={picurl} alt="recipe image" />
       <p>{description}</p>
-      <video src={videourl} />
+      <video src={videourl} className="w-48 h-48"/>
       {ingredients.map((ingredient, index) => {
         return (
           <Ingredients

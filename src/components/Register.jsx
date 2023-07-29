@@ -5,8 +5,8 @@ import { useForm } from 'react-hook-form';
 
 import { registerUser } from '../fetchers/userFetcher';
 import { useSetLoggedIn } from '../contexts/LoggedInContext';
-
-import { FaGithub } from 'react-icons/fa';
+import GoogleIcon from '@mui/icons-material/Google';
+//import { FaGithub } from 'react-icons/fa';
 
 const Register = () => {
   const [registerError, setRegisterError] = useState(null);
@@ -186,8 +186,9 @@ const Register = () => {
                 shadow-xl
               "
             >
-              <FaGithub size={30} />
-              <span>Continue with GitHub</span>
+              
+              <Link to="http://localhost:3000/api/auth/google"><GoogleIcon/></Link>
+              <span>Continue with Google</span> 
             </div>
           </div>
         </motion.div>

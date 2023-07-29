@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { useLoggedIn, useSetLoggedIn } from '../contexts/LoggedInContext';
 
-import logo from '../images/logo.png';
+import logo from '../images/fridgemaster2.png';
 
 import { IoIosLogOut } from 'react-icons/io';
 import { logoutUser } from '../fetchers/userFetcher';
@@ -11,6 +11,7 @@ import { RiArrowDropDownLine } from 'react-icons/ri';
 
 function Header() {
   const [isClicked, setIsClicked] = useState(false);
+  const navigate = useNavigate();
   const isLoggedIn = useLoggedIn();
   const setIsLoggedIn = useSetLoggedIn();
 
@@ -23,6 +24,7 @@ function Header() {
         setIsLoggedIn(false);
         localStorage.removeItem('email');
       }
+      navigate('/');
     } catch (err) {
       console.log(err);
     }
@@ -100,7 +102,7 @@ function Header() {
   );
 
   return (
-    <header className="sticky top-0 z-50">
+    <header>
       <div className="flex flex-shrink-0 py-10 px-20 justify-between">
         <Link to="/">
           <img className="max-h-20 flex-shrink-0" src={logo}></img>
